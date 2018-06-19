@@ -1,0 +1,121 @@
+<section class="authBody">
+    <div class="authWrapper main">
+        <div class="authContainer">
+            <article class="authBox">
+                <div class="authHolder">
+                    <div class="authCard">
+                        <a routerLink="/" class="logoHolder" title="Promizz"></a>
+                        <div class="formHolder">
+                            <form class="authForm" (ngSubmit)="onSubmit(signUpForm)" #signUpForm="ngForm" novalidate autocomplete="off">
+                                <h2 class="formTitle">Sign up to see photos and videos from your friends.</h2>
+
+                                <!-- Social buttons -->
+                                <!-- Facebook -->
+                                <span class="socialWrapper">
+                                    <span class="socialHolder fb-btn">
+                                        <span class="socialIconHolder">
+                                            <span class="socialIcon"></span>
+                                        </span>
+                                        <span class="socialText">Continue with Facebook</span>
+                                    </span>
+                                </span>
+
+                                <!-- Google -->
+                                <span class="socialWrapper">
+                                    <span class="socialHolder google-btn">
+                                        <span class="socialIconHolder">
+                                            <span class="socialIcon"></span>
+                                        </span>
+                                        <span class="socialText">Continue with Google</span>
+                                    </span>
+                                </span>
+
+                                <!-- Twitter -->
+                                <span class="socialWrapper">
+                                    <span class="socialHolder twitter-btn">
+                                        <span class="socialIconHolder">
+                                            <span class="socialIcon"></span>
+                                        </span>
+                                        <span class="socialText">Continue with Twitter</span>
+                                    </span>
+                                </span>
+
+                                <!-- Separator -->
+                                <div class="separatorHolder">
+                                    <hr class="separatorLine" />
+                                    <div class="separatorOr">or</div>
+                                </div>
+
+                                <!-- Name -->
+                                <div class="inputFormWrapper">
+                                    <div class="inputFormContainer">
+                                        <label for="name">Name</label>
+                                        <input [(ngModel)]='model.FullName' type="email" class="authInput" id="name" name="name" required aria-describedby="Fullname"
+                                            placeholder="e.g. John Doe">
+                                        <div class="validationMsgHolder errorMsg">
+                                            <span>Name is
+                                                <strong>required</strong>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Email or Username -->
+                                <div class="inputFormWrapper">
+                                    <div class="inputFormContainer">
+                                        <label for="email">Email (or username)</label>
+                                        <input [(ngModel)]='model.Email' type="email" class="authInput" id="email" name="email" required aria-describedby="emailUsername"
+                                            placeholder="e.g. john@doe.com or johndoe">
+                                        <div class="validationMsgHolder errorMsg">
+                                            <span> Email is
+                                                <strong>not valid</strong>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Password -->
+                                <div class="inputFormWrapper">
+                                    <div class="inputFormContainer">
+                                        <label for="password">Password</label>
+                                        <input [(ngModel)]='model.Password' class="authInput" id="password" name='password' aria-describedby="Password" [type]="togglePassword ? 'password' : 'text'"
+                                            placeholder="e.g. ********" />
+                                        <div class="validationMsgHolder errorMsg">
+                                            <span>Password is
+                                                <strong>required</strong>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Log in button -->
+                                <span class="authActionHolder">
+                                    <button class="btn authActionBtn" [disabled]="!signUpForm.valid">Sign up</button>
+                                </span>
+
+                            </form>
+                        </div>
+
+                        <!-- Separator -->
+                        <div class="separatorHolder">
+                            <hr class="separatorLine" />
+                        </div>
+
+                        <!-- Question -->
+                        <div class="questionHolder">
+                            <p>Have an account?
+                                <a routerLink="/login">Log in</a>
+                            </p>
+                        </div>
+
+                    </div>
+                    <!-- <div class="authCard">
+                        <p>Have an account?
+                            <a routerLink="/login">Log in</a>
+                        </p>
+                    </div> -->
+                </div>
+            </article>
+        </div>
+    </div>
+</section>

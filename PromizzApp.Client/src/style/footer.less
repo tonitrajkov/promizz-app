@@ -1,0 +1,46 @@
+@import "variables";
+@import "theme";
+
+.globalFooter {
+    background-color: #F4F7F9;
+    border: 0;
+    background: #F4F5F7;
+
+
+    .grid {
+        max-width: 1320px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 5%;
+    }
+
+    .grid:after{
+        background: #EBECF0;
+        content: "";
+        display: block;
+        height: 2px;
+        margin: 0 auto;
+        max-width: 1200px;
+        width: 100%;
+    }
+
+    .linkTitle {
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-weight: 600;
+        font-size: 14px;
+        color: #253858;
+    }
+
+    .links {
+        font-size: 14px;
+
+        li:not(:last-child) {
+           padding-bottom: 2px;
+        }
+        
+        a {
+            color: #42526E;
+        }
+    }
+}

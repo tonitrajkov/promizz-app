@@ -1,0 +1,42 @@
+<section class="authBody">
+    <div class="authWrapper">
+        <div class="authContainer">
+            <article class="authBox">
+                <div class="authHolder">
+                    <div class="authCard">
+                        <a routerLink="/" class="logoHolder" title="Promizz"></a>
+                        <div class="formHolder">
+                            <form class="authForm" (ngSubmit)="onSubmit(forgotForm)" #forgotForm="ngForm" novalidate autocomplete="off">
+                                <h2 class="formTitle">Submit your email address and we’ll send you a link to reset your password.</h2>
+
+                                <!-- Email -->
+                                <div class="inputFormWrapper">
+                                    <div class="inputFormContainer">
+                                        <label for="email">Email</label>
+                                        <input [(ngModel)]='email' type="email" class="authInput" id="email" name="email" required aria-describedby="emailUsername"
+                                            placeholder="e.g. john@doe.com">
+
+                                        <div class="validationMsgHolder errorMsg">
+                                            <span>Email is
+                                                <strong>required</strong>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Submit button -->
+                                <span class="authActionHolder">
+                                    <button class="btn authActionBtn" [disabled]="!forgotForm.valid">Reset password</button>
+                                </span>
+
+                                <!-- Forgot password action -->
+                                <a routerLink="/login" class="authActionLink">Log in</a>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
