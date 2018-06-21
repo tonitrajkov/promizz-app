@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace IdentityServer
 {
@@ -24,6 +18,15 @@ namespace IdentityServer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddIdentityServer()
+                .AddDeveloperSigningCredential()
+                .AddTestUsers(Config.GetUsers())
+                .AddInMemoryApiResources(Config.GetApiResources())
+                .AddInMemoryIdentityResources(Config.GetIdentityResources())
+                .AddInMemoryClients(Config.GetClients());
+
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,7 +37,12 @@ namespace IdentityServer
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
+            app.UseCors(c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
+            app.UseIdentityServer();
+
+            app.UseStaticFiles();
+            app.UseMvcWithDefaultRoute();
         }
     }
 }

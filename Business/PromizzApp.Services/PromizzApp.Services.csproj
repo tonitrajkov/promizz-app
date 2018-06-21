@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\PromizzApp.Data\PromizzApp.Data.csproj" />
+    <ProjectReference Include="..\..\Domain\PromizzApp.Domain\PromizzApp.Domain.csproj" />
+    <ProjectReference Include="..\..\Models\PromizzApp.Models\PromizzApp.Models.csproj" />
+    <ProjectReference Include="..\PromizzApp.Services.Interfaces\PromizzApp.Services.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

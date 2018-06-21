@@ -3,9 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromizzApp.API", "PromizzApp.API\PromizzApp.API.csproj", "{E674F828-78ED-4CBF-8C87-E47A8A8D3A14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromizzApp.API", "PromizzApp.API\PromizzApp.API.csproj", "{E674F828-78ED-4CBF-8C87-E47A8A8D3A14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{6585C77B-F754-4B49-8DB5-1E5308E8CA36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{6585C77B-F754-4B49-8DB5-1E5308E8CA36}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{24921C5C-87B2-4BBC-92C0-232282AD2F2A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{2E216437-0534-48A0-8F90-17F7BA0BD09A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{C3E1A5EC-B8E1-48A5-994D-50117F981063}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{C6B54D0C-51F0-426C-AE54-F049E7FCF88C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{07EBBF4D-C4EA-416F-A409-55EB172F0D09}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{44C54211-35FF-4E0F-B09A-EEF1EBDD2D72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromizzApp.Services", "Business\PromizzApp.Services\PromizzApp.Services.csproj", "{CEF97DE4-648F-4C7A-9D43-AE6BC42A9325}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromizzApp.Services.Interfaces", "Business\PromizzApp.Services.Interfaces\PromizzApp.Services.Interfaces.csproj", "{43BC078E-022F-4FA9-927E-E9E4DD653CEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromizzApp.Config", "Configuration\PromizzApp.Config\PromizzApp.Config.csproj", "{FC803D5B-CC67-47F2-942B-4B276CED6B28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromizzApp.Data", "Data\PromizzApp.Data\PromizzApp.Data.csproj", "{89FFEB01-8585-49E7-A85E-85FEB4773DCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromizzApp.Domain", "Domain\PromizzApp.Domain\PromizzApp.Domain.csproj", "{768FF3F4-DD3A-4FF1-A0DB-D0DDA7679DDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromizzApp.Models", "Models\PromizzApp.Models\PromizzApp.Models.csproj", "{63696724-E960-47AF-8EB1-B23FDD583106}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +45,41 @@ Global
 		{6585C77B-F754-4B49-8DB5-1E5308E8CA36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6585C77B-F754-4B49-8DB5-1E5308E8CA36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6585C77B-F754-4B49-8DB5-1E5308E8CA36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEF97DE4-648F-4C7A-9D43-AE6BC42A9325}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEF97DE4-648F-4C7A-9D43-AE6BC42A9325}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEF97DE4-648F-4C7A-9D43-AE6BC42A9325}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEF97DE4-648F-4C7A-9D43-AE6BC42A9325}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43BC078E-022F-4FA9-927E-E9E4DD653CEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43BC078E-022F-4FA9-927E-E9E4DD653CEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43BC078E-022F-4FA9-927E-E9E4DD653CEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43BC078E-022F-4FA9-927E-E9E4DD653CEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC803D5B-CC67-47F2-942B-4B276CED6B28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC803D5B-CC67-47F2-942B-4B276CED6B28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC803D5B-CC67-47F2-942B-4B276CED6B28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC803D5B-CC67-47F2-942B-4B276CED6B28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89FFEB01-8585-49E7-A85E-85FEB4773DCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89FFEB01-8585-49E7-A85E-85FEB4773DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89FFEB01-8585-49E7-A85E-85FEB4773DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89FFEB01-8585-49E7-A85E-85FEB4773DCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{768FF3F4-DD3A-4FF1-A0DB-D0DDA7679DDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{768FF3F4-DD3A-4FF1-A0DB-D0DDA7679DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{768FF3F4-DD3A-4FF1-A0DB-D0DDA7679DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{768FF3F4-DD3A-4FF1-A0DB-D0DDA7679DDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63696724-E960-47AF-8EB1-B23FDD583106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63696724-E960-47AF-8EB1-B23FDD583106}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63696724-E960-47AF-8EB1-B23FDD583106}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63696724-E960-47AF-8EB1-B23FDD583106}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CEF97DE4-648F-4C7A-9D43-AE6BC42A9325} = {24921C5C-87B2-4BBC-92C0-232282AD2F2A}
+		{43BC078E-022F-4FA9-927E-E9E4DD653CEF} = {24921C5C-87B2-4BBC-92C0-232282AD2F2A}
+		{FC803D5B-CC67-47F2-942B-4B276CED6B28} = {2E216437-0534-48A0-8F90-17F7BA0BD09A}
+		{89FFEB01-8585-49E7-A85E-85FEB4773DCF} = {C3E1A5EC-B8E1-48A5-994D-50117F981063}
+		{768FF3F4-DD3A-4FF1-A0DB-D0DDA7679DDE} = {C6B54D0C-51F0-426C-AE54-F049E7FCF88C}
+		{63696724-E960-47AF-8EB1-B23FDD583106} = {07EBBF4D-C4EA-416F-A409-55EB172F0D09}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F897F7B8-72D1-4269-91DB-B68CECB8A532}
