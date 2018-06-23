@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { AuthService } from '../../auth.service';
 
 @Component({
     selector: 'public-header',
@@ -6,6 +7,12 @@ import { Component, HostListener } from '@angular/core';
 })
 export class PublicHeaderComponent {
     isScroling: boolean = false;
+
+    constructor(private authService: AuthService) { }
+
+    login() {
+        this.authService.triggerSignIn();
+    }
 
     @HostListener("window:scroll", [])
     onWindowScroll() {

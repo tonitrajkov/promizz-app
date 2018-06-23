@@ -1,0 +1,16 @@
+<h1>Promises</h1>
+<table style="width: 40%">
+
+    <tr *ngFor="let promise of promises">
+        <td>
+            
+                <a href="" [routerLink]="['/promise', promise.Id]">
+                    <h5> {{promise.Title}}</h5>
+                   
+                </a>
+            
+            <span>{{promise.Description}}</span>
+        </td>
+    </tr>
+
+</table>

@@ -7,5 +7,7 @@ namespace PromizzApp.Services.Interfaces
     public interface IPromiseService
     {
         List<PromiseModel> GetPromisesForUser(string userId);
+
+        PromiseModel GetSpecificPromise(Guid promiseId);
     }
 }

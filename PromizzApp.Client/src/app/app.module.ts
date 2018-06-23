@@ -18,6 +18,8 @@ import { SecureComponent } from './_layouts/secure/secure.component';
 
 import { PromiseAppComponent } from './promise-app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PromisesComponent, PromiseDetailComponent, PromiseService } from './promises';
+import { ProfileComponent } from './profile';
 
 import { HomeComponent } from './public/home/home.component';
 import { PricingComponent } from './public/pricing/pricing.component';
@@ -25,6 +27,10 @@ import { PrivacyComponent } from './public/privacy/privacy.component';
 import { ProductComponent } from './public/product/product.component';
 import { SecurityComponent } from './public/security/security.component';
 import { TermOfServicesComponent } from './public/term-of-services/term-of-services.component';
+
+import { SigninCbComponent } from './shared/oidc-calbacks/signin-cb.component';
+import { RedirectSilentRenewComponent } from './shared/oidc-calbacks/redirect-silent-renew.component';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +43,12 @@ import { TermOfServicesComponent } from './public/term-of-services/term-of-servi
     PrivacyComponent,
     ProductComponent,
     SecurityComponent,
-    TermOfServicesComponent
+    TermOfServicesComponent,
+    PromisesComponent,
+    PromiseDetailComponent,
+    ProfileComponent,
+    SigninCbComponent,
+    RedirectSilentRenewComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +58,7 @@ import { TermOfServicesComponent } from './public/term-of-services/term-of-servi
     AuthModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [PromiseService],
   bootstrap: [PromiseAppComponent]
 })
 export class AppModule { }

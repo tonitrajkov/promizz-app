@@ -28,20 +28,20 @@ export class LoginComponent implements OnInit {
 
   onSubmit(loginForm) {
     if (loginForm.valid) {
-      this.authService.login(this.model)
-        .pipe(first())
-        .subscribe(
-          redirectUrl => {
-            if (this.authService.isAuthenticated) {
-              let url = redirectUrl ? [redirectUrl] : ['/promises'];
-              this.router.navigate(url);
-              window.location.reload();
-            }
-          },
-          error => {
-            console.log('Error');
-            console.log(error);
-          });
+      // this.authService.login(this.model)
+      //   .pipe(first())
+      //   .subscribe(
+      //     redirectUrl => {
+      //       if (this.authService.isAuthenticated) {
+      //         let url = redirectUrl ? [redirectUrl] : ['/promises'];
+      //         this.router.navigate(url);
+      //         window.location.reload();
+      //       }
+      //     },
+      //     error => {
+      //       console.log('Error');
+      //       console.log(error);
+      //     });
     }
   }
 }

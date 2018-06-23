@@ -81,7 +81,7 @@ namespace IdentityServer
                     AllowAccessTokensViaBrowser = true,
                     RedirectUris =new List<string>
                     {
-                        "https://localhost:4300/signin-oidc",
+                        "https://localhost:4300/signin-cb",
                         "https://localhost:4300/redirect-silentrenew"
                     },
                     AccessTokenLifetime = 180,

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json.Serialization;
 using PromizzApp.Services;
 using PromizzApp.Services.Interfaces;
 
@@ -26,7 +27,13 @@ namespace PromizzApp.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IPromiseService, PromiseService>();
-            services.AddMvc();
+            services.AddMvc().AddJsonOptions(options => { options.SerializerSettings.ContractResolver = new DefaultContractResolver(); });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOriginsHeadersAndMethods",
+                    builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +44,7 @@ namespace PromizzApp.API
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors("AllowAllOriginsHeadersAndMethods");
             app.UseMvc();
         }
     }

@@ -19,7 +19,11 @@ import { SecurityComponent } from './public/security/security.component';
 import { TermOfServicesComponent } from './public/term-of-services/term-of-services.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PromisesComponent, PromiseDetailComponent } from './promises';
+import { ProfileComponent } from './profile';
 
+import { SigninCbComponent } from './shared/oidc-calbacks/signin-cb.component';
+import { RedirectSilentRenewComponent } from './shared/oidc-calbacks/redirect-silent-renew.component';
 
 const routes: Routes = [
     // { path: '', redirectTo: '/home', pathMatch: 'full', },
@@ -41,9 +45,15 @@ const routes: Routes = [
         component: SecureComponent,
         // canActivate: [AuthGuard],
         children: [
-            { path: 'dashboard', component: DashboardComponent }
+            { path: 'dashboard', component: DashboardComponent },
+            { path: 'promises', component: PromisesComponent },
+            { path: 'promise/:promiseId', component: PromiseDetailComponent },
+            { path: 'account/:username', component: ProfileComponent }
         ]
     },
+
+    { path: 'signin-cb', component: SigninCbComponent },
+    { path: 'redirect-silentrenew', component: RedirectSilentRenewComponent },
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 ];

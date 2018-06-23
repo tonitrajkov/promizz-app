@@ -28,5 +28,12 @@ namespace PromizzApp.API.Controllers
             var promises = _promiseService.GetPromisesForUser(string.Empty);
             return Ok(promises);
         }
+
+        [HttpGet("{promiseId}")]
+        public IActionResult GetPromise(Guid promiseId)
+        {
+            var promise = _promiseService.GetSpecificPromise(promiseId);
+            return Ok(promise);
+        }
     }
 }
