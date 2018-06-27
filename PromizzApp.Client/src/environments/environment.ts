@@ -4,7 +4,7 @@ export const environment = {
   openIdConnectSettings: {
     authority: 'https://localhost:44367/',
     client_id: 'promizzclient',
-    redirect_uri: 'https://localhost:4300/signin-cb',
+    redirect_uri: 'https://localhost:4300/signin-oidc',
     scope: 'openid profile roles promizzapi',
     response_type: 'id_token token',
     post_logout_redirect_uri: 'https://localhost:4300/',

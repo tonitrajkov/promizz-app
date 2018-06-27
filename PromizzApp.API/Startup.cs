@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -34,6 +35,13 @@ namespace PromizzApp.API
                 options.AddPolicy("AllowAllOriginsHeadersAndMethods",
                     builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             });
+
+            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+             .AddIdentityServerAuthentication(options =>
+             {
+                 options.Authority = "https://localhost:44367";
+                 options.ApiName = "promizzapi";
+             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +53,7 @@ namespace PromizzApp.API
             }
 
             app.UseCors("AllowAllOriginsHeadersAndMethods");
+            app.UseAuthentication();
             app.UseMvc();
         }
     }

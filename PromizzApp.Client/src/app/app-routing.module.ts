@@ -52,7 +52,7 @@ const routes: Routes = [
         ]
     },
 
-    { path: 'signin-cb', component: SigninCbComponent },
+    { path: 'signin-oidc', component: SigninCbComponent },
     { path: 'redirect-silentrenew', component: RedirectSilentRenewComponent },
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
