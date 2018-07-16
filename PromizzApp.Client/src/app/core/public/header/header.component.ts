@@ -12,6 +12,7 @@ export class PublicHeaderComponent {
 
     login() {
         this.authService.triggerSignIn();
+        return false;
     }
 
     @HostListener("window:scroll", [])

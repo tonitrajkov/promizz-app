@@ -57,7 +57,7 @@ namespace IdentityServer
             {
                new IdentityResources.OpenId(),
                new IdentityResources.Profile(),
-               new IdentityResource("roles", "Your role(s)", new []{"role"}),
+               new IdentityResource("roles", "Your role(s)", new []{"role"})
             };
         }
 
@@ -74,7 +74,7 @@ namespace IdentityServer
             {
                 new Client
                 {
-                    ClientName = "Promizz",
+                    ClientName = "Promizz App",
                     ClientId="promizzclient",
                     AllowedGrantTypes = GrantTypes.Implicit,
                     RequireConsent = false,
@@ -85,8 +85,10 @@ namespace IdentityServer
                         "https://localhost:4300/redirect-silentrenew"
                     },
                     AccessTokenLifetime = 180,
-                    PostLogoutRedirectUris = new[]{
-                        "https://localhost:4300/" },
+                    PostLogoutRedirectUris = new []
+                    {
+                        "https://localhost:4300/"
+                    },
                     AllowedScopes = new []
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
@@ -94,8 +96,39 @@ namespace IdentityServer
                         "roles",
                         "promizzapi",
                     }
-                }
+               }
             };
         }
     }
 }
+//new Client
+//{
+//    ClientName = "promizzclient",
+//    ClientId="promizzclient",
+//    AccessTokenType = AccessTokenType.Reference,
+//    AccessTokenLifetime = 330,// 330 seconds, default 60 minutes
+//    IdentityTokenLifetime = 30,
+//    AllowedGrantTypes = GrantTypes.Implicit,
+//    AllowAccessTokensViaBrowser = true,
+//    RedirectUris = new List<string>
+//    {
+//        "https://localhost:4300/",
+//        "https://localhost:4300/redirect-silentrenew"
+
+//    },
+//    PostLogoutRedirectUris = new List<string>
+//    {
+//        "https://localhost:4300/"
+//    },
+//    AllowedCorsOrigins = new List<string>
+//    {
+//        "https://localhost:4300/"
+//    },
+//    AllowedScopes = new List<string>
+//    {
+//        IdentityServerConstants.StandardScopes.OpenId,
+//        IdentityServerConstants.StandardScopes.Profile,
+//        "roles",
+//        "promizzapi"
+//    }
+//}

@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import {  HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { FakeBackendInterceptor } from '../_helpers/fake-backend';
 
@@ -20,7 +20,7 @@ import { SecureHeaderComponent } from './secure/header/header.component';
 
 @NgModule({
   imports: [
-    CommonModule, 
+    CommonModule,
     FormsModule,
     RouterModule
   ],
@@ -45,5 +45,4 @@ import { SecureHeaderComponent } from './secure/header/header.component';
     SecureHeaderComponent
   ]
 })
-export class CoreModule {
-}
+export class CoreModule { }

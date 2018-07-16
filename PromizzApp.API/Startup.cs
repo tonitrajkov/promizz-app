@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using IdentityServer4.AccessTokenValidation;
+﻿using IdentityServer4.AccessTokenValidation;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Serialization;
 using PromizzApp.Services;
 using PromizzApp.Services.Interfaces;
@@ -32,16 +27,31 @@ namespace PromizzApp.API
 
             services.AddCors(options =>
             {
-                options.AddPolicy("AllowAllOriginsHeadersAndMethods",
-                    builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+                options.AddPolicy("AllowAllOrigins",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                               .AllowAnyHeader()
+                               .AllowAnyMethod();
+                    });
             });
 
+            //services.AddAuthentication(options =>
+            //{
+            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //}).AddJwtBearer(o =>
+            //{
+            //    o.Authority = "https://localhost:44382/";
+            //    o.Audience = "promizzapi";
+            //});
+
             services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
-             .AddIdentityServerAuthentication(options =>
-             {
-                 options.Authority = "https://localhost:44367";
-                 options.ApiName = "promizzapi";
-             });
+              .AddIdentityServerAuthentication(options =>
+              {
+                  options.Authority = "https://localhost:44382";
+                  options.ApiName = "promizzapi";
+              });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,7 +62,7 @@ namespace PromizzApp.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors("AllowAllOriginsHeadersAndMethods");
+            app.UseCors("AllowAllOrigins");
             app.UseAuthentication();
             app.UseMvc();
         }

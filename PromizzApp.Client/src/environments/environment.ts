@@ -1,8 +1,8 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:44359/api',
+  apiUrl: 'https://localhost:44360/api',
   openIdConnectSettings: {
-    authority: 'https://localhost:44367/',
+    authority: 'https://localhost:44382/',
     client_id: 'promizzclient',
     redirect_uri: 'https://localhost:4300/signin-oidc',
     scope: 'openid profile roles promizzapi',

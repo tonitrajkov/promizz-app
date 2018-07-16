@@ -31,7 +31,6 @@ import { TermOfServicesComponent } from './public/term-of-services/term-of-servi
 import { SigninCbComponent } from './shared/oidc-calbacks/signin-cb.component';
 import { RedirectSilentRenewComponent } from './shared/oidc-calbacks/redirect-silent-renew.component';
 
-
 @NgModule({
   declarations: [
     PromiseAppComponent,
@@ -62,4 +61,3 @@ import { RedirectSilentRenewComponent } from './shared/oidc-calbacks/redirect-si
   bootstrap: [PromiseAppComponent]
 })
 export class AppModule { }
-///http://jasonwatmore.com/post/2018/05/23/angular-6-jwt-authentication-example-tutorial

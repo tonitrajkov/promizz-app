@@ -5,9 +5,6 @@ import { CommonModule } from '@angular/common';
 import { AuthtRoutingModule } from './auth-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
-// Directives 
-// import { EmailValidator} from  '../shared/directives/email-validator.directive';
-
 // Components
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './signup/signup.component';

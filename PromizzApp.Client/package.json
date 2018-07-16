@@ -29,7 +29,8 @@
     "bootstrap": "^4.1.1",
     "core-js": "^2.5.4",
     "less": "^3.0.0",
-    "oidc-client": "^1.5.1",
+    "oidc-client": "^1.5.2",
+    "angular-auth-oidc-client": "^6.0.2",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.24"
   },

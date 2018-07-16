@@ -9,8 +9,10 @@ import { environment } from '../../../environments/environment';
 })
 export class SigninCbComponent implements OnInit {
 
-  constructor(private authService: AuthService,
-    private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.authService.userLoaded$.subscribe((userLoaded) => {
@@ -26,5 +28,4 @@ export class SigninCbComponent implements OnInit {
 
     this.authService.handleCallback();
   }
-
 }

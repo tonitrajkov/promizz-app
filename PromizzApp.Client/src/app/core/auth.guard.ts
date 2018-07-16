@@ -9,27 +9,31 @@ import {
     RouterStateSnapshot
 } from '@angular/router';
 
-// import { AuthService } from './auth.service';
+import { AuthService } from './auth.service';
 
 @Injectable()
-export class AuthGuard implements CanActivate, CanLoad {
+export class AuthGuard implements CanActivate {
 
     constructor(
-        // private authService: AuthService,
-         private router: Router) { }
+        private authService: AuthService,
+        private router: Router) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        
+
         // if (!this.authService.isAuthenticated()) {
         //     this.router.navigate(['/login'], { queryParams: { redirectTo: state.url } });
         //     return false;
         // }
 
-        return false;
-    }
+        // if (this.authService.isAuthenticated()) {
+        //     return true;
+        // }
+        // else {
+        //     // trigger signin
+        //     this.authService.triggerSignIn();
+        //     return false;
+        // }
 
-    
-    canLoad(route: Route): boolean | Observable<boolean> | Promise<boolean> {
-        return false;
+        return true;
     }
 }
