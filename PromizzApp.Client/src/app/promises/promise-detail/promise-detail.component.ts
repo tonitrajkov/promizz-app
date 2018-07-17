@@ -38,8 +38,6 @@ export class PromiseDetailComponent implements OnInit, OnDestroy {
                         });
             }
         );
-
-
     }
 
     ngOnDestroy(): void {

@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { FakeBackendInterceptor } from '../_helpers/fake-backend';
+import { FeatherIconsPipe } from '../shared/pipes/feather.pipe';
 
 // Services
 import { AuthService } from './auth.service';
@@ -27,7 +28,8 @@ import { SecureHeaderComponent } from './secure/header/header.component';
   declarations: [
     PublicHeaderComponent,
     PublicFooterComponent,
-    SecureHeaderComponent
+    SecureHeaderComponent,
+    FeatherIconsPipe
   ],
   providers: [
     AuthService,
@@ -42,7 +44,8 @@ import { SecureHeaderComponent } from './secure/header/header.component';
   exports: [
     PublicHeaderComponent,
     PublicFooterComponent,
-    SecureHeaderComponent
+    SecureHeaderComponent,
+    FeatherIconsPipe
   ]
 })
 export class CoreModule { }

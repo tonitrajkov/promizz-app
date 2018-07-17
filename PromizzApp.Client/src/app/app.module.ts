@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // Modules
 import { CoreModule } from './core/core.module';
@@ -18,7 +19,7 @@ import { SecureComponent } from './_layouts/secure/secure.component';
 
 import { PromiseAppComponent } from './promise-app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { PromisesComponent, PromiseDetailComponent, PromiseService } from './promises';
+import { PromisesComponent, PromiseDetailComponent, PromiseService, PromiseAddModalComponent } from './promises';
 import { ProfileComponent } from './profile';
 
 import { HomeComponent } from './public/home/home.component';
@@ -47,15 +48,22 @@ import { RedirectSilentRenewComponent } from './shared/oidc-calbacks/redirect-si
     PromiseDetailComponent,
     ProfileComponent,
     SigninCbComponent,
-    RedirectSilentRenewComponent
+    RedirectSilentRenewComponent,
+    PromiseAddModalComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule.forRoot(),
     CoreModule,
     SharedModule,
     AuthModule,
     AppRoutingModule
+  ],
+  entryComponents: [
+    PromiseAddModalComponent
   ],
   providers: [PromiseService],
   bootstrap: [PromiseAppComponent]

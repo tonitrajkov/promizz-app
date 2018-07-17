@@ -1,4 +1,6 @@
 import { Component, HostListener } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PromiseAddModalComponent } from '../../../promises/promise-add/promise-add-dialog.component';
 
 @Component({
     selector: 'secure-header',
@@ -6,6 +8,20 @@ import { Component, HostListener } from '@angular/core';
 })
 export class SecureHeaderComponent {
     isScroling: boolean = false;
+
+    constructor(
+        private modalService: NgbModal
+      ) { }
+
+      openPromiseModal() {
+        const modalRef = this.modalService.open(PromiseAddModalComponent);
+        
+        modalRef.result.then((result) => {
+          console.log(result);
+        }).catch((error) => {
+          console.log(error);
+        });
+      }
 
     @HostListener("window:scroll", [])
     onWindowScroll() {

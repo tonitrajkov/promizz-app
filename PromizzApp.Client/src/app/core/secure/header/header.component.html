@@ -1,47 +1,25 @@
-<!-- <header class="globalHeader" [ngClass]="{'isScroling':isScroling}">
-    <div class="row grid">
-        <a routerLink="/" class="logoLink" title="Promizz"></a>
-        <nav class="navLinks">
-            <ul>
-                <li>
-                    <a href="" class="navLink">Tour</a>
-                </li>
-                <li>
-                    <a href="" routerLink="/product" class="navLink">Product</a>
-                </li>
-                <li>
-                    <a href="" routerLink="/premium" class="navLink">Premium</a>
-                </li>
-                <li>
-                    <a href="" routerLink="/pricing" class="navLink">Pricing</a>
-                </li>
-                <li>
-                    <a href="" routerLink="/login" class="navLink">Log in</a>
-                </li>
-                <li>
-                    <a href="" routerLink="/signup" class="navLink btn">Sign up</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header> -->
-
 <header class="secureHeader" [ngClass]="{'isScroling':isScroling}">
     <div class="headerHolder">
         <div class="row grid">
             <a routerLink="/" class="logoLink" title="Promizz"></a>
-            
+
             <div class="searchHolder">
                 <input class="searchInput" type="text" autocomplete="off" autocorrect="off" spellcheck="false" value="">
                 <span class="searchIcon icon-lg icon-search light"></span>
                 <span class="searchIcon header-search-icon-close icon-lg icon-close light hide"></span>
                 <a class="searchIcon header-search-icon-open icon-lg icon-external-link light hide" href="#"></a>
             </div>
-            
+
             <div class="actionsHolder">
-                <a href="javascript:void(0);"></a>
-                <a class="" href="" routerLink="/people"></a>
-                <a class="" href="" routerLink="/login"></a>
+                <a class="icon-holder" href="javascript:void(0);" (click)="openPromiseModal()">
+                    <span  [innerHTML]="'plus' | feather:'featherIcon i20 i-white'"></span>
+                </a>
+                <a class="icon-holder" href="">
+                    <span  [innerHTML]="'info' | feather:'featherIcon i20 i-white'"></span>
+                </a>
+                <a class="icon-holder" href="">
+                    <span  [innerHTML]="'bell' | feather:'featherIcon i20 i-white'"></span>
+                </a>
                 <a class="userAvatarHolder" href="" [routerLink]="['/account', 'trajkovtoni']">
                     <span class="userAvatar">
                         <img class="avatar" height="30" width="30" src="https://trello-avatars.s3.amazonaws.com/e5a66a84d2f306c912bb9f2ed6651719/30.png"
@@ -75,15 +53,15 @@
     <div class="header-user">
         <a class="header-btn" href="javascript:void(0);" (click)="openDialog()">
             <!-- <mat-icon matSuffix>add</mat-icon> -->
-            <!-- <span class="header-btn-icon icon-lg icon-add light"></span> --
+<!-- <span class="header-btn-icon icon-lg icon-add light"></span> --
         </a>
         <a class="header-btn header-info" href="" routerLink="/people">
             <!-- <mat-icon matSuffix>people_outline</mat-icon> -->
-            <!-- <span class="header-btn-icon icon-lg icon-information light"></span> --
+<!-- <span class="header-btn-icon icon-lg icon-information light"></span> --
         </a>
         <a class="header-btn header-notifications" href="" routerLink="/login">
             <!-- <mat-icon matSuffix>notifications_none</mat-icon> -->
-            <!-- <span class="header-btn-icon icon-lg icon-notification light"></span> --
+<!-- <span class="header-btn-icon icon-lg icon-notification light"></span> --
         </a>
         <a class="header-btn header-avatar" href="" routerLink="/profile">
             <span class="member">
