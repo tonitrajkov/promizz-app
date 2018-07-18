@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Serialization;
+using PromizzApp.Data;
 using PromizzApp.Services;
 using PromizzApp.Services.Interfaces;
 
@@ -52,6 +54,10 @@ namespace PromizzApp.API
                   options.Authority = "https://localhost:44382";
                   options.ApiName = "promizzapi";
               });
+
+            services.AddDbContext<PromizzAppContext>(
+               options => options.UseSqlServer(
+                    Configuration.GetConnectionString("PromizzAppConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

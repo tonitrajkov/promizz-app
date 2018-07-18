@@ -11,6 +11,7 @@
   <ItemGroup>
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="2.6.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
   </ItemGroup>
 
@@ -21,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Business\PromizzApp.Services.Interfaces\PromizzApp.Services.Interfaces.csproj" />
     <ProjectReference Include="..\Business\PromizzApp.Services\PromizzApp.Services.csproj" />
+    <ProjectReference Include="..\Data\PromizzApp.Data\PromizzApp.Data.csproj" />
     <ProjectReference Include="..\Models\PromizzApp.Models\PromizzApp.Models.csproj" />
   </ItemGroup>
 
