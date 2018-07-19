@@ -16,14 +16,9 @@ namespace PromizzApp.Data
         public DbSet<HistoryActionType> HistoryActionTypes { get; set; }
         public DbSet<Group> Groups { get; set; }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer(
-        //         "Server = (localdb)\\toni-lt; Database = PromizzApp; Trusted_Connection = True; ");
-        //}
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
         }
     }
 }
+// https://github.com/dotnet-architecture/eShopOnWeb

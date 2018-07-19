@@ -19,17 +19,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{07EBBF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{44C54211-35FF-4E0F-B09A-EEF1EBDD2D72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromizzApp.Services", "Business\PromizzApp.Services\PromizzApp.Services.csproj", "{CEF97DE4-648F-4C7A-9D43-AE6BC42A9325}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromizzApp.Services", "Business\PromizzApp.Services\PromizzApp.Services.csproj", "{CEF97DE4-648F-4C7A-9D43-AE6BC42A9325}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromizzApp.Services.Interfaces", "Business\PromizzApp.Services.Interfaces\PromizzApp.Services.Interfaces.csproj", "{43BC078E-022F-4FA9-927E-E9E4DD653CEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromizzApp.Services.Interfaces", "Business\PromizzApp.Services.Interfaces\PromizzApp.Services.Interfaces.csproj", "{43BC078E-022F-4FA9-927E-E9E4DD653CEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromizzApp.Config", "Configuration\PromizzApp.Config\PromizzApp.Config.csproj", "{FC803D5B-CC67-47F2-942B-4B276CED6B28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromizzApp.Config", "Configuration\PromizzApp.Config\PromizzApp.Config.csproj", "{FC803D5B-CC67-47F2-942B-4B276CED6B28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromizzApp.Data", "Data\PromizzApp.Data\PromizzApp.Data.csproj", "{89FFEB01-8585-49E7-A85E-85FEB4773DCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromizzApp.Data", "Data\PromizzApp.Data\PromizzApp.Data.csproj", "{89FFEB01-8585-49E7-A85E-85FEB4773DCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromizzApp.Domain", "Domain\PromizzApp.Domain\PromizzApp.Domain.csproj", "{768FF3F4-DD3A-4FF1-A0DB-D0DDA7679DDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromizzApp.Domain", "Domain\PromizzApp.Domain\PromizzApp.Domain.csproj", "{768FF3F4-DD3A-4FF1-A0DB-D0DDA7679DDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromizzApp.Models", "Models\PromizzApp.Models\PromizzApp.Models.csproj", "{63696724-E960-47AF-8EB1-B23FDD583106}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromizzApp.Models", "Models\PromizzApp.Models\PromizzApp.Models.csproj", "{63696724-E960-47AF-8EB1-B23FDD583106}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromizzApp.Mappers", "Configuration\PromizzApp.Mappers\PromizzApp.Mappers.csproj", "{A017ABE8-5579-4023-B2CD-00D50F672070}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{63696724-E960-47AF-8EB1-B23FDD583106}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63696724-E960-47AF-8EB1-B23FDD583106}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63696724-E960-47AF-8EB1-B23FDD583106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A017ABE8-5579-4023-B2CD-00D50F672070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A017ABE8-5579-4023-B2CD-00D50F672070}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A017ABE8-5579-4023-B2CD-00D50F672070}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A017ABE8-5579-4023-B2CD-00D50F672070}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +86,7 @@ Global
 		{89FFEB01-8585-49E7-A85E-85FEB4773DCF} = {C3E1A5EC-B8E1-48A5-994D-50117F981063}
 		{768FF3F4-DD3A-4FF1-A0DB-D0DDA7679DDE} = {C6B54D0C-51F0-426C-AE54-F049E7FCF88C}
 		{63696724-E960-47AF-8EB1-B23FDD583106} = {07EBBF4D-C4EA-416F-A409-55EB172F0D09}
+		{A017ABE8-5579-4023-B2CD-00D50F672070} = {2E216437-0534-48A0-8F90-17F7BA0BD09A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F897F7B8-72D1-4269-91DB-B68CECB8A532}

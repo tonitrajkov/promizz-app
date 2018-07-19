@@ -1,54 +1,73 @@
-﻿using PromizzApp.Data.Interfaces;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Threading.Tasks;
+
+using Microsoft.EntityFrameworkCore;
+using PromizzApp.Data.Interfaces;
 
 namespace PromizzApp.Data.Implementations
 {
-    public class Repository<TEntity> : IRepository<TEntity>
+    public class Repository<T> : IRepository<T> where T : class
     {
-        public Repository()
+        protected readonly PromizzAppContext _dbContext;
+        public Repository(PromizzAppContext dbContext)
         {
+            _dbContext = dbContext;
         }
-        public void Delete(TEntity entity)
+        public void Create(T entity)
         {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteById(object id)
-        {
-            throw new NotImplementedException();
+            _dbContext.Set<T>().Add(entity);
+            _dbContext.SaveChanges();
         }
 
-        public TEntity Get(object id)
+        public async Task CreateAsync(T entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Set<T>().Add(entity);
+            await _dbContext.SaveChangesAsync();
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public void Delete(T entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Set<T>().Remove(entity);
+            _dbContext.SaveChanges();
         }
 
-        public IQueryable<TEntity> Query()
+        public async Task DeleteAsync(T entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Set<T>().Remove(entity);
+            await _dbContext.SaveChangesAsync();
         }
 
-        public void Save(TEntity entity)
+        public IEnumerable<T> GetAll()
         {
-            throw new NotImplementedException();
+            return _dbContext.Set<T>().AsEnumerable();
         }
 
-        public void SaveOrUpdate(TEntity entity)
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _dbContext.Set<T>().ToListAsync();
         }
 
-        public void Update(TEntity entity)
+        public T GetById(object id)
         {
-            throw new NotImplementedException();
+            return _dbContext.Set<T>().Find(id);
+        }
+
+        public async Task<T> GetByIdAsync(object id)
+        {
+            return await _dbContext.Set<T>().FindAsync(id);
+        }
+
+        public void Update(T entity)
+        {
+            _dbContext.Entry(entity).State = EntityState.Modified;
+            _dbContext.SaveChanges();
+        }
+
+        public async Task UpdateAsync(T entity)
+        {
+            _dbContext.Entry(entity).State = EntityState.Modified;
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

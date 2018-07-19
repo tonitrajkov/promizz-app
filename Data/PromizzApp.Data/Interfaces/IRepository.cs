@@ -1,24 +1,28 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 
 namespace PromizzApp.Data.Interfaces
 {
-    public interface IRepository<TEntity>
+    public interface IRepository<T> where T : class
     {
-        TEntity Get(object id);
+        T GetById(object id);
 
-        IEnumerable<TEntity> GetAll();
+        Task<T> GetByIdAsync(object id);
 
-        IQueryable<TEntity> Query();
+        IEnumerable<T> GetAll();
 
-        void Save(TEntity entity);
+        Task<IEnumerable<T>> GetAllAsync();
 
-        void Update(TEntity entity);
+        void Create(T entity);
 
-        void SaveOrUpdate(TEntity entity);
+        Task CreateAsync(T entity);
 
-        void Delete(TEntity entity);
+        void Update(T entity);
 
-        void DeleteById(object id);
+        Task UpdateAsync(T entity);
+
+        void Delete(T entity);
+
+        Task DeleteAsync(T entity);
     }
 }

@@ -14,7 +14,7 @@ namespace IdentityServer
             {
                 new TestUser
                 {
-                    SubjectId = "fec0a4d6-5830-4eb8-8024-272bd5d6d2bb",
+                    SubjectId = "1",
                     Username = "ironman",
                     Password = "test",
                     Claims = new List<Claim>
@@ -26,7 +26,7 @@ namespace IdentityServer
                 },
                 new TestUser
                 {
-                    SubjectId = "c3b7f625-c07f-4d7d-9be1-ddff8ff93b4d",
+                    SubjectId = "2",
                     Username = "captianamerica",
                     Password = "test",
                     Claims = new List<Claim>
@@ -38,7 +38,7 @@ namespace IdentityServer
                 },
                 new TestUser
                 {
-                    SubjectId = "13bcf625-90cf-d74d-19be-aaccaff93b4d",
+                    SubjectId = "3",
                     Username = "blackpanter",
                     Password = "test",
                     Claims = new List<Claim>
@@ -101,34 +101,3 @@ namespace IdentityServer
         }
     }
 }
-//new Client
-//{
-//    ClientName = "promizzclient",
-//    ClientId="promizzclient",
-//    AccessTokenType = AccessTokenType.Reference,
-//    AccessTokenLifetime = 330,// 330 seconds, default 60 minutes
-//    IdentityTokenLifetime = 30,
-//    AllowedGrantTypes = GrantTypes.Implicit,
-//    AllowAccessTokensViaBrowser = true,
-//    RedirectUris = new List<string>
-//    {
-//        "https://localhost:4300/",
-//        "https://localhost:4300/redirect-silentrenew"
-
-//    },
-//    PostLogoutRedirectUris = new List<string>
-//    {
-//        "https://localhost:4300/"
-//    },
-//    AllowedCorsOrigins = new List<string>
-//    {
-//        "https://localhost:4300/"
-//    },
-//    AllowedScopes = new List<string>
-//    {
-//        IdentityServerConstants.StandardScopes.OpenId,
-//        IdentityServerConstants.StandardScopes.Profile,
-//        "roles",
-//        "promizzapi"
-//    }
-//}

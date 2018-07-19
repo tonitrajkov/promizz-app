@@ -1,12 +1,15 @@
 ﻿using IdentityServer4.AccessTokenValidation;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Serialization;
+using PromizzApp.API.Helpers;
 using PromizzApp.Data;
+using PromizzApp.Data.Implementations;
+using PromizzApp.Data.Interfaces;
 using PromizzApp.Services;
 using PromizzApp.Services.Interfaces;
 
@@ -24,7 +27,7 @@ namespace PromizzApp.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IPromiseService, PromiseService>();
+
             services.AddMvc().AddJsonOptions(options => { options.SerializerSettings.ContractResolver = new DefaultContractResolver(); });
 
             services.AddCors(options =>
@@ -38,16 +41,6 @@ namespace PromizzApp.API
                     });
             });
 
-            //services.AddAuthentication(options =>
-            //{
-            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //}).AddJwtBearer(o =>
-            //{
-            //    o.Authority = "https://localhost:44382/";
-            //    o.Audience = "promizzapi";
-            //});
-
             services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
               .AddIdentityServerAuthentication(options =>
               {
@@ -58,6 +51,14 @@ namespace PromizzApp.API
             services.AddDbContext<PromizzAppContext>(
                options => options.UseSqlServer(
                     Configuration.GetConnectionString("PromizzAppConnection")));
+
+
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
+            services.AddScoped<IPromiseService, PromiseService>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<IUserInfoService, UserInfoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,6 +68,8 @@ namespace PromizzApp.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            Mappers.Configuration.Initialize();
 
             app.UseCors("AllowAllOrigins");
             app.UseAuthentication();

@@ -9,10 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Data\PromizzApp.Data\PromizzApp.Data.csproj" />
     <ProjectReference Include="..\..\Domain\PromizzApp.Domain\PromizzApp.Domain.csproj" />
     <ProjectReference Include="..\..\Models\PromizzApp.Models\PromizzApp.Models.csproj" />
-    <ProjectReference Include="..\PromizzApp.Services.Interfaces\PromizzApp.Services.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>
