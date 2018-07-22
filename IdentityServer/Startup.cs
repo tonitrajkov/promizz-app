@@ -21,11 +21,11 @@ namespace IdentityServer
             services.AddMvc();
 
             services.AddIdentityServer()
-                .AddDeveloperSigningCredential()
-                .AddTestUsers(Config.GetUsers())
-                .AddInMemoryApiResources(Config.GetApiResources())
-                .AddInMemoryIdentityResources(Config.GetIdentityResources())
-                .AddInMemoryClients(Config.GetClients());
+              .AddDeveloperSigningCredential()
+              .AddTestUsers(Config.GetUsers())
+              .AddInMemoryApiResources(Config.GetApiResources())
+              .AddInMemoryIdentityResources(Config.GetIdentityResources())
+              .AddInMemoryClients(Config.GetClients());
 
             services.AddAuthentication()
                     .AddGoogle("Google", options =>

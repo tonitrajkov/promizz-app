@@ -25,15 +25,13 @@ export class AuthGuard implements CanActivate {
         //     return false;
         // }
 
-        // if (this.authService.isAuthenticated()) {
-        //     return true;
-        // }
-        // else {
-        //     // trigger signin
-        //     this.authService.triggerSignIn();
-        //     return false;
-        // }
-
-        return true;
+        if (this.authService.isAuthenticated()) {
+            return true;
+        }
+        else {
+            // trigger signin
+            this.authService.triggerSignIn();
+            return false;
+        }
     }
 }

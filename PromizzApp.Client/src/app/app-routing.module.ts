@@ -27,24 +27,25 @@ import { RedirectSilentRenewComponent } from './shared/oidc-calbacks/redirect-si
 
 const routes: Routes = [
     // { path: '', redirectTo: '/home', pathMatch: 'full', },
-    {
-        path: '',
-        component: PublicComponent,
-        children: [
-            { path: '', component: HomeComponent, pathMatch: 'full' }
-        ]
+    // {
+    //     path: '',
+    //     component: PublicComponent,
+    //     children: [
+    //         { path: '', component: HomeComponent, pathMatch: 'full' }
+    //     ]
 
-    },
-    {
-        path: '',
-        component: PublicComponent,
-        loadChildren: () => AuthModule
-    },
+    // },
+    // {
+    //     path: '',
+    //     component: PublicComponent,
+    //     loadChildren: () => AuthModule
+    // },
     {
         path: '',
         component: SecureComponent,
-        // canActivate: [AuthGuard],
+        canActivate: [AuthGuard],
         children: [
+            { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
             { path: 'dashboard', component: DashboardComponent },
             { path: 'promises', component: PromisesComponent },
             { path: 'promise/:promiseId', component: PromiseDetailComponent },

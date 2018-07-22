@@ -27,7 +27,7 @@ namespace PromizzApp.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            
             services.AddMvc().AddJsonOptions(options => { options.SerializerSettings.ContractResolver = new DefaultContractResolver(); });
 
             services.AddCors(options =>
@@ -41,13 +41,6 @@ namespace PromizzApp.API
                     });
             });
 
-            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
-              .AddIdentityServerAuthentication(options =>
-              {
-                  options.Authority = "https://localhost:44382";
-                  options.ApiName = "promizzapi";
-              });
-
             services.AddDbContext<PromizzAppContext>(
                options => options.UseSqlServer(
                     Configuration.GetConnectionString("PromizzAppConnection")));
@@ -59,6 +52,14 @@ namespace PromizzApp.API
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUserInfoService, UserInfoService>();
+
+
+            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+           .AddIdentityServerAuthentication(options =>
+           {
+               options.Authority = "https://localhost:44382";
+               options.ApiName = "promizzappapi";
+           });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

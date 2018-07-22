@@ -3,9 +3,9 @@ export const environment = {
   apiUrl: 'https://localhost:44360/api',
   openIdConnectSettings: {
     authority: 'https://localhost:44382/',
-    client_id: 'promizzclient',
+    client_id: 'promizzappclient',
     redirect_uri: 'https://localhost:4300/signin-oidc',
-    scope: 'openid profile roles promizzapi',
+    scope: 'openid profile roles promizzappapi',
     response_type: 'id_token token',
     post_logout_redirect_uri: 'https://localhost:4300/',
     automaticSilentRenew: true,

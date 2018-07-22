@@ -64,7 +64,7 @@ namespace IdentityServer
         internal static IEnumerable<ApiResource> GetApiResources()
         {
             return new[] {
-                new ApiResource("promizzapi", "Promizz API", new[] { "role" })
+                new ApiResource("promizzappapi", "Promizz API", new[] { "role", "family_name", "family_name" })
             };
         }
 
@@ -75,7 +75,7 @@ namespace IdentityServer
                 new Client
                 {
                     ClientName = "Promizz App",
-                    ClientId="promizzclient",
+                    ClientId="promizzappclient",
                     AllowedGrantTypes = GrantTypes.Implicit,
                     RequireConsent = false,
                     AllowAccessTokensViaBrowser = true,
@@ -94,7 +94,7 @@ namespace IdentityServer
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         "roles",
-                        "promizzapi",
+                        "promizzappapi"
                     }
                }
             };

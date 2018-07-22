@@ -19,7 +19,7 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    return this.currentUser != null;
+    return localStorage.getItem('currentUser') != null;
   }
 
   constructor() {
@@ -30,7 +30,8 @@ export class AuthService {
         console.log('User loaded.', user);
       }
       if (user) {
-        this.currentUser = user;
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        // this.currentUser = user;
         this.userLoaded$.next(true);
       }
     });
@@ -55,6 +56,7 @@ export class AuthService {
 
   handleCallback() {
     this.userManager.signinRedirectCallback().then(function (user) {
+      localStorage.setItem('currentUser', JSON.stringify(user));
       if (!environment.production) {
         console.log('Callback after signin handled.', user);
       }
@@ -63,7 +65,9 @@ export class AuthService {
 
   handleSilentCallback() {
     this.userManager.signinSilentCallback().then(function (user) {
-      this.currentUser = user
+      // this.currentUser = user
+      if (user)
+        localStorage.setItem('currentUser', JSON.stringify(user));
       if (!environment.production) {
         console.log('Callback after silent signin handled.', user);
       }
@@ -72,9 +76,26 @@ export class AuthService {
 
   triggerSignOut() {
     this.userManager.signoutRedirect().then(function (resp) {
+      localStorage.removeItem('currentUser');
       if (!environment.production) {
         console.log('Redirection to sign out triggered.', resp);
       }
     });
+  }
+
+  getUserAccessType() {
+    if (localStorage.getItem('currentUser')) {
+      let user = JSON.parse(localStorage.getItem('currentUser'));
+      return user.token_type;
+    }
+    return '';
+  }
+
+  getUserAccessToken() {
+    if (localStorage.getItem('currentUser')) {
+      let user = JSON.parse(localStorage.getItem('currentUser'));
+      return user.access_token;
+    }
+    return '';
   }
 }

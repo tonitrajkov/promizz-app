@@ -11,7 +11,7 @@ using PromizzApp.Services.Interfaces;
 namespace PromizzApp.API.Controllers
 {
     [Route("api/promise")]
-
+    [Authorize]
     public class PromiseController : Controller
     {
         #region Declaration & Ctor
@@ -34,13 +34,10 @@ namespace PromizzApp.API.Controllers
         {
             if (!string.IsNullOrEmpty(_userInfoService.UserId))
             {
-                var user = _userInfoService.UserId;
-                var userR = _userInfoService.Role;
-                var userL = _userInfoService.LastName;
-                var userF = _userInfoService.FirstName;
+                var promises = await _promiseService.LoadPromisesByOwner(int.Parse(_userInfoService.UserId));
+                return Ok(promises);
             }
-            var promises = await _promiseService.LoadPromisesByOwner(1);
-            return Ok(promises);
+            return BadRequest();
         }
 
         [HttpGet("{promiseId}")]
