@@ -34,15 +34,9 @@ namespace PromizzApp.Services
 
         public async Task CreatePromise(PromiseModel model)
         {
-            var promise = new Promise
-            {
-                Title = "Fourth Promise",
-                Description = "Description Fourth promise",
-                OwnerId = 1,
-                Color = "#AAA",
-                EndDate = DateTime.Now,
-                StateId = 1
-            };
+            var promise = Mapper.Map<Promise>(model);
+            promise.Color = "#AAA";
+            promise.StateId = 1;
 
             await _promiseRepository.CreateAsync(promise);
         }

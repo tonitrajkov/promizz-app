@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PromizzApp.API.Helpers;
+using PromizzApp.Models;
 using PromizzApp.Services.Interfaces;
 
 namespace PromizzApp.API.Controllers
@@ -28,6 +29,29 @@ namespace PromizzApp.API.Controllers
         }
 
         #endregion
+
+        [HttpPost]
+        public async Task<IActionResult> CreatePromise([FromBody] PromiseModel model)
+        {
+            if (model == null)
+            {
+                return BadRequest();
+            }
+
+            //if (!ModelState.IsValid)
+            //{
+            //    return new UnprocessableEntityObjectResult(ModelState);
+            //}
+
+            if (!string.IsNullOrEmpty(_userInfoService.UserId))
+            {
+                model.OwnerId = int.Parse(_userInfoService.UserId);
+                await _promiseService.CreatePromise(model);
+                return Ok();
+            }
+
+            return BadRequest();
+        }
 
         [HttpGet]
         public async Task<IActionResult> GetPromises()
