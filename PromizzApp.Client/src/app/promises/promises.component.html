@@ -1,17 +1,45 @@
-<h1>Promises</h1>
-<button (click)="openPromiseModal()">Open Modal</button>
-<table style="width: 40%">
+<div class="zzCard row">
+    <div class="col-md-8 titleHolder">
+        <span>{{sectionTitle}}</span>
+    </div>
+    <div class="col-md-4 text-right actionsHolder">
+        <a class="btn btn-link" (click)="listView = true">
+            <span [innerHTML]="'list' | feather:'featherIcon i20 iGray'"></span>
+        </a>
+        <a class="btn btn-link" (click)="listView = false">
+            <span [innerHTML]="'grid' | feather:'featherIcon i20 iGray'"></span>
+        </a>
+        <a class="btn btn-link">
+            <span [innerHTML]="'more-horizontal' | feather:'featherIcon i20 iGray'"></span>
+        </a>
+    </div>
+</div>
 
-    <tr *ngFor="let promise of promises">
-        <td>
-            
-                <a href="" [routerLink]="['/promise', promise.Id]">
-                    <h5> {{promise.Title}}</h5>
-                   
-                </a>
-            
-            <span>{{promise.Description}}</span>
-        </td>
-    </tr>
+<div class="promisesContainer">
+    <ul class="promisesCardView" *ngIf='!listView'>
+        <li class="addPromiseActionContainer">
+            <a href="javascript:void(0);" (click)="openPromiseModal()" class="addPromiseAction">
+                <span>Create new promise...</span>
+            </a>
+        </li>
+        <li *ngFor="let promise of promises" [ngStyle]="{'background-color': promise.Color}">
+            <a href="" [routerLink]="['/promise', promise.Id]">
+                <h4>{{promise.Title}}</h4>
+                <p>{{promise.Description}}</p>
+            </a>
+        </li>
+    </ul>
 
-</table>
+    <ul class="promisesListView" *ngIf='listView'>
+        <li class="addPromiseActionContainer" style="padding: 0; margin: 0">
+            <a href="javascript:void(0);" (click)="openPromiseModal()" class="addPromiseAction">
+                <span>Create new promise...</span>
+            </a>
+        </li>
+        <li *ngFor="let promise of promises" [ngStyle]="{'background-color': promise.Color}">
+            <a href="" [routerLink]="['/promise', promise.Id]">
+                <h4>{{promise.Title}}</h4>
+            </a>
+        </li>
+    </ul>
+</div>

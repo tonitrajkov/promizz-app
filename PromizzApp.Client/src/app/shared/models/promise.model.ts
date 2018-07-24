@@ -1,5 +1,5 @@
 export class PromiseModel {
-    public Id: string = '';
+    public Id: number;
     public Title: string = '';
     public Description: string = '';
     public StateId: number;

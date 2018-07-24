@@ -17,6 +17,8 @@ export class PromisesComponent implements OnInit, OnDestroy {
     private promises: PromiseModel[];
     private assign: string;
     private sub: Subscription;
+    private listView: boolean = false;
+    public sectionTitle: string = '';
 
     constructor(
         private promiseService: PromiseService,
@@ -28,6 +30,12 @@ export class PromisesComponent implements OnInit, OnDestroy {
         this.sub = this.route.queryParams.subscribe(
             params => {
                 this.assign = params['assign'];
+                if (this.assign == 'to') {
+                    this.sectionTitle = 'Promises made to me';
+                }
+                if (this.assign == 'by') {
+                    this.sectionTitle = 'Promises by me';
+                }
 
                 this.promiseService.loadPromises()
                     .pipe(first())
@@ -36,7 +44,6 @@ export class PromisesComponent implements OnInit, OnDestroy {
                             this.promises = promises;
                         },
                         error => {
-                            console.log('Error');
                             console.log(error);
                         });
             }
@@ -47,13 +54,13 @@ export class PromisesComponent implements OnInit, OnDestroy {
         this.sub.unsubscribe();
     }
 
-      openPromiseModal() {
+    openPromiseModal() {
         const modalRef = this.modalService.open(PromiseAddModalComponent);
-        
+
         modalRef.result.then((result) => {
-          console.log(result);
+            console.log(result);
         }).catch((error) => {
-          console.log(error);
+            console.log(error);
         });
-      }
+    }
 }

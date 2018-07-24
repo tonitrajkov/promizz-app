@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PromizzApp.API.Helpers;
@@ -58,6 +59,16 @@ namespace PromizzApp.API.Controllers
         {
             if (!string.IsNullOrEmpty(_userInfoService.UserId))
             {
+                //var promise = new PromiseModel
+                //{
+                //    EndDate = DateTime.Now,
+                //    OwnerId = int.Parse(_userInfoService.UserId),
+                //    Title = "Tell you a story",
+                //    Description = "Dec"
+                //};
+
+                //await _promiseService.CreatePromise(promise);
+
                 var promises = await _promiseService.LoadPromisesByOwner(int.Parse(_userInfoService.UserId));
                 return Ok(promises);
             }

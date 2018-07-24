@@ -16,16 +16,23 @@ export class PromiseAddModalComponent {
         private activeModal: NgbActiveModal
     ) { }
 
+    onDateSelect(date) {
+        this.model.EndDate = null;
+        if (date) {
+            this.model.EndDate = new Date(date.year, date.month - 1, date.day);
+        }
+    }
+
     closeModal() {
         this.activeModal.dismiss('close');
     }
 
     submitForm() {
         this.promiseService.createPromise(this.model)
-        .pipe(first())
-        .subscribe(result => {
-            if(result)
-            this.activeModal.close();
-        });
+            .pipe(first())
+            .subscribe(result => {
+                if (result)
+                    this.activeModal.close();
+            });
     }
 }

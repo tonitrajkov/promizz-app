@@ -24,7 +24,7 @@ export class PromiseService {
     }
 
     createPromise(model: PromiseModel): Observable<any> {
-        return this.http.post(`${this.apiUrl}/promise`, model,
+        return this.http.post(`${this.apiUrl}/promise/`, model,
             { headers: { 'Content-Type': 'application/json' } });
     }
 }

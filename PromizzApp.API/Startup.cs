@@ -29,7 +29,7 @@ namespace PromizzApp.API
         {
             
             services.AddMvc().AddJsonOptions(options => { options.SerializerSettings.ContractResolver = new DefaultContractResolver(); });
-
+        
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowAllOrigins",

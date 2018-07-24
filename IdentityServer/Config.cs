@@ -84,7 +84,7 @@ namespace IdentityServer
                         "https://localhost:4300/signin-oidc",
                         "https://localhost:4300/redirect-silentrenew"
                     },
-                    AccessTokenLifetime = 180,
+                    AccessTokenLifetime = 10000,
                     PostLogoutRedirectUris = new []
                     {
                         "https://localhost:4300/"

@@ -4,9 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { AuthorizationHeaderInterceptor, WriteOutJsonInterceptor } from './authorization-header-interceptor';
+import { AuthorizationHeaderInterceptor } from './authorization-header-interceptor';
 import { EnsureAcceptHeaderInterceptor } from './ensure-accept-header-interceptor';
-import { FakeBackendInterceptor } from '../_helpers/fake-backend';
 import { FeatherIconsPipe } from '../shared/pipes/feather.pipe';
 
 // Services
@@ -42,11 +41,6 @@ import { SecureHeaderComponent } from './secure/header/header.component';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: EnsureAcceptHeaderInterceptor,
-      multi: true
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: WriteOutJsonInterceptor,
       multi: true
     },
     AuthService,
