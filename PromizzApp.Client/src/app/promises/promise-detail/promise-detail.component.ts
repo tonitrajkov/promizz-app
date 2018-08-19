@@ -12,7 +12,7 @@ import { PromiseModel } from '../../shared/models/promise.model';
 })
 export class PromiseDetailComponent implements OnInit, OnDestroy {
 
-    private promise: PromiseModel;
+    private promise: PromiseModel = new PromiseModel();
     private promiseId: string;
     private sub: Subscription;
 
@@ -42,5 +42,14 @@ export class PromiseDetailComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.sub.unsubscribe();
+    }
+
+    updatePromise() {
+        this.promiseService.updatePromise(this.promise)
+            .pipe(first())
+            .subscribe(result => {
+                if (result)
+                    alert("Promise Updated")
+            });
     }
 }

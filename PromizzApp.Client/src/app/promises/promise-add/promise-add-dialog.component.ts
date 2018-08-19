@@ -28,7 +28,7 @@ export class PromiseAddModalComponent {
     }
 
     submitForm() {
-        this.promiseService.createPromise(this.model)
+        this.promiseService.addPromise(this.model)
             .pipe(first())
             .subscribe(result => {
                 if (result)

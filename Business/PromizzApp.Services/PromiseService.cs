@@ -32,13 +32,26 @@ namespace PromizzApp.Services
 
         #endregion
 
-        public async Task CreatePromise(PromiseModel model)
+        public async Task AddPromise(PromiseModel model)
         {
             var promise = Mapper.Map<Promise>(model);
             promise.Color = "#AAA";
             promise.StateId = 1;
 
             await _promiseRepository.CreateAsync(promise);
+        }
+
+        public async Task UpdatePromise(PromiseModel model)
+        {
+            var promise = await _promiseRepository.GetByIdAsync(model.Id);
+            if (promise == null)
+                throw new Exception("PROMISE_DOESNT_EXIST");
+
+            promise.Title = model.Title;
+            promise.Description = model.Description;
+            promise.EndDate = model.EndDate;
+
+            await _promiseRepository.UpdateAsync(promise);
         }
 
         public async Task<PromiseModel> GetPromiseById(int promiseId)

@@ -6,7 +6,9 @@ namespace PromizzApp.Services.Interfaces
 {
     public interface IPromiseService
     {
-        Task CreatePromise(PromiseModel model);
+        Task AddPromise(PromiseModel model);
+
+        Task UpdatePromise(PromiseModel model);
 
         Task<List<PromiseModel>> LoadPromisesByOwner(int ownerId);
 

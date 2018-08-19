@@ -32,7 +32,7 @@ namespace PromizzApp.API.Controllers
         #endregion
 
         [HttpPost]
-        public async Task<IActionResult> CreatePromise([FromBody] PromiseModel model)
+        public async Task<IActionResult> AddPromise([FromBody] PromiseModel model)
         {
             if (model == null)
             {
@@ -47,7 +47,7 @@ namespace PromizzApp.API.Controllers
             if (!string.IsNullOrEmpty(_userInfoService.UserId))
             {
                 model.OwnerId = int.Parse(_userInfoService.UserId);
-                await _promiseService.CreatePromise(model);
+                await _promiseService.AddPromise(model);
                 return Ok();
             }
 
@@ -75,11 +75,25 @@ namespace PromizzApp.API.Controllers
             return BadRequest();
         }
 
-        [HttpGet("{promiseId}")]
+        [Route("{promiseId}")]
+        [HttpGet]
         public async Task<IActionResult> GetPromise(int promiseId)
         {
             var promise = await _promiseService.GetPromiseById(promiseId);
             return Ok(promise);
         }
+        
+        [HttpPut]
+        public async Task<IActionResult> PutPromise([FromBody] PromiseModel model)
+        {
+            if (model == null)
+            {
+                return BadRequest();
+            }
+
+            await _promiseService.UpdatePromise(model);
+            return Ok();
+        }
+
     }
 }

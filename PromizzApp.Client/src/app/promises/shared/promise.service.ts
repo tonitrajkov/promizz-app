@@ -23,8 +23,13 @@ export class PromiseService {
         return this.http.get<PromiseModel>(`${this.apiUrl}/promise/${promiseId}`);
     }
 
-    createPromise(model: PromiseModel): Observable<any> {
+    addPromise(model: PromiseModel): Observable<any> {
         return this.http.post(`${this.apiUrl}/promise/`, model,
+            { headers: { 'Content-Type': 'application/json' } });
+    }
+
+    updatePromise(model: PromiseModel): Observable<any> {
+        return this.http.put(`${this.apiUrl}/promise/`, model,
             { headers: { 'Content-Type': 'application/json' } });
     }
 }

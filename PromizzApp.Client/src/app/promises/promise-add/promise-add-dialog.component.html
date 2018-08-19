@@ -6,11 +6,12 @@
 <div class="modal-body">
     <form>
         <div class="form-group">
-            <input type="text" [(ngModel)]="model.Title" class="form-control" name="title" placeholder="Write a promise title" #title="ngModel" />
+            <input type="text" [(ngModel)]="model.Title" class="form-control" name="title" placeholder="Write a promise title" #title="ngModel"
+            />
         </div>
         <div class="form-group">
             <div class="input-group">
-                <input class="form-control" placeholder="yyyy-mm-dd" name="dp"(dateSelect)="onDateSelect($event)"ngbDatepicker #d="ngbDatepicker">
+                <input class="form-control" placeholder="yyyy-mm-dd" name="dp" (dateSelect)="onDateSelect($event)" ngbDatepicker #d="ngbDatepicker">
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary icon-holder" (click)="d.toggle()" type="button">
                         <span [innerHTML]="'calendar' | feather:'featherIcon i20 iBlack'"></span>

@@ -1,9 +1,30 @@
-<div class="zzCard">
-    Action container
-</div>
-<div class="zzCard">
-    <div class="card-body">
-        <h5 class="card-title">{{promise?.Title}}</h5>
-        <p class="card-text">{{promise?.Description}}</p>
+<div class="pane grid-pane">
+    <div class="detail-container">
+        <div class="detail-header">
+            <div class="header-left">
+                <div class="header-buttons">
+                    <button class="btn btn-primary" (click)="updatePromise()">Save</button>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="settings-menu">
+                    <a class="icon-holder" href="">
+                        <span [innerHTML]="'bell' | feather:'featherIcon i20 iGray'"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-body-holder">
+            <div class="detail-body">
+                <div class="form-group">
+                    <input type="text"  [(ngModel)]="promise.Title" class="form-control" name="title" placeholder="Write a promise title" #title="ngModel"
+                    />
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" [(ngModel)]="promise.Description" placeholder="Description" name="description" rows="3" #description="ngModel"></textarea>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
