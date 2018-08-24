@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PromizzApp.Data;
 
 namespace PromizzApp.Data.Migrations
 {
     [DbContext(typeof(PromizzAppContext))]
-    partial class PromizzAppContextModelSnapshot : ModelSnapshot
+    [Migration("20180819084651_localization")]
+    partial class localization
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -109,14 +111,14 @@ namespace PromizzApp.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(1000);
 
-                    b.Property<string>("LanguageShortName")
-                        .IsRequired()
-                        .HasMaxLength(15);
+                    b.Property<int>("LanguageId");
 
                     b.Property<string>("Value")
                         .IsRequired();
 
                     b.HasKey("Id");
+
+                    b.HasIndex("LanguageId");
 
                     b.ToTable("Localizations","loc");
                 });
@@ -215,6 +217,14 @@ namespace PromizzApp.Data.Migrations
                     b.HasOne("PromizzApp.Domain.HistoryActionType", "ActionType")
                         .WithMany()
                         .HasForeignKey("ActionTypeId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("PromizzApp.Domain.Localization", b =>
+                {
+                    b.HasOne("PromizzApp.Domain.Language", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

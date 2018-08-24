@@ -12,13 +12,13 @@
 
             <div class="actionsHolder">
                 <a class="icon-holder" href="javascript:void(0);" (click)="openPromiseModal()">
-                    <span  [innerHTML]="'plus' | feather:'featherIcon i20 i-white'"></span>
+                    <span [innerHTML]="'plus' | feather:'featherIcon i20 i-white'"></span>
                 </a>
                 <a class="icon-holder" href="">
-                    <span  [innerHTML]="'info' | feather:'featherIcon i20 i-white'"></span>
+                    <span [innerHTML]="'info' | feather:'featherIcon i20 i-white'"></span>
                 </a>
                 <a class="icon-holder" href="">
-                    <span  [innerHTML]="'bell' | feather:'featherIcon i20 i-white'"></span>
+                    <span [innerHTML]="'bell' | feather:'featherIcon i20 i-white'"></span>
                 </a>
                 <a class="userAvatarHolder" href="" [routerLink]="['/account', 'trajkovtoni']">
                     <span class="userAvatar">
@@ -32,6 +32,42 @@
         </div>
     </div>
 </header>
+<div aria-expanded="false" role="navigation" class="nav-container">
+    <div class="nav-btn-holder">
+        <a href="" tabindex="2" class="nav-action-link">
+            <div>
+                <span class="icon-holder">
+                    P
+                </span>
+            </div>
+            <span class="full-icon-holder">Promizz</span>
+        </a>
+    </div>
+
+    <div class="nav-menu-holder">
+        <div class="menu-frame">
+            <div class="menu-content">
+                <div aria-expanded="true" role="tablist" class="">
+                    <div class="menu-list list-expanded">
+                        <a aria-selected="true" role="tab" tabindex="21" href="" class="menu-item menu-item-active">
+                            <span class="menu-item-icon-holder">H</span>
+                            <span class="menu-item-label">Home</span>
+                        </a>
+                        <a aria-selected="false" role="tab" tabindex="22" href="" class="menu-item menu-item-active">
+                            <span class="menu-item-icon-holder">B</span>
+                            <span class="menu-item-label">Browse</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-scroll-holder">
+            <div class="scroll-wrapper"></div>
+            <div class="scroll-handler" style="top: 0px; height: 0px;"></div>
+        </div>
+    </div>
+</div>
 <!-- <
 <div id="header">
     <a href="" class="header-logo" routerLink="/">

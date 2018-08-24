@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PromizzApp.Data;
 
 namespace PromizzApp.Data.Migrations
 {
     [DbContext(typeof(PromizzAppContext))]
-    partial class PromizzAppContextModelSnapshot : ModelSnapshot
+    [Migration("20180819085021_localization_01")]
+    partial class localization_01
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

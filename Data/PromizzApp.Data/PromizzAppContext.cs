@@ -15,9 +15,13 @@ namespace PromizzApp.Data
         public DbSet<History> History { get; set; }
         public DbSet<HistoryActionType> HistoryActionTypes { get; set; }
         public DbSet<Group> Groups { get; set; }
+        public DbSet<Language> Languages { get; set; }
+        public DbSet<Localization> Localizations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Language>().ToTable("Languages", "loc");
+            modelBuilder.Entity<Localization>().ToTable("Localizations", "loc");
         }
     }
 }
