@@ -1,0 +1,78 @@
+<div aria-expanded="false" role="navigation" class="nav-container" [ngClass]="{'nav-menu-expanded':mouseEnter}">
+    <div class="nav-btn-holder">
+        <a href="" tabindex="2" class="nav-action-link">
+            <div>
+                <span class="icon-holder">
+                    <a class="icon-holder" href="">
+                        <span [innerHTML]="'menu' | feather:'featherIcon i24 iDarkGray'"></span>
+                    </a>
+                </span>
+            </div>
+            <span class="full-icon-holder">Promizz</span>
+        </a>
+    </div>
+
+    <div class="nav-menu-holder">
+        <div class="menu-frame">
+            <div class="menu-content">
+                <div aria-expanded="true" role="tablist" class="">
+                    <div class="menu-list list-expanded">
+                        <a aria-selected="true" role="tab" tabindex="21" href="" routerLink="/dashboard" class="menu-item menu-item-active">
+                            <span class="menu-item-icon-holder">
+                                <a class="icon-holder" href="">
+                                    <span [innerHTML]="'home' | feather:'featherIcon i24 iDarkGray'"></span>
+                                </a>
+                            </span>
+                            <span class="menu-item-label">Home</span>
+                        </a>
+                        <a aria-selected="false" role="tab" tabindex="22" href="" class="menu-item" [routerLink]="['/promises']" [queryParams]="{ assign: 'by' }">
+                            <span class="menu-item-icon-holder">
+                                <a class="icon-holder" href="">
+                                    <span [innerHTML]="'send' | feather:'featherIcon i24 iDarkGray'"></span>
+                                </a>
+                            </span>
+                            <span class="menu-item-label">Promises by me</span>
+                        </a>
+                        <a aria-selected="false" role="tab" tabindex="23" href="" class="menu-item" [routerLink]="['/promises']" [queryParams]="{ assign: 'to' }">
+                            <span class="menu-item-icon-holder">
+                                <a class="icon-holder" href="">
+                                    <span [innerHTML]="'anchor' | feather:'featherIcon i24 iDarkGray'"></span>
+                                </a>
+                            </span>
+                            <span class="menu-item-label">Promises to me</span>
+                        </a>
+                        <a aria-selected="false" role="tab" tabindex="24" href="" class="menu-item">
+                            <span class="menu-item-icon-holder">
+                                <a class="icon-holder" href="">
+                                    <span [innerHTML]="'search' | feather:'featherIcon i24 iDarkGray'"></span>
+                                </a>
+                            </span>
+                            <span class="menu-item-label">Search</span>
+                        </a>
+                        <a aria-selected="false" role="tab" tabindex="25" href="" class="menu-item">
+                            <span class="menu-item-icon-holder">
+                                <a class="icon-holder" href="">
+                                    <span [innerHTML]="'star' | feather:'featherIcon i24 iDarkGray'"></span>
+                                </a>
+                            </span>
+                            <span class="menu-item-label">About</span>
+                        </a>
+                        <a aria-selected="false" role="tab" tabindex="22" href="" class="menu-item">
+                            <span class="menu-item-icon-holder">
+                                <a class="icon-holder" href="">
+                                    <span [innerHTML]="'user' | feather:'featherIcon i24 iDarkGray'"></span>
+                                </a>
+                            </span>
+                            <span class="menu-item-label">Profile</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-scroll-holder">
+            <div class="scroll-wrapper"></div>
+            <div class="scroll-handler" style="top: 0px; height: 0px;"></div>
+        </div>
+    </div>
+</div>

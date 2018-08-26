@@ -19,6 +19,7 @@ import { AuthGuard } from './auth.guard';
 import { PublicHeaderComponent } from './public/header/header.component';
 import { PublicFooterComponent } from './public/footer/footer.component';
 import { SecureHeaderComponent } from './secure/header/header.component';
+import { NavBarComponent } from './secure/navbar/navbar.component';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { SecureHeaderComponent } from './secure/header/header.component';
     PublicHeaderComponent,
     PublicFooterComponent,
     SecureHeaderComponent,
+    NavBarComponent,
     FeatherIconsPipe
   ],
   providers: [
@@ -51,6 +53,7 @@ import { SecureHeaderComponent } from './secure/header/header.component';
     PublicHeaderComponent,
     PublicFooterComponent,
     SecureHeaderComponent,
+    NavBarComponent,
     FeatherIconsPipe
   ]
 })

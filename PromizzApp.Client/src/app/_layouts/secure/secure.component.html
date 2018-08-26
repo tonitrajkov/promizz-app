@@ -1,45 +1,10 @@
 <secure-header></secure-header>
+<promizz-navbar></promizz-navbar>
+
 <section class="mainBody">
     <div class="mainWrapper">
         <div class="mainContainer row">
-            <div class="col-md-3">
-                <nav class="leftSidebarContainer">
-                    <div class="menuContainer">
-                        <ul class="sidebarMenu">
-                            <li>
-                                <a href="" routerLink="/dashboard">
-                                    <span class="iconHolder">
-                                        <span></span>
-                                    </span>
-                                    <span class="textHolder">Dashboard</span>
-                                </a>
-                            </li>
-                            <li>
-                                <span class="textHolder">PROMISES</span>
-                                <ul>
-                                    <li>
-                                        <a href="" [routerLink]="['/promises']" [queryParams]="{ assign: 'by' }" >
-                                            <span class="iconHolder">
-                                                <span></span>
-                                            </span>
-                                            <span class="textHolder">By me</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="" [routerLink]="['/promises']" [queryParams]="{ assign: 'to' }">
-                                            <span class="iconHolder">
-                                                <span></span>
-                                            </span>
-                                            <span class="textHolder">To me</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <router-outlet></router-outlet>
             </div>
         </div>
