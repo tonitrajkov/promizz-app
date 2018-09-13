@@ -49,6 +49,7 @@ namespace PromizzApp.API
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             services.AddScoped<IPromiseService, PromiseService>();
+            services.AddScoped<ILocalizationService, LocalizationService>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUserInfoService, UserInfoService>();

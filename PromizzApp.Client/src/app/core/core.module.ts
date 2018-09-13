@@ -6,11 +6,17 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AuthorizationHeaderInterceptor } from './authorization-header-interceptor';
 import { EnsureAcceptHeaderInterceptor } from './ensure-accept-header-interceptor';
+
+import { Localization } from '../shared/globals';
+
+// Pipes
 import { FeatherIconsPipe } from '../shared/pipes/feather.pipe';
+import { TranslatePipe } from '../shared/pipes/translate.pipe';
 
 // Services
 import { AuthService } from './auth.service';
 import { ExceptionService } from './exception.service';
+import { CoreService } from './core.service';
 
 // Guards
 import { AuthGuard } from './auth.guard';
@@ -32,7 +38,8 @@ import { NavBarComponent } from './secure/navbar/navbar.component';
     PublicFooterComponent,
     SecureHeaderComponent,
     NavBarComponent,
-    FeatherIconsPipe
+    FeatherIconsPipe,
+    TranslatePipe
   ],
   providers: [
     {
@@ -47,6 +54,7 @@ import { NavBarComponent } from './secure/navbar/navbar.component';
     },
     AuthService,
     ExceptionService,
+    CoreService,
     AuthGuard
   ],
   exports: [
@@ -54,7 +62,8 @@ import { NavBarComponent } from './secure/navbar/navbar.component';
     PublicFooterComponent,
     SecureHeaderComponent,
     NavBarComponent,
-    FeatherIconsPipe
+    FeatherIconsPipe,
+    TranslatePipe
   ]
 })
 export class CoreModule { }
