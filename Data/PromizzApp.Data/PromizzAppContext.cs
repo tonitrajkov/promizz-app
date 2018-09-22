@@ -17,6 +17,8 @@ namespace PromizzApp.Data
         public DbSet<Group> Groups { get; set; }
         public DbSet<Language> Languages { get; set; }
         public DbSet<Localization> Localizations { get; set; }
+        public DbSet<Friendship> Friendship { get; set; }
+        public DbSet<FriendshipState> FriendshipStates { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
