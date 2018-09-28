@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    templateUrl: 'profile.component.html'
+    templateUrl: 'friends.component.html'
 })
-export class ProfileComponent implements OnInit {
+export class FriendsComponent implements OnInit {
     constructor() { }
 
     ngOnInit() { }

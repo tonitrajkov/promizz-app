@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AuthModule } from './auth/auth.module';
+//import { ProfileModule } from './profile/profile.module';
 // import { PublicModule } from './public/public.module';
 
 // Components
@@ -18,8 +19,6 @@ import { SecureComponent } from './_layouts/secure/secure.component';
 
 import { PromiseAppComponent } from './promise-app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { PromisesComponent, PromiseDetailComponent, PromiseService, PromiseAddModalComponent } from './promises';
-import { ProfileComponent } from './profile';
 
 import { HomeComponent } from './public/home/home.component';
 import { PricingComponent } from './public/pricing/pricing.component';
@@ -30,6 +29,7 @@ import { TermOfServicesComponent } from './public/term-of-services/term-of-servi
 
 import { SigninCbComponent } from './shared/oidc-calbacks/signin-cb.component';
 import { RedirectSilentRenewComponent } from './shared/oidc-calbacks/redirect-silent-renew.component';
+import { PromiseAddModalComponent, PromiseService } from './promises';
 
 @NgModule({
   declarations: [
@@ -43,21 +43,18 @@ import { RedirectSilentRenewComponent } from './shared/oidc-calbacks/redirect-si
     ProductComponent,
     SecurityComponent,
     TermOfServicesComponent,
-    PromisesComponent,
-    PromiseDetailComponent,
-    ProfileComponent,
     SigninCbComponent,
     RedirectSilentRenewComponent,
     PromiseAddModalComponent
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
     CoreModule,
-    SharedModule,
     AuthModule,
     AppRoutingModule
   ],

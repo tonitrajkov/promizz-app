@@ -2,7 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import {EmailValidator} from './directives/email-validator.directive';
+// Pipes
+import { FeatherIconsPipe } from '../shared/pipes/feather.pipe';
+import { TranslatePipe } from '../shared/pipes/translate.pipe';
+
+import { EmailValidator } from './directives/email-validator.directive';
 
 @NgModule({
     imports: [
@@ -11,9 +15,13 @@ import {EmailValidator} from './directives/email-validator.directive';
     ],
     exports: [
         CommonModule,
-        FormsModule
+        FormsModule,
+        FeatherIconsPipe,
+        TranslatePipe,
     ],
     declarations: [
+        FeatherIconsPipe,
+        TranslatePipe,
         EmailValidator
     ]
 })

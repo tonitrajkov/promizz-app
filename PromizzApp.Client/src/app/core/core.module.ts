@@ -1,4 +1,4 @@
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -7,11 +7,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthorizationHeaderInterceptor } from './authorization-header-interceptor';
 import { EnsureAcceptHeaderInterceptor } from './ensure-accept-header-interceptor';
 
-import { Localization } from '../shared/globals';
-
-// Pipes
-import { FeatherIconsPipe } from '../shared/pipes/feather.pipe';
-import { TranslatePipe } from '../shared/pipes/translate.pipe';
+import { SharedModule } from '../shared/shared.module';
 
 // Services
 import { AuthService } from './auth.service';
@@ -31,15 +27,14 @@ import { NavBarComponent } from './secure/navbar/navbar.component';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   declarations: [
     PublicHeaderComponent,
     PublicFooterComponent,
     SecureHeaderComponent,
-    NavBarComponent,
-    FeatherIconsPipe,
-    TranslatePipe
+    NavBarComponent
   ],
   providers: [
     {
@@ -61,9 +56,7 @@ import { NavBarComponent } from './secure/navbar/navbar.component';
     PublicHeaderComponent,
     PublicFooterComponent,
     SecureHeaderComponent,
-    NavBarComponent,
-    FeatherIconsPipe,
-    TranslatePipe
+    NavBarComponent
   ]
 })
 export class CoreModule { }

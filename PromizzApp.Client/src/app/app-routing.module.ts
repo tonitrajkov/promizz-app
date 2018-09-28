@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './core/auth.guard';
@@ -19,8 +18,6 @@ import { SecurityComponent } from './public/security/security.component';
 import { TermOfServicesComponent } from './public/term-of-services/term-of-services.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { PromisesComponent, PromiseDetailComponent } from './promises';
-import { ProfileComponent } from './profile';
 
 import { SigninCbComponent } from './shared/oidc-calbacks/signin-cb.component';
 import { RedirectSilentRenewComponent } from './shared/oidc-calbacks/redirect-silent-renew.component';
@@ -47,9 +44,9 @@ const routes: Routes = [
         children: [
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
             { path: 'dashboard', component: DashboardComponent },
-            { path: 'promises', component: PromisesComponent },
-            { path: 'promise/:promiseId', component: PromiseDetailComponent },
-            { path: 'account/:username', component: ProfileComponent }
+            { path: 'promises', loadChildren: './promises/promise.module#PromiseModule' },
+            { path: 'profile', loadChildren: './profile/profile.module#ProfileModule' }
+            // { path: 'account/:username', component: ProfileComponent }
         ]
     },
 
