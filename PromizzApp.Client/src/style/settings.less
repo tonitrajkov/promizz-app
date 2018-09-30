@@ -1,5 +1,113 @@
-.tabbed-page-header {
-    background-color: #edeff0;
+.u-clearfix:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.u-inline {
+    display: inline;
+}
+
+.tabbed-pane-header {
+    background-color: #f5f6f7;
+
+    .tabbed-pane-header-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto;
+        max-width: 650px;
+        padding: 32px;
+        position: relative;
+
+        .tabbed-pane-header-content {
+            display: flex;
+
+            .profile-image.is-editable {
+                cursor: pointer;
+            }
+
+            .profile-image {
+                background-color: #dfe3e6;
+                border-radius: 25em;
+                cursor: default;
+                display: block;
+                flex: 0 0 85px;
+                height: 85px;
+                overflow: hidden;
+                position: relative;
+                text-decoration: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                width: 85px;
+                z-index: 0;
+            }
+
+            .tabbed-pane-header-image {
+                float: left;
+
+                .profile-image-image {
+                    background-size: 85px 85px;
+                    border-radius: 3px;
+                    display: block;
+                    height: 85px;
+                    left: 0;
+                    top: 0;
+                    width: 85px;
+                    z-index: 2;
+                }
+
+                .profile-image-change-text {
+                    background: rgba(0,0,0,.5);
+                    bottom: 0;
+                    color: #fff;
+                    display: none;
+                    height: 40px;
+                    line-height: 32px;
+                    right: 0;
+                    width: 100%;
+                    z-index: 3;
+                }
+
+                .profile-image-change-text, .profile-image-initials {
+                    font-weight: 700;
+                    text-align: center;
+                    left: 0;
+                    position: absolute;
+                }
+
+                &:hover{
+                    background-color: #6b808c;
+
+                    .profile-image-change-text {
+                        display: block;
+                    }
+                }
+            }
+
+            .tabbed-pane-header-details {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin: 0 0 0 20px;
+
+                .tabbed-pane-header-details-name {
+                    margin-bottom: 8px;
+
+                    .window-title-extra {
+                        display: inline-block;
+                        font-size: 12px;
+                        color: #6b808c;
+                        padding: 0 6px 0 2px;
+                        position: relative;
+                        margin: 0 2px;
+                    }
+                }
+            }
+        }
+    }
 
     .tabbed-page-header-wrapper {
         max-width: 650px;
@@ -14,4 +122,40 @@
     border-bottom: 1px solid #d6dadc;
     position: relative;
     text-align: center;
+}
+
+.tabbed-pane-header-details-edit {
+    float: left;
+    padding-right: 12px;
+}
+
+.button-link {
+    background-color: #dfe3e6;
+    box-shadow: 0 1px 0 0 #c2ccd1;
+    border: none;
+    border-radius: 3px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    font-weight: 700;
+    height: 32px;
+    margin-top: 8px;
+    max-width: 300px;
+    overflow: hidden;
+    padding: 6px 12px;
+    position: relative;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+    transition-property: background-color,border-color,box-shadow;
+    transition-duration: 85ms;
+    transition-timing-function: ease;
+
+    .icon-sm {
+        margin: 0 4px 0 -4px;
+    }
 }

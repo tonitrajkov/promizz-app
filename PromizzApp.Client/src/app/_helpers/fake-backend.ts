@@ -5,7 +5,7 @@ import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
 
 import { USERS } from './mock.objects';
-import { User } from '../shared/models/user.model';
+import { UserModel } from '../shared/models/user.model';
 
 
 @Injectable()
@@ -13,7 +13,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-        let users: User[] = USERS;
+        let users: UserModel[] = USERS;
         //return;
         return of(null).pipe(mergeMap(() => {
 
@@ -31,7 +31,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 });
 
                 if (filterByEmail.length > 0) {
-                    let user: User = filterByEmail[0];
+                    let user: UserModel = filterByEmail[0];
                     if (user.Password === request.body.model.Password) {
                         user.Token = 'fake-token-1';
                         return of(new HttpResponse({ status: 200, body: user }));
@@ -43,7 +43,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     });
 
                     if (filterByUserName.length > 0) {
-                        let user: User = filterByUserName[0];
+                        let user: UserModel = filterByUserName[0];
                         if (user.Password === request.body.model.Password) {
                             user.Token = 'fake-token-1';
                             return of(new HttpResponse({ status: 200, body: user }));

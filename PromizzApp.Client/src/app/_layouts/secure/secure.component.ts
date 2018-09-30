@@ -10,7 +10,7 @@ export class SecureComponent {
 
   constructor(private router: Router) {
     this.router.events.subscribe(path => {
-      console.log(path);
+      //console.log(path);
     });
   }
 }

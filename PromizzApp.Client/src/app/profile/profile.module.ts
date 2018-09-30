@@ -6,7 +6,10 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
 // Components
-import { ProfileDetailsComponent, FriendsComponent, SettingsComponent, ProfileComponent } from './';
+import {
+    ProfileDetailsComponent, FriendsComponent,
+    SettingsComponent, ProfileComponent, ProfileService
+} from './';
 
 @NgModule({
     imports: [
@@ -19,6 +22,7 @@ import { ProfileDetailsComponent, FriendsComponent, SettingsComponent, ProfileCo
         ProfileDetailsComponent,
         FriendsComponent,
         SettingsComponent
-    ]
+    ],
+    providers: [ProfileService]
 })
 export class ProfileModule { }

@@ -22,6 +22,7 @@ namespace IdentityServer
                         new Claim("given_name", "Iron"),
                         new Claim("family_name", "Man"),
                         new Claim("role", "Business"),
+                        new Claim("user_name", "ironman")
                     }
                 },
                 new TestUser
@@ -34,6 +35,7 @@ namespace IdentityServer
                         new Claim("given_name", "Captian"),
                         new Claim("family_name", "America"),
                         new Claim("role", "Paid"),
+                        new Claim("user_name", "captianamerica")
                     }
                 },
                 new TestUser
@@ -46,6 +48,7 @@ namespace IdentityServer
                         new Claim("given_name", "Black"),
                         new Claim("family_name", "Panter"),
                         new Claim("role", "Free"),
+                        new Claim("user_name", "blackpanter")
                     }
                 }
             };
@@ -57,14 +60,15 @@ namespace IdentityServer
             {
                new IdentityResources.OpenId(),
                new IdentityResources.Profile(),
-               new IdentityResource("roles", "Your role(s)", new []{"role"})
+               new IdentityResource("roles", "Your role(s)", new []{"role"}),
+               new IdentityResource("usernames", "Your username", new []{"user_name"}),
             };
         }
 
         internal static IEnumerable<ApiResource> GetApiResources()
         {
             return new[] {
-                new ApiResource("promizzappapi", "Promizz API", new[] { "role", "family_name", "family_name" })
+                new ApiResource("promizzappapi", "Promizz API", new[] { "role", "family_name", "family_name", "user_name" })
             };
         }
 
@@ -94,7 +98,8 @@ namespace IdentityServer
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         "roles",
-                        "promizzappapi"
+                        "promizzappapi",
+                        "usernames"
                     }
                }
             };

@@ -1,8 +1,8 @@
 //import { Promise } from '../promises/shared/promise.model';
-import { User } from '../shared/models/user.model';
+import { UserModel } from '../shared/models/user.model';
 
 // User mocks
-export const USERS: User[] = [
+export const USERS: UserModel[] = [
     { 
         Id: 1, 
         FullName: 'Toni Trajkov', 
@@ -115,7 +115,7 @@ export const USERS: User[] = [
     }
 ];
 
-export const CURRENT_USER: User =     { 
+export const CURRENT_USER: UserModel =     { 
     Id: 1, 
     FullName: 'Toni Trajkov', 
     UserName: 'trajkovtoni', 

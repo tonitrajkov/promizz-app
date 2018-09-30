@@ -37,6 +37,30 @@ namespace PromizzApp.Services
 
         #endregion
 
+        public async Task<UserModel> GetUserByUserName(string username)
+        {
+            var user = (await _userRepository.GetAllAsync())
+                .FirstOrDefault(u => u.Username.ToLower() == username.Trim().ToLower());
+            if (user == null)
+                throw new Exception("USER_DOES_NOT_EXIST");
+
+            return Mapper.Map<UserModel>(user);
+        }
+
+        public async Task UpdateUser(UserModel model)
+        {
+            var user = await _userRepository.GetByIdAsync(model.Id);
+            if (user == null)
+                throw new Exception("USER_DOES_NOT_EXIST");
+
+            user.Bio = model.Bio;
+            user.Fullname = model.Fullname;
+            user.Username = model.Username;
+            user.Email = model.Email;
+
+            await _userRepository.UpdateAsync(user);
+        }
+
         public async Task<IEnumerable<UserModel>> FilterUsers(string filterValue)
         {
             var filterValueLowered = filterValue.ToLower();

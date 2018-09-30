@@ -1,4 +1,4 @@
-export class User {
+export class UserModel {
     public Id: number = 0;
     public FullName: string = '';
     public UserName: string = '';
@@ -9,7 +9,7 @@ export class User {
     public Password: string = '';
     public Token: string = '';
 
-    public constructor(init?:Partial<User>) {
+    public constructor(init?:Partial<UserModel>) {
         Object.assign(this, init);
     }
 }

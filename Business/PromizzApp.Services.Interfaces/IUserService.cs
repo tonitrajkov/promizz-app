@@ -8,6 +8,8 @@ namespace PromizzApp.Services.Interfaces
 {
     public interface IUserService
     {
+        Task<UserModel> GetUserByUserName(string username);
+        Task UpdateUser(UserModel model);
         Task<IEnumerable<UserModel>> FilterUsers(string filterValue);
 
         #region Friendship
