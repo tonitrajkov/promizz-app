@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { ToastrModule } from 'ngx-toastr';
 import { NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap';
 
 // Pipes
@@ -14,6 +15,7 @@ import { EmailValidator } from './directives/email-validator.directive';
     imports: [
         CommonModule,
         FormsModule,
+        ToastrModule.forRoot(),
         NgbTabsetModule
     ],
     exports: [
@@ -21,6 +23,7 @@ import { EmailValidator } from './directives/email-validator.directive';
         FormsModule,
         FeatherIconsPipe,
         TranslatePipe,
+        ToastrModule,
         NgbTabsetModule
     ],
     declarations: [

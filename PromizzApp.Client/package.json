@@ -35,7 +35,8 @@
     "less": "^3.0.0",
     "oidc-client": "^1.5.2",
     "rxjs": "^6.0.0",
-    "zone.js": "^0.8.24"
+    "zone.js": "^0.8.24",
+    "ngx-toastr": "~9.1.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.0",

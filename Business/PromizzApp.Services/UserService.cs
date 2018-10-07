@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+
+using PromizzApp.Config.Helpers;
 using PromizzApp.Data;
 using PromizzApp.Data.Interfaces;
 using PromizzApp.Domain;
@@ -42,7 +43,7 @@ namespace PromizzApp.Services
             var user = (await _userRepository.GetAllAsync())
                 .FirstOrDefault(u => u.Username.ToLower() == username.Trim().ToLower());
             if (user == null)
-                throw new Exception("USER_DOES_NOT_EXIST");
+                throw new PromizzObjectNullException("USER_DOES_NOT_EXIST");
 
             return Mapper.Map<UserModel>(user);
         }
@@ -51,7 +52,7 @@ namespace PromizzApp.Services
         {
             var user = await _userRepository.GetByIdAsync(model.Id);
             if (user == null)
-                throw new Exception("USER_DOES_NOT_EXIST");
+                throw new PromizzObjectNullException("USER_DOES_NOT_EXIST");
 
             user.Bio = model.Bio;
             user.Fullname = model.Fullname;
@@ -79,7 +80,7 @@ namespace PromizzApp.Services
         {
             var friendship = await GetFriendshipBetweenUsers(actionUserId, relatedUserId);
             if (friendship != null)
-                throw new Exception("FRIENDSHIP_ALREADY_EXIST");
+                throw new PromizzGeneralException("FRIENDSHIP_ALREADY_EXIST");
 
             var model = new Friendship
             {
@@ -96,7 +97,7 @@ namespace PromizzApp.Services
         {
             var friendship = await GetFriendshipBetweenUsers(actionUserId, relatedUserId);
             if (friendship == null)
-                throw new Exception("FRIENDSHIP_DOES_NOT_EXIST");
+                throw new PromizzObjectNullException("FRIENDSHIP_DOES_NOT_EXIST");
 
             friendship.StateId = friendshipState;
             await _friendshipRepository.UpdateAsync(friendship);
@@ -106,7 +107,7 @@ namespace PromizzApp.Services
         {
             var friendship = await GetFriendshipBetweenUsers(actionUserId, relatedUserId);
             if (friendship == null)
-                throw new Exception("FRIENDSHIP_DOES_NOT_EXIST");
+                throw new PromizzObjectNullException("FRIENDSHIP_DOES_NOT_EXIST");
 
             await _friendshipRepository.DeleteAsync(friendship);
         }

@@ -6,6 +6,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AuthorizationHeaderInterceptor } from './authorization-header-interceptor';
 import { EnsureAcceptHeaderInterceptor } from './ensure-accept-header-interceptor';
+import { HandleErrorInterceptor } from './handle-error-interceptor';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -45,6 +46,11 @@ import { NavBarComponent } from './secure/navbar/navbar.component';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: EnsureAcceptHeaderInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HandleErrorInterceptor,
       multi: true
     },
     AuthService,

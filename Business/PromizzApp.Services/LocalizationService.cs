@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
 
+using PromizzApp.Config.Helpers;
 using PromizzApp.Data.Interfaces;
 using PromizzApp.Domain;
-using PromizzApp.Models;
 using PromizzApp.Services.Interfaces;
 
 namespace PromizzApp.Services
@@ -43,7 +40,7 @@ namespace PromizzApp.Services
             {
                 var defaultLanguage = _languageRepository.GetAll().FirstOrDefault(l => l.IsDefault);
                 if (defaultLanguage == null)
-                    throw new Exception("CAN_FIND_DEFAULT_LANGUAGE");
+                    throw new PromizzObjectNullException("CAN_FIND_DEFAULT_LANGUAGE");
 
                 langToLower = defaultLanguage.ShortName.ToLower();
             }

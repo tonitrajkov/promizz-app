@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+
 using PromizzApp.API.Helpers;
+using PromizzApp.Config.Helpers;
 using PromizzApp.Models;
 using PromizzApp.Services.Interfaces;
 
@@ -34,15 +31,13 @@ namespace PromizzApp.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddPromise([FromBody] PromiseModel model)
         {
-            if (model == null)
-            {
-                return BadRequest();
-            }
+            throw new PromizzGeneralException("Toaster test");
 
-            //if (!ModelState.IsValid)
-            //{
-            //    return new UnprocessableEntityObjectResult(ModelState);
-            //}
+            if (model == null)
+                return BadRequest();
+
+            if (!ModelState.IsValid)
+                throw new InvalidModelStateException(ModelState);
 
             if (!string.IsNullOrEmpty(_userInfoService.UserId))
             {
@@ -87,13 +82,13 @@ namespace PromizzApp.API.Controllers
         public async Task<IActionResult> PutPromise([FromBody] PromiseModel model)
         {
             if (model == null)
-            {
                 return BadRequest();
-            }
+
+            if (!ModelState.IsValid)
+                throw new InvalidModelStateException(ModelState);
 
             await _promiseService.UpdatePromise(model);
             return Ok();
         }
-
     }
 }

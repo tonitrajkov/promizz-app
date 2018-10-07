@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 
+using PromizzApp.Config.Helpers;
 using PromizzApp.Data.Interfaces;
 using PromizzApp.Domain;
 using PromizzApp.Models;
@@ -45,7 +46,7 @@ namespace PromizzApp.Services
         {
             var promise = await _promiseRepository.GetByIdAsync(model.Id);
             if (promise == null)
-                throw new Exception("PROMISE_DOESNT_EXIST");
+                throw new PromizzObjectNullException("PROMISE_DOESNT_EXIST");
 
             promise.Title = model.Title;
             promise.Description = model.Description;
@@ -58,7 +59,7 @@ namespace PromizzApp.Services
         {
             var promise = await _promiseRepository.GetByIdAsync(promiseId);
             if (promise == null)
-                throw new Exception("PROMISE_DOESNT_EXIST");
+                throw new PromizzObjectNotFoundException("PROMISE_IS_NOT_FOUND");
 
             return Mapper.Map<PromiseModel>(promise);
         }

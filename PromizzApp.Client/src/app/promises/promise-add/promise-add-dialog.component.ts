@@ -10,6 +10,7 @@ import { PromiseModel } from '../../shared/models/promise.model';
 })
 export class PromiseAddModalComponent {
     model: PromiseModel = new PromiseModel();
+    errorModel: any;
 
     constructor(
         private promiseService: PromiseService,
@@ -33,6 +34,8 @@ export class PromiseAddModalComponent {
             .subscribe(result => {
                 if (result)
                     this.activeModal.close();
+            }, errorModel => {
+                this.errorModel = errorModel;
             });
     }
 }
