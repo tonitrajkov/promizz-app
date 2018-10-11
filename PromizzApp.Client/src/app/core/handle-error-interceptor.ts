@@ -1,14 +1,13 @@
-import { Injector } from '@angular/core';
+import { Inject, forwardRef } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from "@angular/common/http";
-import { Observable, of, throwError } from "rxjs";
+import { Observable, throwError } from "rxjs";
 import { catchError } from 'rxjs/operators';
 
 import { ToastrService } from 'ngx-toastr';
 
 export class HandleErrorInterceptor implements HttpInterceptor {
 
-   // constructor(private inj: Injector) { }
-    // constructor(private toastr: ToastrService) {}
+    constructor(@Inject(forwardRef(() => ToastrService)) private toastr: ToastrService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request)
@@ -36,9 +35,7 @@ export class HandleErrorInterceptor implements HttpInterceptor {
             }
         }
         catch {
-            // const toastr = this.inj.get(ToastrService);
-            // toastr.error(error.Message);
-            //  this.toastr.error(error.Message);
+            this.toastr.error(error.Message);
         }
 
         return throwError(errorModel);

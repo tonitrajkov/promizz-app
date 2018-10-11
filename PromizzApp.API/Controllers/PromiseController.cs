@@ -31,8 +31,6 @@ namespace PromizzApp.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddPromise([FromBody] PromiseModel model)
         {
-            throw new PromizzGeneralException("Toaster test");
-
             if (model == null)
                 return BadRequest();
 

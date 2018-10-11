@@ -23,7 +23,6 @@ import { EmailValidator } from './directives/email-validator.directive';
         FormsModule,
         FeatherIconsPipe,
         TranslatePipe,
-        ToastrModule,
         NgbTabsetModule
     ],
     declarations: [
