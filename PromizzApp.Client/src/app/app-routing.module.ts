@@ -7,15 +7,10 @@ import { AuthModule } from './auth/auth.module';
 import { PublicModule } from './public/public.module';
 
 // Components
+import { NotAuthorizedComponent } from './shared/not-authorized/not-authorized.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { PublicComponent } from './_layouts/public/public.component';
 import { SecureComponent } from './_layouts/secure/secure.component';
-
-import { HomeComponent } from './public/home/home.component';
-import { PricingComponent } from './public/pricing/pricing.component';
-import { PrivacyComponent } from './public/privacy/privacy.component';
-import { ProductComponent } from './public/product/product.component';
-import { SecurityComponent } from './public/security/security.component';
-import { TermOfServicesComponent } from './public/term-of-services/term-of-services.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 
@@ -52,6 +47,8 @@ const routes: Routes = [
 
     { path: 'signin-oidc', component: SigninCbComponent },
     { path: 'redirect-silentrenew', component: RedirectSilentRenewComponent },
+    { path: 'not-found', component: NotFoundComponent },
+    { path: 'not-authorized', component: NotAuthorizedComponent },
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 ];

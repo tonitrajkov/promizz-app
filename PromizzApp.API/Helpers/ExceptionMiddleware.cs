@@ -53,7 +53,7 @@ namespace PromizzApp.API.Helpers
 
             if (exception is PromizzObjectNotFoundException)
             {
-                code = 408;
+                code = 411;
                 msg = (exception as PromizzObjectNotFoundException).Message;
             }
 

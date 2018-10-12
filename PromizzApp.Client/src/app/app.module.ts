@@ -15,6 +15,8 @@ import { AuthModule } from './auth/auth.module';
 // import { PublicModule } from './public/public.module';
 
 // Components
+import { NotAuthorizedComponent } from './shared/not-authorized/not-authorized.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { PublicComponent } from './_layouts/public/public.component';
 import { SecureComponent } from './_layouts/secure/secure.component';
 
@@ -35,6 +37,8 @@ import { PromiseAddModalComponent, PromiseService } from './promises';
 @NgModule({
   declarations: [
     PromiseAppComponent,
+    NotAuthorizedComponent,
+    NotFoundComponent,
     DashboardComponent,
     PublicComponent,
     SecureComponent,
