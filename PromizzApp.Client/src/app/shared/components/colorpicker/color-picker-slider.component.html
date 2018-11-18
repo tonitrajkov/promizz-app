@@ -6,7 +6,8 @@
                     <a (click)="toggleColors()">
                         <div class="icon-container" [ngStyle]="{'background-color': getIconBgColor()}">
                             <div class="icon">
-                                    <span [innerHTML]="'droplet' | feather:'featherIcon i16 iGray'"></span>
+                                <span *ngIf="!pickerOpened" [innerHTML]="'chevron-right' | feather:'featherIcon i16 i-white'"></span>
+                                <span *ngIf="pickerOpened" [innerHTML]="'chevron-left' | feather:'featherIcon i16 i-white'"></span>
                             </div>
                         </div>
                     </a>
