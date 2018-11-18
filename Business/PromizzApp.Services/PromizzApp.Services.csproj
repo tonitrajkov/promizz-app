@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="7.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Configuration\PromizzApp.Config\PromizzApp.Config.csproj" />
     <ProjectReference Include="..\..\Data\PromizzApp.Data\PromizzApp.Data.csproj" />
     <ProjectReference Include="..\..\Domain\PromizzApp.Domain\PromizzApp.Domain.csproj" />

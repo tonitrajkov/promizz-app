@@ -14,13 +14,13 @@ namespace PromizzApp.Domain
 
         [Required]
         [ForeignKey("ActionTypeId")]
-        public HistoryActionType ActionType { get; set; }
+        public virtual HistoryActionType ActionType { get; set; }
 
         public int ActionById { get; set; }
 
         [Required]
         [ForeignKey("ActionById")]
-        public User ActionBy { get; set; }
+        public virtual User ActionBy { get; set; }
 
         [Required]
         public DateTime ActionOn { get; set; }

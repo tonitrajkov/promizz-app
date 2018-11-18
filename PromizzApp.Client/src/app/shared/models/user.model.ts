@@ -1,7 +1,10 @@
 export class UserModel {
     public Id: number = 0;
-    public FullName: string = '';
+    public Firstname: string = '';
+    public Lastname: string = '';
     public UserName: string = '';
+    public Fullname: string = '';
+    public Initials: string = '';
     public Email: string = '';
     public Avatar: string = '';
     public Bio: string = '';

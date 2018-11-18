@@ -19,7 +19,7 @@ namespace PromizzApp.Domain
 
         [Required]
         [ForeignKey("StateId")]
-        public FriendshipState State { get; set; }
+        public virtual FriendshipState State { get; set; }
 
         [Required]
         public int LastActionByUserId { get; set; }

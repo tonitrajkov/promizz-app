@@ -1,33 +1,105 @@
+<div></div>
 <div class="modal-header">
-    <h4 class="modal-title">Modal Title</h4>
-    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-    </button>
+    <a class="modal-close-button" (click)="activeModal.dismiss('Cross click')" placement="bottom" ngbTooltip="Close">
+        <span [innerHTML]="'x' | feather:'featherIcon i20 iGray'"></span>
+    </a>
 </div>
 <div class="modal-body">
     <form>
+        <!-- Promise Name Control-->
         <div class="form-group">
-            <input type="text" [(ngModel)]="model.Title" class="form-control" name="title" placeholder="Write a promise title" #title="ngModel"
-            />
-            <div class="error-wrapper" *ngIf="errorModel?.Title">
-                <span class="custom-error">{{errorModel?.Title | t}}</span>
-            </div>
+            <input type="text" [(ngModel)]="model.Title" [ngClass]="{'custom-error-input': errorModel?.Title}" 
+                class="form-control no-borders-control input-control" 
+                name="title"
+                placeholder="Promise Name" #title="ngModel" />
         </div>
+        <!-- Assignments (Prommisee and Due date) -->
         <div class="form-group">
-            <div class="input-group">
-                <input class="form-control" placeholder="yyyy-mm-dd" name="dp" (dateSelect)="onDateSelect($event)" ngbDatepicker #d="ngbDatepicker">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary icon-holder" (click)="d.toggle()" type="button">
-                        <span [innerHTML]="'calendar' | feather:'featherIcon i20 iBlack'"></span>
-                    </button>
+            <div class="form-container">
+                <!-- Promisee Assignment -->
+                <label class="auto-assign-label">Promise for</label>
+                <div class="auto-form-wrapper">
+                    <div *ngIf="!showAutocomplete && !selectedUser" 
+                        [ngClass]="{'error-with-border': errorModel?.PromiseTo}" 
+                        (click)="showAutocomplete = true"
+                        tabindex="0" 
+                        class="auto-form-placeholder">Assign</div>
+
+                    <div *ngIf="selectedUser" class="auto-selected-value auto-color-none with-avatar" tabindex="0">
+                        <div class="selected-value-box">
+                            <div class="zz-avatar zz-avatar-small"  
+                            [ngClass]="{ 'zz-avatar-bg1' : selectedUser !== null}" >{{selectedUser.Initials}}</div>
+                            <div class="selected-value-label">{{selectedUser.Fullname}}</div>
+                        </div>
+                       
+                        <a class="auto-remove-value" tabindex="-1" (click)="onUserClear()">
+                            <span [innerHTML]="'x' | feather:'featherIcon i12 iGray'"></span>
+                        </a>
+                    </div>
+
+                    <!-- Autocomlete user control -->
+                    <people-autopselect 
+                        *ngIf="showAutocomplete" 
+                        [data]="fiteredUsers" 
+                        (onFilterChange)="handleFilterChange($event)"
+                        (onSelectValue)="handleSelectValue($event)"></people-autopselect>
+
+                </div>
+                <label class="auto-untill-label">on</label>
+
+                <!-- Due date picker -->
+                <div class="auto-form-wrapper">
+                    <div *ngIf="!model.EndDate" 
+                            [ngClass]="{'error-with-border': errorModel?.EndDate}" 
+                            (click)="d.toggle()"
+                            tabindex="0" 
+                            class="auto-form-placeholder" >Due date</div>
+
+                    <div *ngIf="model.EndDate" class="auto-selected-value auto-color-none" tabindex="0">
+                        <div class="selected-value-label">{{model.EndDate | date }}</div>
+                        <a class="auto-remove-value" tabindex="-1" (click)="onDateClear()">
+                            <span [innerHTML]="'x' | feather:'featherIcon i12 iGray'"></span>
+                        </a>
+                    </div>
+                    <input style="display:none" name="dp" (dateSelect)="onDateSelect($event)" ngbDatepicker #d="ngbDatepicker">
                 </div>
             </div>
         </div>
+
+        <!-- Promise Description Control -->
         <div class="form-group">
-            <textarea class="form-control" [(ngModel)]="model.Description" placeholder="Description" name="description" rows="3" #description="ngModel"></textarea>
+            <textarea class="form-control no-borders-control textarea-control" [(ngModel)]="model.Description"
+                placeholder="Description" name="description" rows="5" #description="ngModel"></textarea>
         </div>
     </form>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-primary" (click)="closeModal()">Cancel</button>
-    <button type="button" class="btn btn-secondary" (click)="submitForm()">Create</button>
+    <div class="modal-footer-actions-left">
+        <div class="icon-btn-container">
+            <div class="icon-action-holder">
+                <a class="icon-action" placement="top" ngbTooltip="Add Image">
+                    <span [innerHTML]="'image' | feather:'featherIcon i16 iGray'"></span>
+                </a>
+            </div>
+            <div class="icon-action-holder">
+                <a class="icon-action" placement="top" ngbTooltip="Add File">
+                    <span [innerHTML]="'paperclip' | feather:'featherIcon i16 iGray'"></span>
+                </a>
+            </div>
+            <div class="icon-action-holder">
+                <a class="icon-action" placement="top" ngbTooltip="Add Location">
+                    <span [innerHTML]="'map-pin' | feather:'featherIcon i16 iGray'"></span>
+                </a>
+            </div>
+            <div class="icon-action-holder">
+                <a class="icon-action" placement="top" ngbTooltip="Like">
+                    <span [innerHTML]="'droplet' | feather:'featherIcon i16 iGray'"></span>
+                </a>
+                <color-picker-slider (onSelectColor)="handleSelectColor($event)"></color-picker-slider>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer-actions-right">
+        <button type="button" class="btn btn-sm btn-blue" (click)="submitForm()">Create Promise</button>
+    </div>
 </div>

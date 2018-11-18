@@ -37,4 +37,8 @@ export abstract class Utils {
 
         $.ajax(ajaxSettings);
     }
+
+    public static getRandomNumberFromInterval(min, max): number {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
 }

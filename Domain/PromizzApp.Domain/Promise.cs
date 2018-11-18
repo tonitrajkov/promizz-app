@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,22 +15,29 @@ namespace PromizzApp.Domain
         [MaxLength(1000)]
         public string Title { get; set; }
 
+        public int UserId { get; set; }
+
+        [Required]
+        [ForeignKey("UserId")]
+        public virtual User Owner { get; set; }
+
         public string Description { get; set; }
 
         public int StateId { get; set; }
 
         [Required]
         [ForeignKey("StateId")]
-        public PromiseState State { get; set; }
-
-        public int OwnerId { get; set; }
-
-        [Required]
-        [ForeignKey("OwnerId")]
-        public User Owner { get; set; }
+        public virtual PromiseState State { get; set; }
 
         [MaxLength(10)]
         public string Color { get; set; }
+
         public DateTime EndDate { get; set; }
+
+        public DateTime DateAdded { get; set; }
+
+        public DateTime DateModified { get; set; }
+
+        public virtual IEnumerable<PromiseMember> Members { get; set; }
     }
 }

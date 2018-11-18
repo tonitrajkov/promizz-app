@@ -10,8 +10,12 @@ namespace PromizzApp.Domain
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(500)]
-        public string Fullname { get; set; }
+        [MaxLength(200)]
+        public string Firstname { get; set; }
+
+        [Required]
+        [MaxLength(200)]
+        public string Lastname { get; set; }
 
         [Required]
         [MaxLength(500)]

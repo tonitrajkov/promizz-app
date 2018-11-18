@@ -57,8 +57,10 @@ namespace PromizzApp.API
             services.RegisterFluentValidators();
 
             services.AddDbContext<PromizzAppContext>(
-               options => options.UseSqlServer(
-                    Configuration.GetConnectionString("PromizzAppConnection")));
+               options =>
+               options
+               .UseLazyLoadingProxies()
+               .UseSqlServer(Configuration.GetConnectionString("PromizzAppConnection")));
 
             // Register Repository and Services
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
@@ -85,9 +87,7 @@ namespace PromizzApp.API
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            Mappers.Configuration.Initialize();
-
+            
             app.ConfigureCustomExceptionMiddleware();
             app.UseCors("AllowAllOrigins");
             app.UseAuthentication();

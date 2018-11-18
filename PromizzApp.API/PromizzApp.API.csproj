@@ -12,6 +12,7 @@
     <PackageReference Include="FluentValidation.AspNetCore" Version="7.5.0" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="2.6.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
   </ItemGroup>
@@ -24,7 +25,6 @@
     <ProjectReference Include="..\Business\PromizzApp.Services.Interfaces\PromizzApp.Services.Interfaces.csproj" />
     <ProjectReference Include="..\Business\PromizzApp.Services\PromizzApp.Services.csproj" />
     <ProjectReference Include="..\Configuration\PromizzApp.Config\PromizzApp.Config.csproj" />
-    <ProjectReference Include="..\Configuration\PromizzApp.Mappers\PromizzApp.Mappers.csproj" />
     <ProjectReference Include="..\Data\PromizzApp.Data\PromizzApp.Data.csproj" />
     <ProjectReference Include="..\Models\PromizzApp.Models.Validators\PromizzApp.Models.Validators.csproj" />
     <ProjectReference Include="..\Models\PromizzApp.Models\PromizzApp.Models.csproj" />

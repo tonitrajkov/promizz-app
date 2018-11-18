@@ -170,11 +170,13 @@ namespace PromizzApp.Data.Migrations
                     b.Property<string>("Color")
                         .HasMaxLength(10);
 
+                    b.Property<DateTime>("DateAdded");
+
+                    b.Property<DateTime>("DateModified");
+
                     b.Property<string>("Description");
 
                     b.Property<DateTime>("EndDate");
-
-                    b.Property<int>("OwnerId");
 
                     b.Property<int>("StateId");
 
@@ -182,13 +184,42 @@ namespace PromizzApp.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(1000);
 
-                    b.HasKey("Id");
+                    b.Property<int>("UserId");
 
-                    b.HasIndex("OwnerId");
+                    b.HasKey("Id");
 
                     b.HasIndex("StateId");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Promises");
+                });
+
+            modelBuilder.Entity("PromizzApp.Domain.PromiseMember", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool?>("Accept");
+
+                    b.Property<int?>("GroupId");
+
+                    b.Property<int>("PromiseId");
+
+                    b.Property<int?>("PromiseeId");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GroupId");
+
+                    b.HasIndex("PromiseId");
+
+                    b.HasIndex("PromiseeId");
+
+                    b.ToTable("PromiseMembers");
                 });
 
             modelBuilder.Entity("PromizzApp.Domain.PromiseState", b =>
@@ -224,9 +255,13 @@ namespace PromizzApp.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(500);
 
-                    b.Property<string>("Fullname")
+                    b.Property<string>("Firstname")
                         .IsRequired()
-                        .HasMaxLength(500);
+                        .HasMaxLength(200);
+
+                    b.Property<string>("Lastname")
+                        .IsRequired()
+                        .HasMaxLength(200);
 
                     b.Property<string>("Username")
                         .IsRequired()
@@ -268,15 +303,31 @@ namespace PromizzApp.Data.Migrations
 
             modelBuilder.Entity("PromizzApp.Domain.Promise", b =>
                 {
-                    b.HasOne("PromizzApp.Domain.User", "Owner")
-                        .WithMany()
-                        .HasForeignKey("OwnerId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("PromizzApp.Domain.PromiseState", "State")
                         .WithMany()
                         .HasForeignKey("StateId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("PromizzApp.Domain.User", "Owner")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("PromizzApp.Domain.PromiseMember", b =>
+                {
+                    b.HasOne("PromizzApp.Domain.Group", "PromiseeGroup")
+                        .WithMany()
+                        .HasForeignKey("GroupId");
+
+                    b.HasOne("PromizzApp.Domain.Promise", "Promise")
+                        .WithMany()
+                        .HasForeignKey("PromiseId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("PromizzApp.Domain.User", "Promisee")
+                        .WithMany()
+                        .HasForeignKey("PromiseeId");
                 });
 #pragma warning restore 612, 618
         }

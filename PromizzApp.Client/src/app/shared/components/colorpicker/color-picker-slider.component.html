@@ -1,0 +1,22 @@
+<div>
+    <table class="color-table-wrapper" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td class="btn-container">
+                    <a (click)="toggleColors()">
+                        <div class="icon-container" [ngStyle]="{'background-color': getIconBgColor()}">
+                            <div class="icon">
+                                    <span [innerHTML]="'droplet' | feather:'featherIcon i16 iGray'"></span>
+                            </div>
+                        </div>
+                    </a>
+                </td>
+                <td class="color-container" (click)="selectColor(color)" *ngFor="let color of colors" style="transform: translateX(1px);">
+                    <div>
+                        <div class="color-box" [ngStyle]="{'background-color': color.Name}"></div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

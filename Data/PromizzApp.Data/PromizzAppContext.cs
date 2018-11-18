@@ -12,6 +12,7 @@ namespace PromizzApp.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Promise> Promises { get; set; }
         public DbSet<PromiseState> PromiseStates { get; set; }
+        public DbSet<PromiseMember> PromiseMembers { get; set; }
         public DbSet<History> History { get; set; }
         public DbSet<HistoryActionType> HistoryActionTypes { get; set; }
         public DbSet<Group> Groups { get; set; }

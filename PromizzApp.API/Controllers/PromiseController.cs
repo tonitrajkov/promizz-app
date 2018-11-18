@@ -29,7 +29,7 @@ namespace PromizzApp.API.Controllers
         #endregion
 
         [HttpPost]
-        public async Task<IActionResult> AddPromise([FromBody] PromiseModel model)
+        public async Task<IActionResult> AddPromise([FromBody] PromiseAddModel model)
         {
             if (model == null)
                 return BadRequest();
@@ -39,30 +39,21 @@ namespace PromizzApp.API.Controllers
 
             if (!string.IsNullOrEmpty(_userInfoService.UserId))
             {
-                model.OwnerId = int.Parse(_userInfoService.UserId);
-                await _promiseService.AddPromise(model);
-                return Ok();
+                await _promiseService.AddPromise(model, int.Parse(_userInfoService.UserId));
+                return Ok(true);
             }
 
             return BadRequest();
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetPromises()
+        [Route("loadpromises")]
+        [HttpPost]
+        public async Task<IActionResult> GetPromises([FromBody] PromiseSearchModel model)
         {
             if (!string.IsNullOrEmpty(_userInfoService.UserId))
             {
-                //var promise = new PromiseModel
-                //{
-                //    EndDate = DateTime.Now,
-                //    OwnerId = int.Parse(_userInfoService.UserId),
-                //    Title = "Tell you a story",
-                //    Description = "Dec"
-                //};
-
-                //await _promiseService.CreatePromise(promise);
-
-                var promises = await _promiseService.LoadPromisesByOwner(int.Parse(_userInfoService.UserId));
+                model.UserId = int.Parse(_userInfoService.UserId);
+                var promises = await _promiseService.LoadPromises(model);
                 return Ok(promises);
             }
             return BadRequest();

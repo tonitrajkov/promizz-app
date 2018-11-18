@@ -3,7 +3,7 @@
         <div class="mainContainer row">
             <div class="col-md-12">
 
-                <div class="zzCard row">
+                <!-- <div class="zzCard row">
                     <div class="col-md-8 titleHolder">
                         <span>{{sectionTitle}}</span>
                     </div>
@@ -47,6 +47,48 @@
                             </a>
                         </li>
                     </ul>
+                </div> -->
+
+                <div class="wrapper">
+                    <div class="main">
+                        <h1 id="searchterm" class="searchterm -visible">{{sectionTitle}}</h1>
+                        <ul class="results -flame" id="results" *ngIf='isLoading'>
+                            <li class="-loading" style="grid-row-end: span 7;">
+                                <div class="loader" style="animation-delay: 0s;"></div>
+                            </li>
+                            <li class="-loading" style="grid-row-end: span 5;">
+                                <div class="loader" style="animation-delay: 0s;"></div>
+                            </li>
+                            <li class="-loading" style="grid-row-end: span 9;">
+                                <div class="loader" style="animation-delay: 0s;"></div>
+                            </li>
+                            <li class="-loading" style="grid-row-end: span 5;">
+                                <div class="loader" style="animation-delay: 0s;"></div>
+                            </li>
+                            <li class="-loading" style="grid-row-end: span 7;">
+                                <div class="loader" style="animation-delay: 0s;"></div>
+                            </li>
+                            <li class="-loading" style="grid-row-end: span 9;">
+                                <div class="loader" style="animation-delay: 0s;"></div>
+                            </li>
+                            <li class="-loading" style="grid-row-end: span 5;">
+                                <div class="loader" style="animation-delay: 0s;"></div>
+                            </li>
+                            <li class="-loading" style="grid-row-end: span 7;">
+                                <div class="loader" style="animation-delay: 0s;"></div>
+                            </li>
+                            <li class="-loading" style="grid-row-end: span 3;">
+                                <div class="loader" style="animation-delay: 0s;"></div>
+                            </li>
+                        </ul>
+                        <ul class="results -flame" id="results" *ngIf='!isLoading'>
+                            <li style="grid-row-end: span 7;" *ngFor="let promise of promises">
+                                <div class="inner -dark -show" [ngStyle]="{'background-color': promise.Color}">
+                                    <p><button type="button" data-clipboard-text="#842204" tabindex="-1">{{promise.Title}}</button></p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
             </div>

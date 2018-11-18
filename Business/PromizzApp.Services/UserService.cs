@@ -2,7 +2,6 @@
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
 using PromizzApp.Config.Helpers;
@@ -45,7 +44,7 @@ namespace PromizzApp.Services
             if (user == null)
                 throw new PromizzObjectNullException("USER_DOES_NOT_EXIST");
 
-            return Mapper.Map<UserModel>(user);
+            return user.ToModel();
         }
 
         public async Task UpdateUser(UserModel model)
@@ -55,7 +54,8 @@ namespace PromizzApp.Services
                 throw new PromizzObjectNullException("USER_DOES_NOT_EXIST");
 
             user.Bio = model.Bio;
-            user.Fullname = model.Fullname;
+            user.Firstname = model.Firstname;
+            user.Lastname = model.Lastname;
             user.Username = model.Username;
             user.Email = model.Email;
 
@@ -67,11 +67,12 @@ namespace PromizzApp.Services
             var filterValueLowered = filterValue.ToLower();
 
             var users = (await _userRepository.GetAllAsync())
-                        .Where(u => u.Fullname.ToLower().Contains(filterValueLowered)
+                        .Where(u => u.Firstname.ToLower().Contains(filterValueLowered)
+                                || u.Lastname.ToLower().Contains(filterValueLowered)
                                 || u.Email.ToLower().Contains(filterValueLowered)
                                 || u.Username.ToLower().Contains(filterValueLowered));
 
-            return users.Select(u => Mapper.Map<UserModel>(u)).ToList();
+            return users.Select(u => u.ToModel()).ToList();
         }
 
         #region Friendship
@@ -166,7 +167,7 @@ namespace PromizzApp.Services
                       .FromSql("Exec [dbo].[LoadUserFriendshipConnectionsByState] @UserId, @StateId", parameters)
                       .ToListAsync();
 
-            return friends.Select(f => Mapper.Map<UserModel>(f)).ToList();
+            return friends.Select(f => f.ToModel()).ToList();
         }
 
         #endregion

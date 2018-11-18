@@ -8,6 +8,7 @@ namespace PromizzApp.Models.Validators
         public static void RegisterFluentValidators(this IServiceCollection services)
         {
             services.AddSingleton<IValidator<PromiseModel>, PromiseValidator>();
+            services.AddSingleton<IValidator<PromiseAddModel>, PromiseAddValidator>();
         }
     }
 }

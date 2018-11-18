@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Configuration\PromizzApp.Config\PromizzApp.Config.csproj" />
+    <ProjectReference Include="..\..\Domain\PromizzApp.Domain\PromizzApp.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

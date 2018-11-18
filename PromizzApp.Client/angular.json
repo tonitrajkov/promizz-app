@@ -29,9 +29,9 @@
               }
             ],
             "styles": [
+              "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/ngx-toastr/toastr.css",
-              "src/styles.css",
               "src/style/variables.less",
               "src/style/theme.less",
               "src/style/icons.less",
@@ -41,6 +41,8 @@
               "src/style/auth.less",
               "src/style/settings.less",
               "src/style/home.less",
+              "src/style/nav.less",
+              "src/style/modals.less",
               "src/style/app.less"
             ],
             "scripts": []

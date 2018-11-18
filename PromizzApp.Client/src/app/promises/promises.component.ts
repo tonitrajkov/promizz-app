@@ -8,6 +8,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PromiseService } from './shared/promise.service';
 import { PromiseModel } from '../shared/models/promise.model';
 import { PromiseAddModalComponent } from './promise-add/promise-add-dialog.component';
+import { PromiseSearchModel } from '../shared/models/search.model';
 
 @Component({
     templateUrl: './promises.component.html'
@@ -18,7 +19,9 @@ export class PromisesComponent implements OnInit, OnDestroy {
     private assign: string;
     private sub: Subscription;
     private listView: boolean = false;
+    private isLoading: boolean;
     public sectionTitle: string = '';
+    public searchModel: PromiseSearchModel = new PromiseSearchModel();
 
     constructor(
         private promiseService: PromiseService,
@@ -29,19 +32,24 @@ export class PromisesComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.sub = this.route.queryParams.subscribe(
             params => {
-                this.assign = params['assign'];
-                if (this.assign == 'to') {
+                this.isLoading = true;
+                this.searchModel.Assing =  params['assign'];
+
+                if (this.searchModel.Assing === 'to') {
                     this.sectionTitle = 'Promises made to me';
                 }
-                if (this.assign == 'by') {
+                if (this.searchModel.Assing === 'by') {
                     this.sectionTitle = 'Promises by me';
                 }
 
-                this.promiseService.loadPromises()
+                this.promiseService.loadPromises(this.searchModel)
                     .pipe(first())
                     .subscribe(
                         promises => {
                             this.promises = promises;
+                            setTimeout(() => {
+                                this.isLoading = false;
+                            }, 2000);
                         },
                         error => {
                             console.log(error);

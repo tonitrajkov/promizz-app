@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Compile Remove="Migrations\20180718171615_initial.cs" />
+    <Compile Remove="Migrations\20181115182023_promisee-to-promise-table.cs" />
   </ItemGroup>
 
   <ItemGroup>

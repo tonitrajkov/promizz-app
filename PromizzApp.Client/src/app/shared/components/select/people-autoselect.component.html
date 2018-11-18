@@ -1,0 +1,24 @@
+<div class="auto-control-wrapper" (click)="clickedInside($event)">
+    <input autofocus [formControl]="inputControl" style="width: 300px; font-size: 13px" placeholder="Assign" type="text"
+        class="form-control no-borders-control" />
+
+    <div class="zz-dropdown" *ngIf="items.length > 0">
+        <div class="scrollable-list">
+            <div class="list-container">
+                <div class="item-wrapper" *ngFor="let item of items" (click)="onSelectItem(item)">
+                    <div class="item-holder">
+                        <div class="item-icon">
+                            <div class="zz-avatar zz-avatar-small zz-avatar-bg2">{{item.Initials}}</div>
+                        </div>
+                        <div class="item-label">
+                            <div class="text-container">
+                                {{item.Fullname}}
+                                <div *ngIf="item.Email" class="small-text">{{item.Email}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

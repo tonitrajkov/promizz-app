@@ -40,7 +40,8 @@ const routes: Routes = [
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
             { path: 'dashboard', component: DashboardComponent },
             { path: 'promises', loadChildren: './promises/promise.module#PromiseModule' },
-            { path: 'profile', loadChildren: './profile/profile.module#ProfileModule' }
+            { path: 'profile', loadChildren: './profile/profile.module#ProfileModule' },
+            { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
             // { path: 'account/:username', component: ProfileComponent }
         ]
     },

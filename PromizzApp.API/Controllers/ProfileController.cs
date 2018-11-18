@@ -58,5 +58,13 @@ namespace PromizzApp.API.Controllers
 
             return Ok(friends);
         }
+
+        [Route("filterusers/{filterValue}")]
+        [HttpGet]
+        public async Task<ActionResult> GetUsersFiltered(string filterValue)
+        {
+            var users = await _userService.FilterUsers(filterValue);
+            return Ok(users);
+        }
     }
 }

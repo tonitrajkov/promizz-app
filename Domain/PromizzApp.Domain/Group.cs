@@ -17,6 +17,6 @@ namespace PromizzApp.Domain
 
         [Required]
         [ForeignKey("OwnerId")]
-        public User Owner { get; set; }
+        public virtual User Owner { get; set; }
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
 
 using PromizzApp.Config.Helpers;
 using PromizzApp.Data.Interfaces;
@@ -19,27 +18,47 @@ namespace PromizzApp.Services
         private readonly IRepository<Promise> _promiseRepository;
         private readonly IRepository<User> _userRepository;
         private readonly IRepository<PromiseState> _promiseStateRepository;
+        private readonly IRepository<PromiseMember> _promiseMemberRepository;
 
         public PromiseService(
             IRepository<Promise> promiseRepository,
             IRepository<User> userRepository,
-            IRepository<PromiseState> promiseStateRepository
+            IRepository<PromiseState> promiseStateRepository,
+            IRepository<PromiseMember> promiseMemberRepository
             )
         {
             _promiseRepository = promiseRepository;
             _promiseStateRepository = promiseStateRepository;
             _userRepository = userRepository;
+            _promiseMemberRepository = promiseMemberRepository;
         }
 
         #endregion
 
-        public async Task AddPromise(PromiseModel model)
+        public async Task AddPromise(PromiseAddModel model, int ownerId)
         {
-            var promise = Mapper.Map<Promise>(model);
-            promise.Color = "#AAA";
+            var promise = model.ToDomain();
+            promise.UserId = ownerId;
             promise.StateId = 1;
+            promise.DateAdded = DateTime.Now;
+            promise.DateModified = DateTime.Now;
 
             await _promiseRepository.CreateAsync(promise);
+
+            if(model.Promisees.Count() > 0)
+            {
+                foreach (var item in model.Promisees)
+                {
+                    var member = new PromiseMember
+                    {
+                        PromiseeId = item,
+                        PromiseId = promise.Id,
+                        UserId = ownerId
+                    };
+
+                    await _promiseMemberRepository.CreateAsync(member);
+                }
+            }
         }
 
         public async Task UpdatePromise(PromiseModel model)
@@ -61,25 +80,31 @@ namespace PromizzApp.Services
             if (promise == null)
                 throw new PromizzObjectNotFoundException("PROMISE_IS_NOT_FOUND");
 
-            return Mapper.Map<PromiseModel>(promise);
+            return promise.ToModel();
         }
 
-        public async Task<List<PromiseModel>> LoadPromisesByOwner(int ownerId)
+        public async Task<List<PromiseModel>> LoadPromises(PromiseSearchModel model)
         {
-            var promises = (await _promiseRepository.GetAllAsync()).Where(p => p.OwnerId == ownerId);
+            if (model == null)
+                throw new PromizzObjectNullException("SEARCH_MODEL_NULL");
 
-            return promises.Select(p => Mapper.Map<PromiseModel>(p)).ToList();
-        }
+            if (string.IsNullOrEmpty(model.Assing))
+                throw new PromizzGeneralException("PROMISE_BAD_PARAMETERS");
 
-        public async Task<List<PromiseModel>> LoadPromisesForParticipant(int participantId)
-        {
-            var user = await _userRepository.GetByIdAsync(participantId);
-
-            return  new List<PromiseModel>
+            if(model.Assing.ToLower() == "to")
             {
-                new PromiseModel{ Id = 22, OwnerId = 44, Title = "Pay date (In memory)", Description = "Pay date Description something", EndDate = DateTime.Now.AddDays(10), Color = "#010", StateId = 1},
-                new PromiseModel{ Id = 23, OwnerId = 10, Title = "Learn Spanish (in memory)", Description = "Learn Spanish Description something",  EndDate = DateTime.Now.AddDays(5), Color = "#010", StateId = 1}
-            };
+                return (await _promiseRepository.GetAllAsync())
+                                .Where(p => p.Members.Any(m => m.PromiseeId == model.UserId))
+                                .Select(p => p.ToModel()).ToList();
+            }
+            else if(model.Assing.ToLower() == "by")
+            {
+                return (await _promiseRepository.GetAllAsync())
+                            .Where(p => p.UserId == model.UserId)
+                            .Select(p => p.ToModel()).ToList();
+            }
+
+            return new List<PromiseModel>();
         }
     }
 }
