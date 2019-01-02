@@ -1,27 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { first } from 'rxjs/operators';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+import { PromiseModel, PromiseSearchModel } from '../shared/index';
 import { PromiseService } from './shared/promise.service';
-import { PromiseModel } from '../shared/models/promise.model';
 import { PromiseAddModalComponent } from './promise-add/promise-add-dialog.component';
-import { PromiseSearchModel } from '../shared/models/search.model';
 
 @Component({
     templateUrl: './promises.component.html'
 })
 export class PromisesComponent implements OnInit, OnDestroy {
 
-    private promises: PromiseModel[];
-    private assign: string;
-    private sub: Subscription;
-    private listView: boolean = false;
-    private isLoading: boolean;
     public sectionTitle: string = '';
     public searchModel: PromiseSearchModel = new PromiseSearchModel();
+    public data = new EventEmitter<PromiseModel[]>();
+  
+    private sub: Subscription;
 
     constructor(
         private promiseService: PromiseService,
@@ -29,40 +25,29 @@ export class PromisesComponent implements OnInit, OnDestroy {
         private modalService: NgbModal
     ) { }
 
-    ngOnInit() {
+    public ngOnInit() {
         this.sub = this.route.queryParams.subscribe(
             params => {
-                this.isLoading = true;
-                this.searchModel.Assing =  params['assign'];
+                this.searchModel.Assing = params['assign'];
 
                 if (this.searchModel.Assing === 'to') {
-                    this.sectionTitle = 'Promises made to me';
+                    this.sectionTitle = 'PROMISES_TO_ME';
                 }
-                if (this.searchModel.Assing === 'by') {
-                    this.sectionTitle = 'Promises by me';
+                
+                if (this.searchModel.Assing === 'my') {
+                    this.sectionTitle = 'MY_PROMISES';
                 }
 
-                this.promiseService.loadPromises(this.searchModel)
-                    .pipe(first())
-                    .subscribe(
-                        promises => {
-                            this.promises = promises;
-                            setTimeout(() => {
-                                this.isLoading = false;
-                            }, 2000);
-                        },
-                        error => {
-                            console.log(error);
-                        });
+                this.loadPromises();
             }
         );
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.sub.unsubscribe();
     }
 
-    openPromiseModal() {
+    public openPromiseModal() {
         const modalRef = this.modalService.open(PromiseAddModalComponent);
 
         modalRef.result.then((result) => {
@@ -70,5 +55,12 @@ export class PromisesComponent implements OnInit, OnDestroy {
         }).catch((error) => {
             console.log(error);
         });
+    }
+
+    private loadPromises() {
+        this.promiseService.loadPromises(this.searchModel)
+            .subscribe(promises => {
+                this.data.emit(promises);
+            });
     }
 }

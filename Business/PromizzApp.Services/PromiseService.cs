@@ -45,7 +45,7 @@ namespace PromizzApp.Services
 
             await _promiseRepository.CreateAsync(promise);
 
-            if(model.Promisees.Count() > 0)
+            if (model.Promisees.Count() > 0)
             {
                 foreach (var item in model.Promisees)
                 {
@@ -91,13 +91,13 @@ namespace PromizzApp.Services
             if (string.IsNullOrEmpty(model.Assing))
                 throw new PromizzGeneralException("PROMISE_BAD_PARAMETERS");
 
-            if(model.Assing.ToLower() == "to")
+            if (model.Assing.ToLower() == "to")
             {
                 return (await _promiseRepository.GetAllAsync())
                                 .Where(p => p.Members.Any(m => m.PromiseeId == model.UserId))
                                 .Select(p => p.ToModel()).ToList();
             }
-            else if(model.Assing.ToLower() == "by")
+            else if (model.Assing.ToLower() == "my")
             {
                 return (await _promiseRepository.GetAllAsync())
                             .Where(p => p.UserId == model.UserId)

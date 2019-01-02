@@ -1,4 +1,4 @@
-import { LookupItem } from "./lookup-item";
+import { LookupItem, UserModel } from "../.";
 
 export class PromiseModel {
     public Id: number;
@@ -8,6 +8,7 @@ export class PromiseModel {
     public OwnerId: number;
     public Color: string = '';
     public EndDate: Date;
+    public Promisee: UserModel;
   
     public constructor(init?:Partial<PromiseModel>) {
         Object.assign(this, init);

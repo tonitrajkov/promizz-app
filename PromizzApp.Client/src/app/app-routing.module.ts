@@ -25,12 +25,6 @@ const routes: Routes = [
     //     children: [
     //         { path: '', component: HomeComponent, pathMatch: 'full' }
     //     ]
-
-    // },
-    // {
-    //     path: '',
-    //     component: PublicComponent,
-    //     loadChildren: () => AuthModule
     // },
     {
         path: '',

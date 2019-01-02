@@ -27,8 +27,9 @@
 
                     <div *ngIf="selectedUser" class="auto-selected-value auto-color-none with-avatar" tabindex="0">
                         <div class="selected-value-box">
-                            <div class="zz-avatar zz-avatar-small"  
-                            [ngClass]="{ 'zz-avatar-bg1' : selectedUser !== null}" >{{selectedUser.Initials}}</div>
+                            <avatar [initials]="selectedUser.Initials" [className]="'zz-avatar-small'"></avatar>
+                            <!-- <div class="zz-avatar zz-avatar-small"  
+                            [ngClass]="{ 'zz-avatar-bg1' : selectedUser !== null}" >{{selectedUser.Initials}}</div> -->
                             <div class="selected-value-label">{{selectedUser.Fullname}}</div>
                         </div>
                        

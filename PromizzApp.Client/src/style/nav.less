@@ -4,9 +4,19 @@
 .nav-container.nav-menu-expanded {
     width: 220px;
     box-shadow: 50px 0 100px @shadow-black;
+    background-color: @color-white;
 
     .nav-btn-holder {
         width: 220px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-btn-holder svg {
+        color: #8a8a8a !important;
+    }
+
+    .full-logo-holder {
+        opacity: 1 !important;
     }
 
     .nav-menu-holder  {
@@ -68,17 +78,15 @@
                 width: 24px;
             }
 
-            .full-icon-holder {
-                display: -ms-flexbox;
-                display: flex;
-                -ms-flex-align: center;
-                align-items: center;
+            .full-logo-holder {
+                -ms-transform-origin: left center;
+                transform-origin: left center;
+                background: url(@blackFullLogo) no-repeat;
+                background-size: contain;        
                 height: 20px;
-                width: 129px;
-                margin-left: 15px;
-                color: @color-white;
+                width: 135px;
                 opacity: 0;
-                transform: translateX(-10px)
+                margin-left: 15px;
             }
         }
     }

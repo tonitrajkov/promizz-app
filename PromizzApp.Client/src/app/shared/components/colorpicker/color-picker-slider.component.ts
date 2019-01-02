@@ -63,28 +63,47 @@ export class Color {
 
 export const COLORS: Color[] = [
     {
-        Name: '#2899F0',
+        Name: '#1BB7F8',
         IsDefault: true
-    },
-    {
-        Name: '#F22E6A',
-        IsDefault: false
-    },
-    {
-        Name: '#E0D10C',
-        IsDefault: false
     },
     {
         Name: '#65901C',
         IsDefault: false
     },
     {
-        Name: '#E52324',
+        Name: '#F49423',
         IsDefault: false
     },
     {
-        Name: '#C17B4E',
+        Name: '#67DAF1',
+        IsDefault: false
+    },
+    {
+        Name: '#A43C44',
+        IsDefault: false
+    },
+    {
+        Name: '#FB3B3D',
+        IsDefault: false
+    },
+    {
+        Name: '#D15A92',
+        IsDefault: false
+    },
+    {
+        Name: '#B6DC92',
+        IsDefault: false
+    },
+    {
+        Name: '#F192C7',
+        IsDefault: false
+    },
+    {
+        Name: '#F1DC66',
+        IsDefault: false
+    },
+    {
+        Name: '#FBDCA7',
         IsDefault: false
     }
-
 ];

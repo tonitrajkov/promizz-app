@@ -2,95 +2,10 @@
     <div class="mainWrapper">
         <div class="mainContainer row">
             <div class="col-md-12">
-
-                <!-- <div class="zzCard row">
-                    <div class="col-md-8 titleHolder">
-                        <span>{{sectionTitle}}</span>
-                    </div>
-                    <div class="col-md-4 text-right actionsHolder">
-                        <a class="btn btn-link" (click)="listView = true">
-                            <span [innerHTML]="'list' | feather:'featherIcon i20 iGray'"></span>
-                        </a>
-                        <a class="btn btn-link" (click)="listView = false">
-                            <span [innerHTML]="'grid' | feather:'featherIcon i20 iGray'"></span>
-                        </a>
-                        <a class="btn btn-link">
-                            <span [innerHTML]="'more-horizontal' | feather:'featherIcon i20 iGray'"></span>
-                        </a>
-                    </div>
+                <div class="additional-info-container">
+                    <span>{{sectionTitle | t}}</span>
                 </div>
-
-                <div class="promisesContainer">
-                    <ul class="promisesCardView" *ngIf='!listView'>
-                        <li class="addPromiseActionContainer">
-                            <a href="javascript:void(0);" (click)="openPromiseModal()" class="addPromiseAction">
-                                <span>Create new promise...</span>
-                            </a>
-                        </li>
-                        <li *ngFor="let promise of promises" [ngStyle]="{'background-color': promise.Color}">
-                            <a href="" [routerLink]="['/promise', promise.Id]">
-                                <h4>{{promise.Title}}</h4>
-                                <p>{{promise.Description}}</p>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <ul class="promisesListView" *ngIf='listView'>
-                        <li class="addPromiseActionContainer" style="padding: 0; margin: 0">
-                            <a href="javascript:void(0);" (click)="openPromiseModal()" class="addPromiseAction">
-                                <span>Create new promise...</span>
-                            </a>
-                        </li>
-                        <li *ngFor="let promise of promises" [ngStyle]="{'background-color': promise.Color}">
-                            <a href="" [routerLink]="['/promise', promise.Id]">
-                                <h4>{{promise.Title}}</h4>
-                            </a>
-                        </li>
-                    </ul>
-                </div> -->
-
-                <div class="wrapper">
-                    <div class="main">
-                        <h1 id="searchterm" class="searchterm -visible">{{sectionTitle}}</h1>
-                        <ul class="results -flame" id="results" *ngIf='isLoading'>
-                            <li class="-loading" style="grid-row-end: span 7;">
-                                <div class="loader" style="animation-delay: 0s;"></div>
-                            </li>
-                            <li class="-loading" style="grid-row-end: span 5;">
-                                <div class="loader" style="animation-delay: 0s;"></div>
-                            </li>
-                            <li class="-loading" style="grid-row-end: span 9;">
-                                <div class="loader" style="animation-delay: 0s;"></div>
-                            </li>
-                            <li class="-loading" style="grid-row-end: span 5;">
-                                <div class="loader" style="animation-delay: 0s;"></div>
-                            </li>
-                            <li class="-loading" style="grid-row-end: span 7;">
-                                <div class="loader" style="animation-delay: 0s;"></div>
-                            </li>
-                            <li class="-loading" style="grid-row-end: span 9;">
-                                <div class="loader" style="animation-delay: 0s;"></div>
-                            </li>
-                            <li class="-loading" style="grid-row-end: span 5;">
-                                <div class="loader" style="animation-delay: 0s;"></div>
-                            </li>
-                            <li class="-loading" style="grid-row-end: span 7;">
-                                <div class="loader" style="animation-delay: 0s;"></div>
-                            </li>
-                            <li class="-loading" style="grid-row-end: span 3;">
-                                <div class="loader" style="animation-delay: 0s;"></div>
-                            </li>
-                        </ul>
-                        <ul class="results -flame" id="results" *ngIf='!isLoading'>
-                            <li style="grid-row-end: span 7;" *ngFor="let promise of promises">
-                                <div class="inner -dark -show" [ngStyle]="{'background-color': promise.Color}">
-                                    <p><button type="button" data-clipboard-text="#842204" tabindex="-1">{{promise.Title}}</button></p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
+                <promise-grid [data]="data"></promise-grid>
             </div>
         </div>
     </div>

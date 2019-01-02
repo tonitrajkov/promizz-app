@@ -175,11 +175,39 @@ body {
         height: 100vh;
         width: 100%;
         background-color: #fafafa;
+
+        .tabbed-body-wrapper {
+            background-color: #fff;
+            height: 100vh;
+            padding: 15px 0;
+        }
     
         .tabbed-body-container {
             width: 1000px;
             min-width: 405px;
             margin: 0 auto;
+        }
+
+        .nav-link  {
+            background-color: #dfe3e6;
+            border: 1px solid #dfe3e6;
+            color: #17394d;
+            font-weight: 600;
+            border-radius: 3px 3px 0 0;
+            margin: 2px 2px 0;
+            padding: 8px 20px;
+
+            &.active {
+                background-color: #fff;
+                border-color: #dfe3e6;
+                cursor: default;
+                border-bottom: 1px solid transparent !important;
+            }
+
+            &:not(.active):hover {
+                background-color: #c2ccd1;
+                border-color: #c2ccd1;
+            }
         }
     }
     
@@ -202,6 +230,15 @@ body {
         .mainContainer {
             width: 1150px;
             min-width: 405px
+        }
+
+        .additional-info-container {
+            padding-bottom: 20px;
+      
+            span {
+                font-size: 20px;
+                font-weight: 600;
+            }
         }
     }
     /* ------- ------- -------- */
@@ -696,6 +733,22 @@ body {
     width: 24px;
 }
 
+.zz-avatar-md {
+    font-size: 12.5px;
+    height: 30px;
+    line-height: 30px;
+    min-width: 30px;
+    width: 30px;
+}
+
+.zz-avatar-ex-lg {
+    font-size: 30px;
+    height: 85px;
+    line-height: 85px;
+    min-width: 85px;
+    width: 85px; 
+}
+
 .zz-avatar-bg1 {
     background-color:#aa62e3 !important;
     color:#fff !important;
@@ -863,4 +916,132 @@ body {
     }
  }
 
+ /* ----------- ------ ------------- */
+
+  /* ---------- PROMISE GRID  --------- */
+
+  .card-contents {
+    padding: 15px;
+    position: relative;
+
+    &:hover{
+        opacity: 0.75 !important;
+        cursor: pointer;
+    }
+
+    .card-tags-container {
+        margin-bottom: 4px;
+        margin-left: -5px; 
+        margin-right: -5px; 
+        align-content: space-between;
+        display: flex;
+        flex-flow: row wrap;
+
+        .card-tag {
+            border-radius: 3px;
+            height: 5px;
+            margin: 5px 5px 0;
+            width: 20%;
+            max-width: 50px;
+            background-color: #fff;
+        }
+    }
+
+    .card-title-container {
+        display: flex;
+        margin-bottom: 5px;
+
+        .card-title {
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 20px;
+            align-items: center;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            display: inline-block;
+            flex-grow: 1;
+            width: 100%;
+            word-wrap: break-word;
+
+            &::after {
+                content: "\200b";
+            }
+        }
+    }
+
+    .card-metadata {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 0 15px 15px 15px;
+        
+        .card-left-metadata {
+            flex: 1 1 auto;
+            flex-direction: column;
+
+            .assignee-duedate-container {
+                align-items: center;
+                display: flex;
+
+                .assignee-metadata {
+                    opacity: 1;
+                    cursor: pointer;
+                    margin-right: 4px;
+                    transition: 200ms box-shadow,200ms color,200ms background,200ms fill;
+                }
+
+                .duedate-container {
+                    opacity: 1;
+                    transition: 200ms box-shadow,200ms color,200ms background,200ms fill;
+
+                    .duedate {
+                        cursor: pointer;
+                        display: inline-block;
+                        font-size: 11px;
+                    }
+                }
+            }
+
+        }
+
+        .card-right-metadata {
+            align-items: flex-end;
+            display: flex;
+            flex: 0 0 auto;
+            justify-content: flex-end;
+            width: 60px;
+        }
+    }
+  }
+
+  .grid-header {
+      font-size: 16px;
+      font-weight: 700;
+      width: 100%;
+      padding-bottom: 5px;
+  }
+
+  .grid-content {
+    font-size: 13px;
+    opacity: 0.8;
+    width: 100%;
+    height: 80%;
+  }
+
+  .grid-footer {
+    width: 100%;
+    height: 15%;
+
+    .grid-badges {
+       float: left;
+    }
+
+    .grid-members {
+        float: right;
+    }
+  }
+  
  /* ----------- ------ ------------- */

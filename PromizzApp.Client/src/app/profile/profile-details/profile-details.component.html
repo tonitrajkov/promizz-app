@@ -1,8 +1,11 @@
 <div class="tabbed-pane-header-wrapper u-clearfix">
     <div class="tabbed-pane-header-content">
-        <a class="tabbed-pane-header-image profile-image is-editable js-change-avatar-profile" href="#"><img class="profile-image-image"
+        <a class="tabbed-pane-header-image profile-image is-editable js-change-avatar-profile" href="#">
+                <avatar [initials]="user?.Initials" [className]="'zz-avatar-ex-lg'"></avatar>
+            <!-- <img class="profile-image-image"
                 src="https://trello-avatars.s3.amazonaws.com/e5a66a84d2f306c912bb9f2ed6651719/170.png" alt="Toni Trajkov"><span
-                class="profile-image-change-text">Change Avatar</span></a>
+                class="profile-image-change-text">Change Avatar</span> -->
+            </a>
 
         <div class="tabbed-pane-header-details">
             <div class="js-current-details" *ngIf="canEdit && !isEditing">

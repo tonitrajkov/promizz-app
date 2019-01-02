@@ -8,7 +8,7 @@
                     </a>
                 </span>
             </div>
-            <span class="full-icon-holder">Promizz</span>
+            <a routerLink="/" class="full-logo-holder"></a>
         </a>
     </div>
 
@@ -23,16 +23,16 @@
                                     <span [innerHTML]="'home' | feather:'featherIcon i20 iGreyDark'"></span>
                                 </a>
                             </span>
-                            <span class="menu-item-label">Home</span>
+                            <span class="menu-item-label">{{'DASHBOARD' | t}}</span>
                         </a>
                         <a aria-selected="false" role="tab" tabindex="22" href="" class="menu-item" 
-                        [routerLink]="['/promises']" [queryParams]="{ assign: 'by' }" [routerLinkActive]="['menu-item-active']">
+                        [routerLink]="['/promises']" [queryParams]="{ assign: 'my' }" [routerLinkActive]="['menu-item-active']">
                             <span class="menu-item-icon-holder">
                                 <a class="icon-holder" href="">
                                     <span [innerHTML]="'send' | feather:'featherIcon i20 iGreyDark'"></span>
                                 </a>
                             </span>
-                            <span class="menu-item-label">Promises by me</span>
+                            <span class="menu-item-label">{{'MY_PROMISES' | t}}</span>
                         </a>
                         <a aria-selected="false" role="tab" tabindex="23" href="" class="menu-item" 
                         [routerLink]="['/promises']" [queryParams]="{ assign: 'to' }" [routerLinkActive]="['menu-item-active']">
@@ -41,7 +41,7 @@
                                     <span [innerHTML]="'anchor' | feather:'featherIcon i20 iGreyDark'"></span>
                                 </a>
                             </span>
-                            <span class="menu-item-label">Promises to me</span>
+                            <span class="menu-item-label">{{'PROMISES_TO_ME' | t}}</span>
                         </a>
                         <a aria-selected="false" role="tab" tabindex="24" href="" class="menu-item">
                             <span class="menu-item-icon-holder">
@@ -49,7 +49,7 @@
                                     <span [innerHTML]="'search' | feather:'featherIcon i20 iGreyDark'"></span>
                                 </a>
                             </span>
-                            <span class="menu-item-label">Search</span>
+                            <span class="menu-item-label">{{'SEARCH' | t}}</span>
                         </a>
                         <a aria-selected="false" role="tab" tabindex="25" href="" class="menu-item">
                             <span class="menu-item-icon-holder">
@@ -57,15 +57,16 @@
                                     <span [innerHTML]="'star' | feather:'featherIcon i20 iGreyDark'"></span>
                                 </a>
                             </span>
-                            <span class="menu-item-label">About</span>
+                            <span class="menu-item-label">Challenges</span>
                         </a>
-                        <a aria-selected="false" role="tab" tabindex="22" href="" class="menu-item">
+                        <a aria-selected="false" role="tab" tabindex="22" href="" class="menu-item"
+                        [routerLink]="['/profile']"  [routerLinkActive]="['menu-item-active']">
                             <span class="menu-item-icon-holder">
                                 <a class="icon-holder" href="">
                                     <span [innerHTML]="'user' | feather:'featherIcon i20 iGreyDark'"></span>
                                 </a>
                             </span>
-                            <span class="menu-item-label">Profile</span>
+                            <span class="menu-item-label">{{'PROFILE' | t}}</span>
                         </a>
                     </div>
                 </div>

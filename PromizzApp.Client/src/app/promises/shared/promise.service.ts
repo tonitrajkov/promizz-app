@@ -1,21 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
 
-import { ExceptionService } from '../../core/exception.service';
-
-import { PromiseModel, PromiseAddModel } from '../../shared/models/promise.model';
+import { PromiseModel, PromiseAddModel, UserModel, PromiseSearchModel } from '../../shared/index';
 import { environment } from '../../../environments/environment';
-import { UserModel } from '../../shared/models/user.model';
-import { PromiseSearchModel } from '../../shared/models/search.model';
 
 @Injectable()
 export class PromiseService {
     apiUrl = environment.apiUrl;
 
-    constructor(private http: HttpClient,
-        private exceptionService: ExceptionService) { }
+    constructor(private http: HttpClient) { }
 
     loadPromises(model: PromiseSearchModel): Observable<PromiseModel[]> {
         return this.http.post<PromiseModel[]>(`${this.apiUrl}/promise/loadpromises`, model,

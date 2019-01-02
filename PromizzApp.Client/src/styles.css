@@ -55,8 +55,10 @@ body.-active>.wrapper {
 }
 
 .searchterm {
-    font-size: 5rem;
-    margin-bottom: 4rem;
+    /* font-size: 5rem;
+    margin-bottom: 4rem; */
+    font-size: 2.125rem;
+    margin-bottom: 2.3rem;
     display: none
 }
 
@@ -68,7 +70,8 @@ body.-active>.wrapper {
 
 .main {
     width: 100%;
-    max-width: 112rem;
+    /* max-width: 112rem; */
+    max-width: 70rem;
     margin: 0 auto
 }
 
@@ -331,7 +334,8 @@ input:-moz-placeholder {
     margin-bottom: 4rem;
     padding-top: 25%;
     position: relative;
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
+    border-radius: 4px;
     box-shadow: 0 1rem 2rem 0 rgba(208, 223, 232, .35);
     overflow: hidden;
     background: #f1f4f7;
@@ -405,6 +409,14 @@ input:-moz-placeholder {
 
 .results li>.inner.-dark>p {
     color: #fff
+}
+
+.results li>.inner.-dark {
+    color: #fff
+}
+
+.results li>.inner.-light {
+    color: #000;
 }
 
 .results li>.inner.-dark>.image>.icon {
@@ -527,11 +539,15 @@ input:-moz-placeholder {
 @supports (display:grid) {
     .results {
         display: grid;
-        grid-gap: 4rem;
-        grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr));
-        grid-auto-rows: .5rem;
-        padding-bottom: 4rem;
-        padding-bottom: calc(4rem + env(safe-area-inset-bottom))
+        /* grid-gap: 4rem; */
+        grid-gap: 2rem;
+        /* grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr)); */
+        grid-template-columns: repeat(auto-fill, minmax(13.125rem, 1fr));
+        /* grid-auto-rows: .5rem; */
+        /* padding-bottom: 4rem; */
+        grid-auto-rows: 0.3125rem;
+        padding-bottom: 2.5rem;
+        padding-bottom: calc(2.5rem + env(safe-area-inset-bottom))
     }
     @media screen and (max-width:789px) {
         .results.-chess li:nth-child(3),
@@ -559,8 +575,10 @@ input:-moz-placeholder {
     }
     @media screen and (max-height:710px) {
         .results {
-            grid-auto-rows: .2rem;
-            grid-gap: 3rem
+            /* grid-auto-rows: .2rem;
+            grid-gap: 3rem */
+            grid-auto-rows: .125rem;
+            grid-gap: 1.875rem;
         }
     }
     @media screen and (max-width:700px) {

@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { first } from 'rxjs/operators';
 
 import { PromiseService } from '../shared/promise.service';
-import { PromiseModel } from '../../shared/models/promise.model';
+import { PromiseModel } from '../../shared/index';
 
 @Component({
     templateUrl: './promise-detail.component.html'
@@ -27,15 +26,9 @@ export class PromiseDetailComponent implements OnInit, OnDestroy {
                 this.promiseId = params['promiseId'];
 
                 this.promiseService.getPromise(this.promiseId)
-                    .pipe(first())
-                    .subscribe(
-                        promise => {
-                            this.promise = promise;
-                        },
-                        error => {
-                            console.log('Error');
-                            console.log(error);
-                        });
+                    .subscribe(promise => {
+                        this.promise = promise;
+                    });
             }
         );
     }
@@ -46,10 +39,10 @@ export class PromiseDetailComponent implements OnInit, OnDestroy {
 
     updatePromise() {
         this.promiseService.updatePromise(this.promise)
-            .pipe(first())
             .subscribe(result => {
-                if (result)
-                    alert("Promise Updated")
+                if (result) {
+                    alert("Promise Updated");
+                }
             });
     }
 }

@@ -8,7 +8,8 @@
                 <div class="item-wrapper" *ngFor="let item of items" (click)="onSelectItem(item)">
                     <div class="item-holder">
                         <div class="item-icon">
-                            <div class="zz-avatar zz-avatar-small zz-avatar-bg2">{{item.Initials}}</div>
+                            <avatar [initials]="item.Initials" [className]="'zz-avatar-small'"></avatar>
+                            <!-- <div class="zz-avatar zz-avatar-small zz-avatar-bg2">{{item.Initials}}</div> -->
                         </div>
                         <div class="item-label">
                             <div class="text-container">
