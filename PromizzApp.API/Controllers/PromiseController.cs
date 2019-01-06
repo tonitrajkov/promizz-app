@@ -52,7 +52,7 @@ namespace PromizzApp.API.Controllers
         {
             if (!string.IsNullOrEmpty(_userInfoService.UserId))
             {
-                model.UserId = int.Parse(_userInfoService.UserId);
+                model.UserId = 1; // int.Parse(_userInfoService.UserId);
                 var promises = await _promiseService.LoadPromises(model);
                 return Ok(promises);
             }

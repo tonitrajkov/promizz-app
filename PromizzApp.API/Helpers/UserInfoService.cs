@@ -30,13 +30,13 @@ namespace PromizzApp.API.Helpers
                 .User.Claims.FirstOrDefault(c => c.Type == "sub")?.Value;
 
             FirstName = currentContext.User
-                .Claims.FirstOrDefault(c => c.Type == "given_name")?.Value;
+                .Claims.FirstOrDefault(c => c.Type == "name")?.Value;
 
             LastName = currentContext
-                .User.Claims.FirstOrDefault(c => c.Type == "family_name")?.Value;
+                .User.Claims.FirstOrDefault(c => c.Type == "profile")?.Value;
 
             Role = currentContext
-              .User.Claims.FirstOrDefault(c => c.Type == "role")?.Value;
+              .User.Claims.FirstOrDefault(c => c.Type == "user_name")?.Value;
         }
     }
 }

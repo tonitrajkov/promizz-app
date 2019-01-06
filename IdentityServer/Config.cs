@@ -1,4 +1,5 @@
-﻿using IdentityServer4;
+﻿using Microsoft.Extensions.Configuration;
+using IdentityServer4;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
 using System.Collections.Generic;
@@ -102,6 +103,46 @@ namespace IdentityServer
                         "usernames"
                     }
                }
+            };
+        }
+
+        public static IEnumerable<Client> GetClients(IConfiguration configuration)
+        {
+            // client credentials client
+            return new List<Client>
+            {
+                // Promizz App implicit flow (Angular)
+                new Client
+                {
+                    ClientName = "Promizz App",
+                    ClientId="promizzappclient",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    RequireConsent = false,
+                    AllowAccessTokensViaBrowser = true,
+                    ClientSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    },
+                    RedirectUris =new List<string>
+                    {
+                        "https://localhost:4300/signin-oidc",
+                        "https://localhost:4300/redirect-silentrenew"
+                    },
+                    AccessTokenLifetime = 10000,
+                    PostLogoutRedirectUris = new []
+                    {
+                        "https://localhost:4300/"
+                    },
+                    AllowedScopes = new []
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "roles",
+                        "promizzappapi",
+                        "usernames"
+                    }
+                 }
+
             };
         }
     }
