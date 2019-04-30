@@ -6,10 +6,13 @@ import { SettingsComponent } from './settings/settings.component';
 import { ProfileComponent } from './profile.component';
 
 const routes: Routes = [
-    { path: '', component: ProfileComponent, children: [
-        { path: 'friends', component: FriendsComponent },
-        { path: 'settings', component: SettingsComponent }
-    ]}
+    {
+        path: '', component: ProfileComponent,
+        children: [
+            { path: 'friends', component: FriendsComponent },
+            { path: 'settings', component: SettingsComponent }
+        ]
+    }
 ];
 
 @NgModule({
