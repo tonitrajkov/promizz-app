@@ -39,15 +39,10 @@
 
                 <div class="pricing-card-benefits-list">
                   <ul class="plan-benefints-list">
-                    <li class="plan-item">
+                    <li class="plan-item" *ngFor="let item of freePlanItems">
                       <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-blue.svg" class="check-mark">
                       </object>
-                      <span>Unlimited promises</span>
-                    </li>
-                    <li class="plan-item">
-                      <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-blue.svg" class="check-mark">
-                      </object>
-                      <span>Up to 1 person per promise</span>
+                      <span>{{item}}</span>
                     </li>
                   </ul>
                 </div>
@@ -93,25 +88,10 @@
 
                 <div class="pricing-card-benefits-list">
                   <ul class="plan-benefints-list">
-                    <li class="plan-item">
+                    <li class="plan-item" *ngFor="let item of premiumPlanItems">
                       <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-purple.svg" class="check-mark">
                       </object>
-                      <span>Unlimited promises</span>
-                    </li>
-                    <li class="plan-item">
-                      <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-purple.svg" class="check-mark">
-                      </object>
-                      <span>Up to 5 people per promise</span>
-                    </li>
-                    <li class="plan-item">
-                      <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-purple.svg" class="check-mark">
-                      </object>
-                      <span>Comments & file uploads</span>
-                    </li>
-                    <li class="plan-item">
-                      <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-purple.svg" class="check-mark">
-                      </object>
-                      <span>Reminders</span>
+                      <span>{{item}}</span>
                     </li>
                   </ul>
                 </div>
@@ -157,25 +137,10 @@
 
                 <div class="pricing-card-benefits-list">
                   <ul class="plan-benefints-list">
-                    <li class="plan-item">
+                    <li class="plan-item" *ngFor="let item of businessPlanItems">
                       <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-orange.svg" class="check-mark">
                       </object>
-                      <span>Unlimited promises</span>
-                    </li>
-                    <li class="plan-item">
-                      <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-orange.svg" class="check-mark">
-                      </object>
-                      <span>Up to 15 people per promise</span>
-                    </li>
-                    <li class="plan-item">
-                      <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-orange.svg" class="check-mark">
-                      </object>
-                      <span>Up to 10 groups of people per promise</span>
-                    </li>
-                    <li class="plan-item">
-                      <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-orange.svg" class="check-mark">
-                      </object>
-                      <span>People groups</span>
+                      <span>{{item}}</span>
                     </li>
                   </ul>
                 </div>

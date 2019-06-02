@@ -13,19 +13,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { PublicModule } from './public/public.module';
 
 // Components
-import { SecureComponent } from './_layouts/secure/secure.component';
-
 import { PromiseAppComponent } from './promise-app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-
-import { PromiseAddModalComponent, PromiseService } from './promises';
 
 @NgModule({
   declarations: [
-    PromiseAppComponent,
-    DashboardComponent,
-    SecureComponent,
-    PromiseAddModalComponent
+    PromiseAppComponent
   ],
   imports: [
     SharedModule,
@@ -40,10 +32,6 @@ import { PromiseAddModalComponent, PromiseService } from './promises';
     AppRoutingModule,
     PublicModule
   ],
-  entryComponents: [
-    PromiseAddModalComponent
-  ],
-  providers: [PromiseService],
   bootstrap: [PromiseAppComponent]
 })
 export class AppModule { }
