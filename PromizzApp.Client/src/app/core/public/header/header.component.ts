@@ -1,5 +1,4 @@
 import { Component, HostListener } from '@angular/core';
-import { AuthService } from '../../auth.service';
 
 @Component({
     selector: 'public-header',
@@ -8,10 +7,9 @@ import { AuthService } from '../../auth.service';
 export class PublicHeaderComponent {
     isScroling: boolean = false;
 
-    constructor(private authService: AuthService) { }
+    constructor() { }
 
     login() {
-        this.authService.triggerSignIn();
         return false;
     }
 

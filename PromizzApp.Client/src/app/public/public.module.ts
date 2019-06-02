@@ -1,36 +1,35 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Modules
 import { PublicRoutingModule } from './public-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
-// Directives 
-// import { EmailValidator} from  '../shared/directives/email-validator.directive';
-
 // Components
-import { HomeComponent } from './home/home.component';
+import { PublicComponent } from '../_layouts/public/public.component';
+import { CoreModule } from '../core/core.module';
+import { ContactService } from './contact/contact.service';
+import { PublicHomeComponent } from './public-home/public-home.component';
 import { PricingComponent } from './pricing/pricing.component';
-import { PrivacyComponent } from './privacy/privacy.component';
-import { ProductComponent } from './product/product.component';
-import { SecurityComponent } from './security/security.component';
-import { TermOfServicesComponent } from './term-of-services/term-of-services.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
     declarations: [
-        HomeComponent,
+        PublicComponent,
+        PublicHomeComponent,
         PricingComponent,
-        PrivacyComponent,
-        ProductComponent,
-        SecurityComponent,
-        TermOfServicesComponent
+        ContactComponent
     ],
     imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        CoreModule,
         CommonModule,
         SharedModule,
         PublicRoutingModule
     ],
     exports: [],
-    providers: []
+    providers: [ContactService]
 })
 export class PublicModule { }

@@ -1,30 +1,191 @@
-<section class="section-01">
-  <div class="section-container">
-    <div class="section-header">
-      <h1 class="section-title">Take on your biggest projects and goals</h1>
-      <p class="section-description">with Todoist’s smartest features</p>
+<div class="zz-section pricing-section">
+  <div class="zz-container zz-pricing-container">
+    <div class="pricing-title">
+      <h1>Choose the plan that works for you</h1>
     </div>
-    <div class="action-holder">
-      <a class="sign-up-btn btn">Sign Up - It's Free</a>
-      <p>Already use Promizz?
-        <a>Log in</a>.
-      </p>
-    </div>
-  </div>
-</section>
+    <div class="pricing-list">
+      <div class="row">
 
-<section class="section-02">
-  <div class="row">
-    <div class="section-container-image-right">
-      <div class="image-container"></div>
-      <div class="text-container">
-        <h2>Design a unique logo without breaking the bank </h2>
-        <div>
-          Promizz templates and online design tools, like color palettes and font combination tools, are all free to use! Plus, there
-          are plenty of free images and graphics from our amazing media library. Even premium images are a steal at just
-          $1 per one-time use.
+        <!-- Free Plan -->
+        <div class="col-12 col-sm-12 col-md-4 pt-4 pt-sm-4 pr-md-1 pl-md-1 pr-lg-2 pl-lg-2">
+          <div class="pricing-card free-plan">
+
+            <!-- Card Header -->
+            <div class="pricing-card-header">
+              <div class="zz-spacer">
+                <div class="pricing-card-header-img">
+                  <object type="image/svg+xml" data="../../../assets/images/illustrations/free_plan.svg" class="pricing-illustaration">
+                  </object>
+                </div>
+                <div class="pricing-card-header-title">
+                  <h2>BASIC</h2>
+                  <span>Get to know Promizz</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Body -->
+            <div class="pricing-card-body">
+              <div class="zz-spacer">
+
+                <div class="pricing-card-price">
+                  <h2>FREE</h2>
+                  <span>Forever and ever</span>
+                </div>
+
+                <div class="pricing-card-action">
+                  <a [routerLink]="['/contact1']" class="action-btn">Start free</a>
+                </div>
+
+                <div class="pricing-card-benefits-list">
+                  <ul class="plan-benefints-list">
+                    <li class="plan-item">
+                      <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-blue.svg" class="check-mark">
+                      </object>
+                      <span>Unlimited promises</span>
+                    </li>
+                    <li class="plan-item">
+                      <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-blue.svg" class="check-mark">
+                      </object>
+                      <span>Up to 1 person per promise</span>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Premium Plan -->
+        <div class="col-12 col-sm-12 col-md-4 pt-4 pt-sm-4 pr-md-1 pl-md-1 pr-lg-2 pl-lg-2">
+          <div class="pricing-card premium-plan">
+
+            <!-- Card Header -->
+            <div class="pricing-card-header">
+              <div class="zz-spacer">
+                <div class="pricing-card-header-img">
+                  <object type="image/svg+xml" data="../../../assets/images/illustrations/premium_plan.svg" class="pricing-illustaration">
+                  </object>
+                </div>
+                <div class="pricing-card-header-title">
+                  <h2>PREMIUM</h2>
+                  <span>More power & personalization</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Body -->
+            <div class="pricing-card-body">
+              <div class="zz-spacer">
+
+                <div class="pricing-card-price">
+                  <h2>3 USD
+                    <span>/mo</span>
+                  </h2>
+                  <span><b>30 USD</b> Billed yearly</span>
+                </div>
+
+                <div class="pricing-card-action">
+                  <a [routerLink]="['/contact2']" class="action-btn">Go PREMIUM</a>
+                </div>
+
+                <div class="pricing-card-benefits-list">
+                  <ul class="plan-benefints-list">
+                    <li class="plan-item">
+                      <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-purple.svg" class="check-mark">
+                      </object>
+                      <span>Unlimited promises</span>
+                    </li>
+                    <li class="plan-item">
+                      <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-purple.svg" class="check-mark">
+                      </object>
+                      <span>Up to 5 people per promise</span>
+                    </li>
+                    <li class="plan-item">
+                      <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-purple.svg" class="check-mark">
+                      </object>
+                      <span>Comments & file uploads</span>
+                    </li>
+                    <li class="plan-item">
+                      <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-purple.svg" class="check-mark">
+                      </object>
+                      <span>Reminders</span>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Business Plan -->
+        <div class="col-12 col-sm-12 col-md-4 pt-4 pt-sm-4 pr-md-1 pl-md-1 pr-lg-2 pl-lg-2">
+          <div class="pricing-card business-plan">
+
+            <!-- Card Header -->
+            <div class="pricing-card-header">
+              <div class="zz-spacer">
+                <div class="pricing-card-header-img">
+                  <object type="image/svg+xml" data="../../../assets/images/illustrations/business_plan.svg" class="pricing-illustaration">
+                  </object>
+                </div>
+                <div class="pricing-card-header-title">
+                  <h2>BUSINESS</h2>
+                  <span>Advanced features for brands</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Body -->
+            <div class="pricing-card-body">
+              <div class="zz-spacer">
+
+                <div class="pricing-card-price">
+                  <h2>5 USD
+                    <span>/mo</span>
+                  </h2>
+                  <span><b>48 USD</b> Billed yearly</span>
+                </div>
+
+                <div class="pricing-card-action">
+                  <a [routerLink]="['/contact3']" class="action-btn">Go BUSINESS</a>
+                </div>
+
+                <div class="pricing-card-benefits-list">
+                  <ul class="plan-benefints-list">
+                    <li class="plan-item">
+                      <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-orange.svg" class="check-mark">
+                      </object>
+                      <span>Unlimited promises</span>
+                    </li>
+                    <li class="plan-item">
+                      <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-orange.svg" class="check-mark">
+                      </object>
+                      <span>Up to 15 people per promise</span>
+                    </li>
+                    <li class="plan-item">
+                      <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-orange.svg" class="check-mark">
+                      </object>
+                      <span>Up to 10 groups of people per promise</span>
+                    </li>
+                    <li class="plan-item">
+                      <object type="image/svg+xml" data="../../../assets/images/svg/check-mark-orange.svg" class="check-mark">
+                      </object>
+                      <span>People groups</span>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>

@@ -1,0 +1,48 @@
+<div class="zz-section">
+  <div class="zz-container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 pt-0 pt-sm-0 pt-lg-5">
+        <div class="">
+
+          <div class="title-container">
+            <h1>Hi! You caught us before we were ready.</h1>
+          </div>
+
+          <div class="text-container">
+            <p>Promizz is still under construction. We’re working hard to finish it up, and it should be ready to
+              help you with your projects soon. Enter your email below and we’ll let you know as soon as it’s ready!</p>
+          </div>
+
+          <div class="contact-form-container">
+            <form [formGroup]="contactForm" (ngSubmit)="submit()" class="contact-form" novalidate>
+              <div class="form-container">
+                <div class="input-container">
+                  <input type="text" formControlName="email" class="email-input" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                    placeholder="Enter your email address" />
+                  <div *ngIf="submitted && f.email.errors" class="feedback-container">
+                    <div class="error-msg" *ngIf="f.email.errors.required">Email is required</div>
+                    <div class="error-msg" *ngIf="f.email.errors.email">This is not a valid email address</div>
+                  </div>
+                  <div *ngIf="submitted && !f.email.errors && mailChimpResponse" class="feedback-container">
+                    <div [ngClass]="{ 'success-msg' : mailChimpResponse.result=='success', 
+                                      'error-msg' : mailChimpResponse.result=='error' }">
+                      {{mailChimpResponse.msg}}
+                    </div>
+                  </div>
+                </div>
+                <div class="contact-action-container">
+                  <button class="header-action remind-me-btn">Remind me</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 pt-5 pt-md-5 pt-md-0">
+        <object type="image/svg+xml" data="../../../assets/images/illustrations/working_progress.svg" class="header-illustaration">
+        </object>
+      </div>
+    </div>
+  </div>
+</div>

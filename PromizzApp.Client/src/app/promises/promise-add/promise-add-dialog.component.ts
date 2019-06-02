@@ -72,12 +72,12 @@ export class PromiseAddModalComponent {
             this.model.Promisees.push(this.selectedUser.Id);
         }
 
-        this.promiseService.addPromise(this.model)
-            .pipe(first())
-            .subscribe(result => {
-                this.activeModal.close();
-            }, errorModel => {
-                this.errorModel = errorModel;
-            });
+        // this.promiseService.addPromise(this.model)
+        //     .pipe(first())
+        //     .subscribe(result => {
+        //         this.activeModal.close();
+        //     }, errorModel => {
+        //         this.errorModel = errorModel;
+        //     });
     }
 }

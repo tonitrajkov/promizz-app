@@ -25,10 +25,10 @@ export class PromiseDetailComponent implements OnInit, OnDestroy {
             params => {
                 this.promiseId = params['promiseId'];
 
-                this.promiseService.getPromise(this.promiseId)
-                    .subscribe(promise => {
-                        this.promise = promise;
-                    });
+                // this.promiseService.getPromise(this.promiseId)
+                //     .subscribe(promise => {
+                //         this.promise = promise;
+                //     });
             }
         );
     }

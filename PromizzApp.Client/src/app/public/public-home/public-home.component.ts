@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    templateUrl: './pricing.component.html'
+    templateUrl: './public-home.component.html'
 })
-export class PricingComponent implements OnInit {
+export class PublicHomeComponent implements OnInit {
     constructor() { }
 
     ngOnInit(): void { }

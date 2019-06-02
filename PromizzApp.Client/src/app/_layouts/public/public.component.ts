@@ -4,16 +4,5 @@ import { Component, HostListener } from '@angular/core';
   templateUrl: './public.component.html'
 })
 export class PublicComponent {
-  // headerDeatached: boolean = false;
 
-  // @HostListener("window:scroll", [])
-  // onWindowScroll() {
-  //   let number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-  //   if (number > 0) {
-  //     this.headerDeatached = true;
-  //   }
-  //   if (number === 0) {
-  //     this.headerDeatached = false;
-  //   }
-  // }
 }

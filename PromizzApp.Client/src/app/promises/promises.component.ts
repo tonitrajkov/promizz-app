@@ -31,11 +31,11 @@ export class PromisesComponent implements OnInit, OnDestroy {
                 this.searchModel.Assing = params['assign'];
 
                 if (this.searchModel.Assing === 'to') {
-                    this.sectionTitle = 'PROMISES_TO_ME';
+                    this.sectionTitle = 'Promises to me';
                 }
                 
                 if (this.searchModel.Assing === 'my') {
-                    this.sectionTitle = 'MY_PROMISES';
+                    this.sectionTitle = 'My Promises';
                 }
 
                 this.loadPromises();
@@ -58,9 +58,9 @@ export class PromisesComponent implements OnInit, OnDestroy {
     }
 
     private loadPromises() {
-        this.promiseService.loadPromises(this.searchModel)
-            .subscribe(promises => {
-                this.data.emit(promises);
-            });
+        // this.promiseService.loadPromises(this.searchModel)
+        //     .subscribe(promises => {
+        //         this.data.emit(promises);
+        //     });
     }
 }
