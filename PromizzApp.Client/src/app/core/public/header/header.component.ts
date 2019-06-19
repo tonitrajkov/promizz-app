@@ -13,7 +13,7 @@ export class PublicHeaderComponent {
         return false;
     }
 
-    @HostListener("window:scroll", [])
+    @HostListener('window:scroll', [])
     onWindowScroll() {
         let number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
         if (number > 0) {

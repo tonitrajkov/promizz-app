@@ -1,4 +1,3 @@
-@import "https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900";
 
 html {
   background: #F8FBFF;
@@ -127,7 +126,7 @@ body {
 }
 
 .header-action-holder {
-    padding-top: 40px;
+    padding-top: 20px;
 }
 
 .header-illustaration {
@@ -173,6 +172,7 @@ body {
     width: 48px;
     vertical-align: top;
     height: 50px;
+    padding-top: 5px;
 }
 
 .feature-item-description {
@@ -291,10 +291,7 @@ body {
     opacity: 1;
     padding: 8px;
     border-radius: 3px;
-    border-width: 1px;
-    border-style: solid;
-    border-image: initial;
-    border-color: initial;
+    border: 1px solid;
     transition: opacity 0.1s ease 0s;
 }
 
@@ -340,9 +337,14 @@ body {
 
 /* ======== Contact Page ========= */
 
+.title-container.title-contact h1 {
+    font-size: 47px;
+}
+
 .text-container p {
     color: #597593;
     font-size: 18px;
+    margin-bottom: 5px;
 }
 
 .form-container {
@@ -429,7 +431,7 @@ body {
     }
 
     .header-action-holder {
-        padding-top: 15px;
+        padding-top: 10px;
     }
 
     .feature-item-description {
@@ -471,6 +473,7 @@ body {
     .feature-item-number {
         width: 8.5vw;
         height: 8.5vw;
+        padding-top: 2px;
     }
 
     /* ---- Contact page ---- */

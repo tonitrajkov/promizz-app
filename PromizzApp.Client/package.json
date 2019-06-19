@@ -29,6 +29,7 @@
     "angular-auth-oidc-client": "^6.0.2",
     "angular-in-memory-web-api": "^0.6.0",
     "bootstrap": "^4.1.1",
+    "codelyzer": "^5.1.0",
     "core-js": "^2.5.4",
     "feather-icons": "^4.7.3",
     "jquery": "^3.3.1",

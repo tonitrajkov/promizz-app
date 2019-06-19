@@ -16,18 +16,19 @@ export abstract class Utils {
 
     public static syncAjax(url: string, data: any, success: any, method: any) {
 
-        var ajaxSettings = {
-            mode: "queue",
+        const ajaxSettings = {
+            mode: 'queue',
             url: url,
             async: false,
             cache: false,
-            contentType: "application/json; charset=utf-8",
+            contentType: 'application/json; charset=utf-8',
             type: method,
             data: JSON.stringify(data),
-            dataType: "json",
+            dataType: 'json',
             success: function (d: any, s: any, x: any) {
-                if (d.hasOwnProperty("d")) {
-                    var response = JSON.parse(d.d);
+                let response;
+                if (d.hasOwnProperty('d')) {
+                    response = JSON.parse(d.d);
                 } else {
                     response = d;
                 }
@@ -58,28 +59,28 @@ export abstract class Utils {
         // let hRed = rgb.r;
         // let hGreen = rgb.g;
         // let hBlue = rgb.b;
-        var hRed = hexToR(hex);
-        var hGreen = hexToG(hex);
-        var hBlue = hexToB(hex);
+        let hRed = hexToR(hex);
+        let hGreen = hexToG(hex);
+        let hBlue = hexToB(hex);
 
-        function hexToR(h) { return parseInt((cutHex(h)).substring(0, 2), 16) }
-        function hexToG(h) { return parseInt((cutHex(h)).substring(2, 4), 16) }
-        function hexToB(h) { return parseInt((cutHex(h)).substring(4, 6), 16) }
-        function cutHex(h) { return (h.charAt(0) == "#") ? h.substring(1, 7) : h }
+        function hexToR(h) { return parseInt((cutHex(h)).substring(0, 2), 16); }
+        function hexToG(h) { return parseInt((cutHex(h)).substring(2, 4), 16); }
+        function hexToB(h) { return parseInt((cutHex(h)).substring(4, 6), 16); }
+        function cutHex(h) { return (h.charAt(0) === '#') ? h.substring(1, 7) : h; }
 
         let cBrightness = ((hRed * 299) + (hGreen * 587) + (hBlue * 114)) / 1000;
 
         if (cBrightness > threshold) {
-            return "#000000";
+            return '#000000';
         }
 
-        return "#ffffff";
+        return '#ffffff';
     }
 
     public static textShouldBeWhite(hex): boolean {
         let color = Utils.getCorrectTextColor(hex);
 
-        if (color.indexOf('#f') != -1) {
+        if (color.indexOf('#f') !== -1) {
             return true;
         }
         return false;

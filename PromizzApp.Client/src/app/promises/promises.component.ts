@@ -16,7 +16,6 @@ export class PromisesComponent implements OnInit, OnDestroy {
     public sectionTitle: string = '';
     public searchModel: PromiseSearchModel = new PromiseSearchModel();
     public data = new EventEmitter<PromiseModel[]>();
-  
     private sub: Subscription;
 
     constructor(
@@ -33,7 +32,7 @@ export class PromisesComponent implements OnInit, OnDestroy {
                 if (this.searchModel.Assing === 'to') {
                     this.sectionTitle = 'Promises to me';
                 }
-                
+
                 if (this.searchModel.Assing === 'my') {
                     this.sectionTitle = 'My Promises';
                 }

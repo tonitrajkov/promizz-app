@@ -10,8 +10,6 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 
-import { PublicModule } from './public/public.module';
-
 // Components
 import { PromiseAppComponent } from './promise-app.component';
 
@@ -29,8 +27,7 @@ import { PromiseAppComponent } from './promise-app.component';
     JsonpModule,
     ReactiveFormsModule,
     CoreModule,
-    AppRoutingModule,
-    PublicModule
+    AppRoutingModule
   ],
   bootstrap: [PromiseAppComponent]
 })

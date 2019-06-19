@@ -15,7 +15,6 @@ export class TranslatePipe implements PipeTransform {
         if (Localization.localization.hasOwnProperty(key)) {
             return Localization.localization[key];
         }
-        
         return key;
     }
 }

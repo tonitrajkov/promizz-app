@@ -6,12 +6,19 @@ import { Component } from '@angular/core';
 export class PricingComponent {
 
     public freePlanItems: string[] = [
-        '100 promises', 
-        '1 person per promise'
+        '80 promises',
+        '1 person per promise',
+        'Promise colors',
+        'List view',
+        'Grid view'
     ];
     public premiumPlanItems: string[] = [
         'Unlimited promises',
-        '15 people per promise',
+        '12 people per promise',
+        'Promise colors',
+        'List view',
+        'Grid view',
+        'Calendar view',
         'Comments & file uploads',
         'Reminders',
         'Premium themes'
@@ -19,10 +26,17 @@ export class PricingComponent {
     public businessPlanItems: string[] = [
         'Unlimited promises',
         '30 people per promise',
+        'Promise colors',
+        'List view',
+        'Grid view',
+        'Calendar view',
         'Comments & file uploads',
         'Reminders',
         'Premium themes',
-        'People groups'
+        'People groups',
+        'Custom Dashboards',
+        'Reports',
+        'Real-time Calendar Sync (Google and Outlook)'
     ];
 
     constructor() { }

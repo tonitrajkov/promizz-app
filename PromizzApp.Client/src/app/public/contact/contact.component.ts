@@ -49,7 +49,7 @@ export class ContactComponent implements OnInit {
     }
 
     private getPlanNameByUrl(): string {
-        var url = this.router.url;
+        let url = this.router.url;
 
         if (!url) {
             return '';
@@ -72,10 +72,10 @@ export class ContactComponent implements OnInit {
 
     private formatMailChimpResponse(response: any) {
         if (response) {
-            var jsonResponse = response.json();
+            let jsonResponse = response.json();
 
             if (jsonResponse.result === 'error') {
-                jsonResponse.msg = 'You’re already subscribed!'
+                jsonResponse.msg = 'You’re already subscribed!';
             }
 
             this.mailChimpResponse = jsonResponse;

@@ -63,4 +63,4 @@ import { TranslatePipe } from '../shared/pipes/translate.pipe';
         AvatarComponent
     ]
 })
-export class SharedModule { }  
+export class SharedModule { }

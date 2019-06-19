@@ -12,7 +12,7 @@ export class UserModel {
     public Password: string = '';
     public Token: string = '';
 
-    public constructor(init?:Partial<UserModel>) {
+    public constructor(init?: Partial<UserModel>) {
         Object.assign(this, init);
     }
 }

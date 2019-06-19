@@ -8,7 +8,6 @@ import { SharedModule } from '../shared/shared.module';
 // Components
 import { PublicHeaderComponent } from './public/header/header.component';
 import { PublicFooterComponent } from './public/footer/footer.component';
-import { SecureHeaderComponent } from './secure/header/header.component';
 import { NavBarComponent } from './secure/navbar/navbar.component';
 import { MvpFooterComponent } from './public/footer/mvp-footer.component';
 import { MvpHeaderComponent } from './public/header/mvp-header.component';
@@ -23,7 +22,6 @@ import { MvpHeaderComponent } from './public/header/mvp-header.component';
   declarations: [
     PublicHeaderComponent,
     PublicFooterComponent,
-    SecureHeaderComponent,
     NavBarComponent,
 
     MvpFooterComponent,
@@ -33,7 +31,6 @@ import { MvpHeaderComponent } from './public/header/mvp-header.component';
   exports: [
     PublicHeaderComponent,
     PublicFooterComponent,
-    SecureHeaderComponent,
     NavBarComponent,
 
     MvpFooterComponent,

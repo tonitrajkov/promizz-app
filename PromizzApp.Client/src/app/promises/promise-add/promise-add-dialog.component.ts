@@ -19,7 +19,7 @@ export class PromiseAddModalComponent {
 
     constructor(
         private promiseService: PromiseService,
-        private activeModal: NgbActiveModal
+        public activeModal: NgbActiveModal
     ) { }
 
     handleFilterChange(value: any) {
@@ -36,8 +36,8 @@ export class PromiseAddModalComponent {
         this.showAutocomplete = false;
     }
 
-    handleSelectColor(colorName: string){
-        if(colorName){
+    handleSelectColor(colorName: string) {
+        if (colorName) {
             this.model.Color = colorName;
         }
     }

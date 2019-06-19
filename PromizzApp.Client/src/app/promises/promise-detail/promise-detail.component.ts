@@ -11,7 +11,7 @@ import { PromiseModel } from '../../shared/index';
 })
 export class PromiseDetailComponent implements OnInit, OnDestroy {
 
-    private promise: PromiseModel = new PromiseModel();
+    public promise: PromiseModel = new PromiseModel();
     private promiseId: string;
     private sub: Subscription;
 
@@ -41,7 +41,7 @@ export class PromiseDetailComponent implements OnInit, OnDestroy {
         this.promiseService.updatePromise(this.promise)
             .subscribe(result => {
                 if (result) {
-                    alert("Promise Updated");
+                    alert('Promise Updated');
                 }
             });
     }
