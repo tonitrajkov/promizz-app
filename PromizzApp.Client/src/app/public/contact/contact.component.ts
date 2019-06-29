@@ -60,11 +60,11 @@ export class ContactComponent implements OnInit {
         }
 
         if (url.indexOf('contact2') !== -1) {
-            return 'Premium Plan';
+            return 'Pro Plan';
         }
 
         if (url.indexOf('contact3') !== -1) {
-            return 'Business Plan';
+            return 'Pro+ Plan';
         }
 
         return '';

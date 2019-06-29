@@ -127,6 +127,7 @@ body {
 
 .header-action-holder {
     padding-top: 20px;
+    padding-left: 105px;
 }
 
 .header-illustaration {
@@ -193,6 +194,19 @@ body {
     font-size: 14px;
     margin-top: 0;
     margin-bottom: 10px;
+}
+
+.landing-text-holder {
+    position: relative;
+}
+
+.arrow-container {
+    position: absolute;
+    height: 0px;
+    width: 100px;
+    left: 15px;
+    bottom: 105px;
+    transform: rotate(20deg);
 }
 
 /* ====== PRICING PAGE ====== */
@@ -299,14 +313,19 @@ body {
     color: #3FADF7;
     background: white;
     border-color: #3FADF7;
+    box-shadow: 8px 8px 14px 1px rgba(63, 173, 247, 0.2);
 }
 
 .premium-plan .pricing-card-action .action-btn {
     background: #555AEF;
+    border-color: #555AEF;
+    box-shadow: 8px 8px 14px 1px rgba(85, 90, 239, 0.2);
 }
 
 .business-plan .pricing-card-action .action-btn {
     background: #FD5B82;
+    border-color: #FD5B82;
+    box-shadow: 8px 8px 14px 1px rgba(253, 91, 130, 0.2);
 }
 
 .pricing-card-action .action-btn:hover {
@@ -411,6 +430,14 @@ body {
     padding-top: 0;
 }
 
+@media (min-width: 650px) and (max-width: 991px) {
+    .arrow-container {
+      width: 85px;
+      left: 25px;
+      bottom: 92px;
+    }
+}
+
 @media (max-width: 576px) {
 
     .zz-section {
@@ -433,6 +460,7 @@ body {
 
     .header-action-holder {
         padding-top: 10px;
+        padding-left: 90px;
     }
 
     .feature-item-description {
@@ -456,6 +484,11 @@ body {
     .pricing-title h1 {
         font-size: 8vw;
         line-height: 40px;
+    }
+
+    .arrow-container {
+        width: 85px;
+        bottom: 92px;
     }
   }
 
@@ -494,4 +527,24 @@ body {
         white-space: nowrap;
         font-size: 14px;
     }
+
+    .arrow-container {
+        width: 15vw;
+        bottom: 80px;
+    }
+
+    .header-action-holder {
+        padding-left: 17vw;
+    }
   }
+
+  @media (max-width: 300px) {
+    .arrow-container {
+      width: 0;
+      display: none;
+    }
+
+    .header-action-holder {
+        padding-left: 0;
+    }
+}

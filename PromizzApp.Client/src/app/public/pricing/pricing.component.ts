@@ -12,7 +12,7 @@ export class PricingComponent {
         'List view',
         'Grid view'
     ];
-    public premiumPlanItems: string[] = [
+    public proPlanItems: string[] = [
         'Unlimited promises',
         '12 people per promise',
         'Promise colors',
@@ -23,7 +23,7 @@ export class PricingComponent {
         'Reminders',
         'Premium themes'
     ];
-    public businessPlanItems: string[] = [
+    public proPlusPlanItems: string[] = [
         'Unlimited promises',
         '30 people per promise',
         'Promise colors',
