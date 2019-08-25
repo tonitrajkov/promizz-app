@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ToastrModule } from 'ngx-toastr';
-import { NgbModule, NgbTabsetModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbTabsetModule, NgbTooltipModule, NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 
 // Directives
 import { ScrollTrackerDirective } from './directives/scroll-tracker.directive';
@@ -28,6 +28,7 @@ import { TranslatePipe } from '../shared/pipes/translate.pipe';
         ToastrModule.forRoot(),
         NgbTabsetModule,
         NgbTooltipModule,
+        NgbPopoverModule,
         NgbModule.forRoot()
     ],
     exports: [
@@ -36,6 +37,7 @@ import { TranslatePipe } from '../shared/pipes/translate.pipe';
         FormsModule,
         NgbTabsetModule,
         NgbTooltipModule,
+        NgbPopoverModule,
 
         // Directives
         ScrollTrackerDirective,

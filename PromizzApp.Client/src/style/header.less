@@ -11,7 +11,7 @@
     .transition(background-color, .3s, ease);
 
     .logoLink {
-        background: url(@whiteSmallLogo) no-repeat;
+        // background: url(@whiteSmallLogo) no-repeat;
         background-size: contain;
         background-position-y: 2px;
         width: 26px; 
@@ -60,7 +60,7 @@
     .logoLink {
         -ms-transform-origin: left center;
         transform-origin: left center;
-        background: url(@whiteSmallLogo) no-repeat;
+        // background: url(@whiteSmallLogo) no-repeat;
         background-size: contain;        
         height: 26px;
         width: 170px;
@@ -172,7 +172,7 @@
     .transition(background-color, .3s, ease);
 
     .logoLink {
-        background: url(@blackBlueFullLogo) no-repeat;
+        // background: url(@blackBlueFullLogo) no-repeat;
         background-size: contain; 
     }
 
@@ -216,7 +216,7 @@
     .logoLink {
         -ms-transform-origin: left center;
         transform-origin: left center;
-        background: url(@whiteFullLogo) no-repeat;
+        // background: url(@whiteFullLogo) no-repeat;
         background-size: contain;        
         height: 28px;
         width: 170px;
@@ -271,5 +271,143 @@
             border-color: #fff;
             font-size: 16px;
         }
+    }
+}
+
+// new design
+
+.secure-header {
+    align-items: center;
+    background: #fff;
+    box-shadow: 0 1px 3px 0 rgba(21,27,38,.15);
+    display: flex;
+    flex-shrink: 0;
+    height: 45px;
+
+    .zz-container {
+        flex: 1;
+    }
+
+    .flex-box {
+        display: flex;
+    }
+
+    .inline-flex {
+        display: inline-flex;
+        flex: 1;
+    }
+
+    .logo-container {
+        flex: 0 0 auto;
+        min-width: 20px;
+    }
+
+    .header-logo-link {
+        background-image: url('../assets//images/full_logo_p.png');
+        background-repeat: no-repeat;
+        background-size: 90px 30px;
+        width: 20px;
+        height: 30px;
+
+        &:hover {
+            opacity: .8;
+        }
+    }
+
+    .search-bar-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .search-bar-input {
+            background-color: #F9F9F9;
+            border-radius: 12px;
+            color: #151b26;
+            font-size: 13px;
+            transition: width .15s;
+            width: 180px;
+            box-sizing: border-box;
+            padding: 4px 15px 4px 30px;
+            line-height: 20px;
+            border: 1px solid #d5dce0;
+
+            &::placeholder {
+               color: #848f99
+            }
+    
+            &:focus {
+                width: 380px;
+                background-color: #fff;
+                box-shadow: inset 0 1px #e8ecee;
+                outline: none;
+            }
+        }
+
+        span {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-40%);
+        }
+    }
+
+    .actions-container {
+        justify-content: flex-end;
+
+        .actions-wrapper { 
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .action { 
+            padding-top: 5px;
+            margin-right: 15px;
+        }
+
+        .action--add {
+            align-items: center;
+            border-radius: 15px;
+            border-width: 1px;
+            cursor: pointer;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -ms-flex-negative: 0;
+            flex-shrink: 0;
+            font-size: 13px;
+            height: 30px;
+            line-height: 30px;
+            padding: 0 15px;
+            color: #fff;
+            position: relative;
+            background: #FD5B82;
+            background: linear-gradient(to right bottom, #fd5482, #fe6382, #ff7184, #ff7f87, #ff8b8b);
+            margin: 0 15px;
+
+            &:hover {
+                background: linear-gradient(to right top, #fd5482, #fe6382, #ff7184, #ff7f87, #ff8b8b);
+                box-shadow: none;
+                text-decoration: none;
+                opacity: .9;
+            }
+
+            span {
+                margin-left: 15px;
+                margin-top: 6px;
+            }
+        }
+    }
+}
+
+.avatar-08 {
+    background-image: url('../assets/images/avatars/avatar-04.png');
+    background-repeat: no-repeat;
+    background-size: 90px 30px;
+    width: 20px;
+    height: 30px;
+
+    &:hover {
+        opacity: .8;
     }
 }

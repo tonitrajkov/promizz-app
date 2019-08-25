@@ -1,0 +1,169 @@
+<div class="zz-container">
+    <div class="row">
+        <div class="col-sm-9 col-md-9 col-lg-9 col-xl-9">
+            <!-- Welcome Box -->
+            <div class="zz-box  zz-box--rounded  zz-box--purple-color  zz-box--horizontal--md">
+                <div class="zz-flex-box">
+                    <div class="zz-flex-box__item">
+                        <div class="zz-box__item__text zz-box__item__text--title">
+                            Hello, {{currentUser?.Firstname}}! Any ideas for a new article?
+                        </div>
+                        <div class="zz-box__item__text zz-box__item__text--info">
+                            <span> Your articles are in the top of popularity!</span>
+                            <span>How about we write another one?</span>
+                        </div>
+                        <div class="zz-box__item__action">
+                            <a href="" class="zz-box__item__action--add">
+                                New
+                                <span class="zz-box__item__action--add__icon"
+                                    [innerHTML]="'plus' | feather:'featherIcon i16 i-white'"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="zz-flex-box__item">
+                        <object type="image/svg+xml" data="../../../assets/images/illustrations/listen_music.svg"
+                            class="zz-flex-box__item__illustration">
+                        </object>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row pt-30">
+                <div class="col-xl-8">
+
+                    <!-- Summary Box Container  -->
+                    <div class="row">
+                        <div class="col-xl-3">
+                            <div class="zz-box  zz-box--rounded  zz-box--bordered  zz-box--squared">
+                                <span class="zz-box__category-title">Promises</span>
+                                <span class="zz-box__quantity">{{promisesCount}}</span>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="zz-box  zz-box--rounded  zz-box--bordered  zz-box--squared">
+                                <span class="zz-box__category-title">Requests</span>
+                                <span class="zz-box__quantity">{{requestsCount}}</span>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="zz-box  zz-box--rounded  zz-box--bordered  zz-box--squared">
+                                <span class="zz-box__category-title">Friends</span>
+                                <span class="zz-box__quantity">{{friendsCount}}</span>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="zz-box  zz-box--rounded  zz-box--bordered  zz-box--squared">
+                                <span class="zz-box__category-title">Achievements</span>
+                                <span class="zz-box__quantity">{{achievementsCount}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Goals Achieved Box -->
+                    <div class="mt-30 zz-box  zz-box--rounded  zz-box--gray--color  zz-box--horizontal--lg">
+                        <div class="zz-box__title-container">
+                            <h4 class="zz-box__title-container__title">Goals Achieved</h4>
+                            <a href="" class="zz-box__title-container__action">View All</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4">
+
+                    <!-- Top Friends Box  -->
+                    <div class="zz-box  zz-box--rounded  zz-box--gray--color  zz-box--vertical--md">
+                        <div class="zz-box__title-container">
+                            <h4 class="zz-box__title-container__title">Top Friends</h4>
+                            <a href="" class="zz-box__title-container__action">View All</a>
+                        </div>
+                        <div class="zz-list-container">
+                            <ul class="zz-list">
+                                <li class="zz-list__item" *ngFor="let friend of topFriends">
+                                    <div class="zz-info-img-box">
+                                        <div>
+                                            <img [src]="friend.Avatar" class="zz-avatar__square--md">
+                                        </div>
+                                        <div
+                                            class="zz-info-img-box__content  zz-info-img-box__content--right  zz-info-img-box__content--border-b">
+                                            <h4>{{friend.Fullname}}</h4>
+                                            <p>@{{friend.UserName}}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+
+            <!-- New Items Box  -->
+            <div class="zz-box  zz-box--rounded  zz-box--gray--color  zz-box--vertical--full">
+                <div class="zz-box__title-container">
+                    <h4 class="zz-box__title-container__title">New Items</h4>
+                    <a href="" class="zz-box__title-container__action">View All</a>
+                </div>
+                <div class="zz-card-container">
+                    <div class="zz-card zz-card--bg02">
+                        <div class="zz-card__content">
+                            <div class="zz-card__content__header">
+                                Make You Better
+                            </div>
+                            <div class="zz-card__content__text">
+                                Ideas to reflect upon as you head into the New Year 2020
+                            </div>
+                            <div class="zz-list-container">
+                                <ul class="zz-list">
+                                    <li class="zz-list__item">
+                                        <div class="zz-info-img-box">
+                                            <div>
+                                                <img src="../../../assets/images/avatars/avatar-07.png"
+                                                    class="zz-avatar__square--md">
+                                            </div>
+                                            <div class="zz-info-img-box__content  zz-info-img-box__content--right">
+                                                <h4>Nathan Fox</h4>
+                                                <p>@nathanfox</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="zz-card zz-card--bg01">
+                        <div class="zz-card__content">
+                            <div class="zz-card__content__header">
+                                Add More Padding
+                            </div>
+                            <div class="zz-card__content__text">
+                                You can add more padding between your cards to make them to
+                                stay more confident.
+                            </div>
+                            <div class="zz-list-container">
+                                <ul class="zz-list">
+                                    <li class="zz-list__item">
+                                        <div class="zz-info-img-box">
+                                            <div>
+                                                <img src="../../../assets/images/avatars/avatar-10.png"
+                                                    class="zz-avatar__square--md">
+                                            </div>
+                                            <div class="zz-info-img-box__content  zz-info-img-box__content--right">
+                                                <h4>Vanesa Sinclar</h4>
+                                                <p>@vanesasinclar</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

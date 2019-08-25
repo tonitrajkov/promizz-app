@@ -4,11 +4,11 @@ import { CommonModule } from '@angular/common';
 
 import { SharedModule } from '../shared/shared.module';
 
-import { PromisesComponent, PromiseDetailComponent, PromiseService, PromiseAddModalComponent } from '.';
+import { PromisesComponent, PromiseDetailComponent } from '.';
 
 const routes: Routes = [
     { path: '', component: PromisesComponent },
-    { path: 'promise/:promiseId', component: PromiseDetailComponent }
+    { path: 'details/:promiseId', component: PromiseDetailComponent }
 ];
 
 @NgModule({
@@ -19,14 +19,7 @@ const routes: Routes = [
     ],
     declarations: [
         PromisesComponent,
-        PromiseDetailComponent,
-        PromiseAddModalComponent
-    ],
-    providers: [
-        PromiseService
-    ],
-    entryComponents: [
-        PromiseAddModalComponent
+        PromiseDetailComponent
     ]
 })
 export class PromiseModule { }

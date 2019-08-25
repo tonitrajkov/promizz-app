@@ -13,6 +13,16 @@ body {
   font-style: normal; 
 }
 
+/*--- Padding --- */
+.pt-30 {
+    padding-top: 30px;
+}
+
+/*--- Margin --- */
+.mt-30 {
+    margin-top: 30px;
+}
+
 .zz-container { 
     max-width: 80rem; 
     margin: 0 auto; 
@@ -110,6 +120,42 @@ body {
    color: #A3AEC3;
    cursor: pointer;
    text-decoration: none;
+}
+
+/* ======== Secure Demo Page =========  */
+.secure-body {
+    display: flex;
+    flex: 1;
+    min-height: 1px;
+    overflow: auto;
+}
+
+.zz-secure-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.secure-main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    position: relative;
+}
+
+.secure-body promizz-navbar {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+}
+
+.secure-main ng-component {
+    display: flex;
+    flex: 1;
+}
+
+.secure-main ng-component .zz-container {
+    flex: 1;
+    margin-top: 45px;
 }
 
 /* ======== Landing Page ========= */
@@ -547,4 +593,268 @@ body {
     .header-action-holder {
         padding-left: 0;
     }
+}
+
+/* ----- Avatar style ----- */
+.zz-avatar__square--sm {
+    border-radius: 8px;
+    width: 35px;
+}
+
+.zz-avatar__square--md {
+    border-radius: 10px;
+    width: 45px;
+}
+
+.zz-avatar__square--lg {
+    border-radius: 15px;
+    width: 60px;
+}
+
+.zz-avatar__square--xl {
+    border-radius: 25px;
+    width: 100px;
+}
+
+
+ /* ---- Dashboard page ---- */
+
+ .zz-box {
+    padding: 20px;
+ }
+
+ .zz-box__title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+
+.zz-box__category-title {
+    display: block;
+    color: #5C5C60;
+    font-size: 14px;
+}
+
+.zz-box__title-container__title {
+    color: #25262B;
+}
+
+.zz-box__title-container__action {
+    color: #3FADF7;
+    background-color: #def2ff;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.zz-box__title-container__action:hover {
+    color: #3FADF7;
+    cursor: pointer;
+    opacity: .8;
+    text-decoration: none;
+}
+ .zz-box__quantity {
+    font-size: 28px;
+    display: block;
+    font-weight: 500;
+    padding-top: 10px;
+    color: #25262B;
+ }
+ 
+ .zz-box--squared {
+     height: 115px;
+ }
+
+ .zz-box--horizontal--md {
+     height: 250px;
+ }
+
+ .zz-box--horizontal--lg {
+    min-height: 310px;
+}
+
+.zz-box--vertical--md {
+    min-height: 460px;
+}
+
+.zz-box--vertical--full {
+    height: 100%;
+}
+
+ .zz-box--gray--color {
+    background-color: #F9F9F9;
+ }
+
+ .zz-box--purple-color {
+    background-color: #c6c8ff;
+ }
+
+ .zz-box--bordered {
+     border: 1px solid #DEDEDF;
+ }
+
+ .zz-box--rounded {
+    border-radius: 20px;
+ }
+
+ .zz-flex-box {
+     display: flex;
+ }
+
+ .zz-flex-box__item {
+    flex: 1 1 0;
+}
+
+.zz-flex-box__item__illustration {
+    width: 88%;
+}
+
+.zz-box__item__text, .zz-box__item__action {
+    padding-top: 20px;
+}
+
+.zz-box__item__text--title {
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.zz-box__item__text--info {
+    font-size: 16px;
+    color: #fff;
+}
+
+.zz-box__item__text--info span {
+    display: block;
+}
+
+.zz-box__item__action--add {
+    align-items: center;
+    border-radius: 15px;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-flex;
+    flex-shrink: 0;
+    font-size: 13px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 15px;
+    color: #fff;
+    position: relative;
+    background: #FD5B82;
+    background: linear-gradient(to right bottom, #fd5482, #fe6382, #ff7184, #ff7f87, #ff8b8b);
+}
+
+.zz-box__item__action--add__icon {
+    margin-left: 15px;
+    margin-top: 6px;
+}
+
+/* ---- List style ---- */
+
+.zz-list {
+    list-style: none;
+}
+
+.zz-list__item {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.zz-list__item:last-child  {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+/* ---- Card style ---- */
+
+.zz-card {
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    margin-top: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.zz-card--bg01 {
+    background-image: url(https://archzine.com/wp-content/uploads/2019/05/blue-sky-pink-clouds-rose-wallpaper-phone-planets-stars-drawn.jpg);
+    padding-top: 120px;
+}
+
+.zz-card--bg02 {
+    background-image: url(https://hdwallpaper20.com/wp-content/uploads/2017/08/aaeeeffabefd-tumblr-cute-wallpaper-wp2001998.jpg);
+    padding-top: 120px;
+}
+
+.zz-card__content {
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 25px 20px;
+}
+
+.zz-card__content__header {
+    font-size: 16px;
+    font-weight: 500;
+    color: #3F4045;
+}
+
+.zz-card__content__text {
+    font-size: 12px;
+    padding: 10px 0;
+    color: #8F8F92;
+}
+
+.zz-info-img-box {
+    display: flex;
+}
+
+.zz-info-img-box--pd-l {
+    padding-left: 15px;
+}
+
+.zz-info-img-box__content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.zz-info-img-box__content--border-b {
+    border-bottom: 1px solid #E4E4E4;
+    padding-bottom: 5px;
+}
+
+.zz-info-img-box__content--right {
+    margin-left: 20px
+}
+
+.zz-info-img-box__content--left {
+    margin-right: 15px
+}
+
+.zz-info-img-box__content h4, .zz-info-img-box__content p, .zz-info-img-box__content span{
+    margin: 0;
+}
+
+.zz-info-img-box__content h4 {
+    font-size: 14px;
+    color: #3F4045;
+}
+
+.zz-info-img-box__content p {
+    color: #8F8F92;
+    font-size: 12px;
+}
+
+.popover {
+    background: #fff;
+    border: 1px solid #d5dce0;
+    color: #151b26;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgba(100,111,121,.15), 0 5px 20px 0 rgba(21,27,38,.08);
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }

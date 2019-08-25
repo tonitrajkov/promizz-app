@@ -1,35 +1,52 @@
-<header class="secureHeader" [ngClass]="{'isScroling':isScroling}">
-    <div class="headerHolder">
-        <div class="row grid">
-            <a routerLink="/" class="logoLink" title="Promizz"></a>
-
-            <div class="searchHolder">
-                <input class="searchInput" type="text" autocomplete="off" autocorrect="off" spellcheck="false" value="">
-                <span class="searchIcon icon-lg icon-search light"></span>
-                <span class="searchIcon header-search-icon-close icon-lg icon-close light hide"></span>
-                <a class="searchIcon header-search-icon-open icon-lg icon-external-link light hide" href="#"></a>
+<div class="zz-container">
+    <div class="row">
+        <div class="flex-box col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="inline-flex">
+                <div class="search-bar-container">
+                    <input class="search-bar-input" type="text" placeholder="Search">
+                    <span [innerHTML]="'search' | feather:'featherIcon i14 iGreyDark'"></span>
+                </div>
             </div>
+            <div class="inline-flex logo-container">
+                <a class="header-logo-link" [routerLink]="['/demo/dashboard']"></a>
+            </div>
+            <div class="inline-flex actions-container">
+                <div class="actions-wrapper">
+                    <div class="action-holder">
+                        <ng-template #popContent>
+                            <ul>
+                                <li>Promise</li>
+                                <li>Request</li>
+                                <li>Invite</li>
+                            </ul>
+                        </ng-template>
+                        <a class="action action--add" href="javascript:void(0);" placement="bottom"
+                            [ngbPopover]="popContent" >
+                            New
+                            <span [innerHTML]="'plus' | feather:'featherIcon i16 i-white'"></span>
+                        </a>
+                    </div>
+                    <div class="action-holder">
+                        <a class="action action--notification" href="">
+                            <span [innerHTML]="'info' | feather:'featherIcon i20 iPurple'"></span>
+                        </a>
+                    </div>
+                    <div class="action-holder">
+                        <a class="action  action--msg" href="">
+                            <span [innerHTML]="'bell' | feather:'featherIcon i20 iPurple'"></span>
+                        </a>
+                    </div>
+                </div>
 
-            <div class="actionsHolder">
-                <a class="icon-holder" href="javascript:void(0);" (click)="openPromiseModal()">
-                    <span [innerHTML]="'plus' | feather:'featherIcon i20 i-white'"></span>
-                </a>
-                <a class="icon-holder" href="">
-                    <span [innerHTML]="'info' | feather:'featherIcon i20 i-white'"></span>
-                </a>
-                <a class="icon-holder" href="">
-                    <span [innerHTML]="'bell' | feather:'featherIcon i20 i-white'"></span>
-                </a>
-                <a class="userAvatarHolder" href="" routerLink="/profile">
-                    <avatar [initials]="'TT'" [className]="'zz-avatar-md'"></avatar>
-                    <!-- <span class="userAvatar">
-                        <img class="avatar" height="30" width="30" src="https://trello-avatars.s3.amazonaws.com/e5a66a84d2f306c912bb9f2ed6651719/30.png"
-                            srcset="https://trello-avatars.s3.amazonaws.com/e5a66a84d2f306c912bb9f2ed6651719/30.png 1x, https://trello-avatars.s3.amazonaws.com/e5a66a84d2f306c912bb9f2ed6651719/50.png 2x"
-                            alt="Toni Trajkov (tonitrajkov)" title="Toni Trajkov (tonitrajkov)">
-                        <span class="member-gold-badge" title="This member has Trello Gold."></span>
-                    </span> -->
-                </a>
+                <div class="zz-info-img-box zz-info-img-box--pd-l">
+                    <div class="zz-info-img-box__content  zz-info-img-box__content--left">
+                        <h4>{{currentUser.Fullname}}</h4>
+                    </div>
+                    <div>
+                        <img [src]="currentUser.Avatar" class="zz-avatar__square--sm">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</header>
+</div>

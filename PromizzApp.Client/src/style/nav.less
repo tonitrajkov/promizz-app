@@ -2,6 +2,7 @@
 @import "variables";
 
 .nav-container.nav-menu-expanded {
+    // margin-left: -244px;
     width: 220px;
     box-shadow: 50px 0 100px @shadow-black;
     background-color: @color-white;
@@ -40,15 +41,12 @@
 }
 
 .nav-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 50px;
+    transition: margin-left 250ms ease-out,transform 250ms ease-out;
+    width: 244px;
+
     height: 100vh;
-    z-index: 960;
     color: @color-gray-dark;
     overflow: hidden;
-    transition: width .15s ease-in-out,box-shadow .15s ease-in-out;
 
     .nav-btn-holder {
         position: relative;
@@ -81,7 +79,7 @@
             .full-logo-holder {
                 -ms-transform-origin: left center;
                 transform-origin: left center;
-                background: url(@blackFullLogo) no-repeat;
+                // background: url(@blackFullLogo) no-repeat;
                 background-size: contain;        
                 height: 20px;
                 width: 135px;
@@ -198,5 +196,113 @@
                 border-radius: 8px;
             }
         }
+    }
+}
+
+
+.push-navbar-main {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+
+    .push-navbar-container {
+        background-color: #151b26;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        transition: width 250ms ease-out,transform 250ms ease-out;
+        width: 244px;
+    }
+
+    // menu collapsed
+    .push-navbar-container.is-collapsed {
+        width: 44px;
+
+        .navbar-logo-link {
+            background-image: none;
+        }
+
+        .push-navbar-link-name {
+            display: none;
+        }
+
+        .push-navbar-row {
+            padding: 0px 10px 0 11px;
+        }
+
+        .push-navbar-link svg {
+            margin-right: 15px;
+        }
+    }
+
+    .navbar-logo-link {
+        align-items: center;
+        background-image: url('../assets//images/full_logo_w.png');
+        background-position: 16px 0;
+        background-repeat: no-repeat;
+        background-size: 77px 26px;
+        display: flex;
+        flex-shrink: 0;
+        height: 16px;
+        justify-content: flex-end;
+        margin: 9px 0;
+        padding: 13px 0;
+
+        svg {
+            cursor: pointer;
+            margin-right: 15px;
+        }
+    }
+
+    .push-navbar-menu-container {
+        color: #d5dce0;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .navbar-section {
+        border-bottom: 1px solid #222b37;
+        padding-bottom: 10px;
+    }
+
+    .push-navbar-link {
+        color: #d5dce0;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-weight: 400;
+
+        svg {
+            margin-right: 10px;
+            transition: transform 250ms ease-out;
+        }
+    }
+
+    .push-navbar-link-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-right: 0;
+    }
+
+    .push-navbar-link.is-active {
+        background-color: rgba(255,255,255,.16);
+
+        .navbar-icon-dark {
+            color: #d5dce0;
+        }
+    }
+
+    .push-navbar-link:hover {
+        background-color: rgba(255,255,255,.08);
+        text-decoration: none;
+    }
+
+    .push-navbar-row {
+        align-items: center;
+        display: flex;
+        height: 30px;
+        justify-content: left;
+        line-height: 17px;
+        padding: 0 10px 0 15px;
     }
 }

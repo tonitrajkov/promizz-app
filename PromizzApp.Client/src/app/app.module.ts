@@ -12,10 +12,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Components
 import { PromiseAppComponent } from './promise-app.component';
+import { PromiseAddModalComponent, PromiseService } from './promises';
 
 @NgModule({
   declarations: [
-    PromiseAppComponent
+    PromiseAppComponent,
+    PromiseAddModalComponent
   ],
   imports: [
     SharedModule,
@@ -28,6 +30,12 @@ import { PromiseAppComponent } from './promise-app.component';
     ReactiveFormsModule,
     CoreModule,
     AppRoutingModule
+  ],
+  providers: [
+    PromiseService
+  ],
+  entryComponents: [
+    PromiseAddModalComponent
   ],
   bootstrap: [PromiseAppComponent]
 })

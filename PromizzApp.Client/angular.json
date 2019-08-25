@@ -30,7 +30,20 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "src/style/variables.less",
+              "src/style/theme.less",
+              "src/style/icons.less",
+              "src/style/buttons.less",
+              "src/style/header.less",
+              "src/style/footer.less",
+              "src/style/auth.less",
+              "src/style/settings.less",
+              "src/style/home.less",
+              "src/style/nav.less",
+              "src/style/modals.less",
+              "src/style/app.less"
             ],
             "scripts": []
           },

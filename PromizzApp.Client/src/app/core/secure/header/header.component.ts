@@ -1,35 +1,56 @@
-// import { Component, HostListener } from '@angular/core';
-// import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-// import { PromiseAddModalComponent } from '../../../promises/promise-add/promise-add-dialog.component';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-// @Component({
-//     selector: 'secure-header',
-//     templateUrl: './header.component.html'
-// })
-// export class SecureHeaderComponent {
-//     isScroling: boolean = false;
+import { CoreService } from '../../core.service';
+import { PubsubService } from '../../pupsub.service';
+import { PromiseAddModalComponent } from '../../../promises/promise-add/promise-add-dialog.component';
+import { UserModel } from '../../../shared';
 
-//     constructor(
-//         private modalService: NgbModal
-//       ) { }
+@Component({
+  selector: 'secure-header',
+  templateUrl: './header.component.html',
+  host: { 'class': 'secure-header' }
+})
+export class SecureHeaderComponent implements OnInit {
+  public isScroling: boolean = false;
+  public currentUser: UserModel = new UserModel();
 
-//       openPromiseModal() {
-//         const modalRef = this.modalService.open(PromiseAddModalComponent);
-//         modalRef.result.then((result) => {
-//           console.log(result);
-//         }).catch((error) => {
-//           console.log(error);
-//         });
-//       }
+  constructor(
+    private modalService: NgbModal,
+    private coreService: CoreService,
+    private pubsubService: PubsubService
+  ) { }
 
-//     @HostListener("window:scroll", [])
-//     onWindowScroll() {
-//         let number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-//         if (number > 0) {
-//             this.isScroling = true;
-//         }
-//         if (number === 0) {
-//             this.isScroling = false;
-//         }
-//     }
-// }
+  public ngOnInit() {
+    this.loadCurrentUser();
+  }
+
+  public loadCurrentUser() {
+    this.coreService.getCurrentUser()
+      .subscribe((user: UserModel) => {
+        this.currentUser = user;
+        this.pubsubService.setUser(user);
+      });
+  }
+
+  public openPromiseModal() {
+    const modalRef = this.modalService.open(PromiseAddModalComponent);
+
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+
+  @HostListener("window:scroll", [])
+  public onWindowScroll() {
+    let number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (number > 0) {
+      this.isScroling = true;
+    }
+    if (number === 0) {
+      this.isScroling = false;
+    }
+  }
+}

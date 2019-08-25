@@ -13,7 +13,7 @@ import { PromiseAddModalComponent } from './promise-add/promise-add-dialog.compo
 })
 export class PromisesComponent implements OnInit, OnDestroy {
 
-    public sectionTitle: string = '';
+    public sectionTitle: string = 'Promise';
     public searchModel: PromiseSearchModel = new PromiseSearchModel();
     public data = new EventEmitter<PromiseModel[]>();
     private sub: Subscription;
