@@ -1,0 +1,23 @@
+<div class="zz-tab-content--lg">
+    <div></div>
+    <div>
+        <ul class="zz-friends-list">
+            <li class="zz-friends-list__item" *ngFor="let friend of friends">
+                <div class="zz-info-img-box">
+                    <div>
+                        <img [src]="friend.Avatar" class="zz-avatar__square--md">
+                    </div>
+                    <div class="zz-info-img-box__content  zz-info-img-box__content--right">
+                        <h4>{{friend.Fullname}}</h4>
+                        <p>@{{friend.UserName}}</p>
+                    </div>
+                    <!-- <div class="zz-info-img-box__action">
+                        <a (click)="clearUser()">
+                            <span [innerHTML]="'more-horizontal' | feather:'featherIcon i14'"></span>
+                        </a>
+                    </div> -->
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

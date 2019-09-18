@@ -1,21 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
-import { UserModel } from '../shared';
+import { UserModel, PromiseModel } from '../shared';
 
 @Injectable()
 export class PubsubService {
     private subject = new Subject<any>();
+    private promiseSbj = new Subject<any>();
 
-    setUser(user: UserModel) {
+    public setUser(user: UserModel) {
         this.subject.next({ user });
     }
 
-    clearUser() {
+    public clearUser() {
         this.subject.next();
     }
 
-    getUser(): Observable<any> {
+    public getUser(): Observable<any> {
         return this.subject.asObservable();
+    }
+
+    public setPromise(promise: PromiseModel) {
+        this.promiseSbj.next({ promise });
+    }
+
+    public clearPromise() {
+        this.promiseSbj.next();
+    }
+
+    public getPromise(): Observable<any> {
+        return this.promiseSbj.asObservable();
     }
 }

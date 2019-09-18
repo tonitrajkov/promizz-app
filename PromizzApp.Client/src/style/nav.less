@@ -233,25 +233,33 @@
         .push-navbar-link svg {
             margin-right: 15px;
         }
+
+        .push-navbar-invite-container {
+            padding-top: 5px;
+        }
+
+        .push-navbar-invite-text, .push-navbar-invite-action {
+            display: none;
+        }
+
+        .invite-action-icon.push-navbar-link.push-navbar-row {
+            display: flex;
+        }
     }
 
     .navbar-logo-link {
-        align-items: center;
         background-image: url('../assets//images/full_logo_w.png');
         background-position: 16px 0;
         background-repeat: no-repeat;
         background-size: 77px 26px;
-        display: flex;
-        flex-shrink: 0;
         height: 16px;
-        justify-content: flex-end;
-        margin: 9px 0;
         padding: 13px 0;
+    }
 
-        svg {
-            cursor: pointer;
-            margin-right: 15px;
-        }
+    .nav-menu-action {
+        padding: 13px 0;
+        cursor: pointer;
+        margin-right: 15px;
     }
 
     .push-navbar-menu-container {
@@ -259,11 +267,53 @@
         font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
         font-size: 14px;
         font-weight: 400;
+        flex: 1;
     }
 
     .navbar-section {
         border-bottom: 1px solid #222b37;
         padding-bottom: 10px;
+    }
+
+    .push-navbar-invite-container {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+
+    .push-navbar-invite-text {
+        font-size: 11px;
+        margin: 15px 30px;
+        color: #f6f8f9;
+        text-align: center;
+    }
+
+    .push-navbar-invite-action {
+        font-size: 13px;
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+
+    .invite-action {
+        height: 30px;
+        line-height: 30px;
+        padding: 0 9px;
+        background: transparent;
+        color: #fff !important;
+        border: 1px solid rgba(255,255,255,.36);
+        width: 100%;
+        justify-content: center;
+
+        &:hover {
+            background-color: #fff;
+            border-color: #fff;
+            color: rgba(0,0,0,.93) !important;
+        }
+    }
+
+    .invite-action-icon.push-navbar-link.push-navbar-row {
+        cursor: pointer;
+        display: none;
     }
 
     .push-navbar-link {

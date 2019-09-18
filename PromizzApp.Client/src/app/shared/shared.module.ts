@@ -8,6 +8,8 @@ import { NgbModule, NgbTabsetModule, NgbTooltipModule, NgbPopoverModule } from '
 // Directives
 import { ScrollTrackerDirective } from './directives/scroll-tracker.directive';
 import { EmailValidator } from './directives/email-validator.directive';
+import { FocusDirective } from './directives/focus.directive';
+import { AutosizeDirective } from './directives/autosize.directive';
 
 // Components
 import { PeopleAutoselectComponent } from './components/select/people-autoselect.component';
@@ -15,6 +17,7 @@ import { ColorPickerSliderComponent } from './components/colorpicker/color-picke
 import { PromiseGridComponent } from './components/promisegrid/promisegrid.component';
 import { PromizzDateTimePickerComponent } from './components/datetimepicker/datetimepicker.component';
 import { AvatarComponent } from './components/avatar/avatar.component';
+import { InviteDialogComponent } from './dialogs/invite-dialog.component';
 
 // Pipes
 import { FeatherIconsPipe } from '../shared/pipes/feather.pipe';
@@ -41,6 +44,8 @@ import { TranslatePipe } from '../shared/pipes/translate.pipe';
 
         // Directives
         ScrollTrackerDirective,
+        FocusDirective,
+        AutosizeDirective,
 
         // Components
         PromizzDateTimePickerComponent,
@@ -48,6 +53,7 @@ import { TranslatePipe } from '../shared/pipes/translate.pipe';
         ColorPickerSliderComponent,
         PromiseGridComponent,
         AvatarComponent,
+        InviteDialogComponent,
 
         // Pipes
         FeatherIconsPipe,
@@ -58,11 +64,17 @@ import { TranslatePipe } from '../shared/pipes/translate.pipe';
         TranslatePipe,
         EmailValidator,
         ScrollTrackerDirective,
+        FocusDirective,
+        AutosizeDirective,
         PromizzDateTimePickerComponent,
         PeopleAutoselectComponent,
         ColorPickerSliderComponent,
         PromiseGridComponent,
-        AvatarComponent
+        AvatarComponent,
+        InviteDialogComponent
+    ],
+    entryComponents: [
+        InviteDialogComponent
     ]
 })
 export class SharedModule { }

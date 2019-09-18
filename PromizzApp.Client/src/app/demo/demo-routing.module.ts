@@ -9,6 +9,9 @@ import { RequestComponent } from './promises/request.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ChalengeComponent } from './chalenges/chalenge.component';
 import { AchievementComponent } from './achievements/achievement.component';
+import { PersonalInfoComponent } from './profile/personal/personal-info.component';
+import { FriendsComponent } from './profile/friends/friends.component';
+import { SettingsComponent } from './profile/settings/settings.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'dashboard' },
@@ -19,12 +22,20 @@ const routes: Routes = [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'promises', component: PromiseComponent },
             { path: 'requests', component: RequestComponent },
-            { path: 'profile', component: ProfileComponent },
+            {
+                path: 'profile', component: ProfileComponent, children: [
+                    { path: '', redirectTo: 'personal' },
+                    { path: 'personal', component: PersonalInfoComponent },
+                    { path: 'friends', component: FriendsComponent },
+                    { path: 'settings', component: SettingsComponent },
+                    { path: '**', redirectTo: 'personal', pathMatch: 'full' }
+                ]
+            },
             { path: 'chalenges', component: ChalengeComponent },
             { path: 'achievements', component: AchievementComponent }
         ]
     },
-    { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
+    { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -14,16 +14,18 @@
                 <div class="actions-wrapper">
                     <div class="action-holder">
                         <ng-template #popContent>
-                            <ul>
-                                <li>Promise</li>
-                                <li>Request</li>
-                                <li>Invite</li>
+                            <ul class="zz-popover-list">
+                                <li class="zz-popover-list__item" (click)="openPromiseModal(); p.close()">
+                                    Promise
+                                </li>
+                                <li class="zz-popover-list__item" (click)="p.close()">Request</li>
+                                <li class="zz-popover-list__item" (click)="openInviteDialog(); p.close()">Invite</li>
                             </ul>
                         </ng-template>
-                        <a class="action action--add" href="javascript:void(0);" placement="bottom"
-                            [ngbPopover]="popContent" >
+                        <a #p="ngbPopover" class="zz-btn  zz-btn--bordered  zz-btn--rose  zz-btn--space-right"
+                            href="javascript:void(0);" placement="bottom" [ngbPopover]="popContent">
                             New
-                            <span [innerHTML]="'plus' | feather:'featherIcon i16 i-white'"></span>
+                            <span class="zz-btn__icon" [innerHTML]="'plus' | feather:'featherIcon i16 i-white'"></span>
                         </a>
                     </div>
                     <div class="action-holder">

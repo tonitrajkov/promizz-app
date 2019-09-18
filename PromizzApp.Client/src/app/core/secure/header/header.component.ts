@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CoreService } from '../../core.service';
 import { PubsubService } from '../../pupsub.service';
 import { PromiseAddModalComponent } from '../../../promises/promise-add/promise-add-dialog.component';
+import { InviteDialogComponent } from '../../../shared/dialogs/invite-dialog.component';
 import { UserModel } from '../../../shared';
 
 @Component({
@@ -35,6 +36,16 @@ export class SecureHeaderComponent implements OnInit {
 
   public openPromiseModal() {
     const modalRef = this.modalService.open(PromiseAddModalComponent);
+
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+
+  public openInviteDialog() {
+    const modalRef = this.modalService.open(InviteDialogComponent);
 
     modalRef.result.then((result) => {
       console.log(result);

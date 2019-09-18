@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { environment } from '../../environments/environment';
-import { UserModel } from '../shared';
+import { UserModel, PromiseModel } from '../shared';
 
 @Injectable()
 export class DemoService {
@@ -21,5 +21,13 @@ export class DemoService {
 
     public getCurrentUser(): Observable<UserModel> {
         return this.http.get<UserModel>(`${this.apiUrl}/demo/currentuser`);
+    }
+
+    public loadPromises(): Observable<PromiseModel[]> {
+        return this.http.get<PromiseModel[]>(`${this.apiUrl}/demo/promise`);
+    }
+
+    public getPromiseById(promiseId: number): Observable<PromiseModel> {
+        return this.http.get<PromiseModel>(`${this.apiUrl}/demo/promise/` + promiseId);
     }
 }

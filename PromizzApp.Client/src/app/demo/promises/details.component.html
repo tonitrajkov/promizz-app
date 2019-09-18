@@ -1,0 +1,111 @@
+<div class="zz-pane" [ngClass]="{'show-pane': showPane, 'hide-pane': !showPane}">
+    <div class="zz-pane__container">
+        <div class="zz-pane__header">
+            <a (click)="closePane()" class="zz-pane__close-btn">
+                <span class="zz-menu-anchor__icon" [innerHTML]="'x' | feather:'featherIcon i16 iGreyDark'"></span>
+            </a>
+        </div>
+        <div class="zz-pane__content">
+
+            <!-- Title -->
+            <div class="zz-field-container  zz-field-container--btm-space">
+                <label class="zz-field__label">Title</label>
+                <input type="text" name="title"
+                    class="zz-field__input  zz-field__input--no-border  zz-field__input--text-big"
+                    placeholder="Promise name" [(ngModel)]="promise.Title" />
+            </div>
+
+            <!-- To & End date -->
+            <div class="zz-field-wrapper zz-field-wrapper--row">
+                <div class="zz-field-container  zz-field-container--btm-space">
+                    <label class="zz-field__label">Promise for</label>
+
+                    <div class="zz-add-box" *ngIf="!showAutocomplete && !promise.Promisee" (click)="addUser()">
+                        Add
+                        <span class="zz-add-box__icon" [innerHTML]="'plus' | feather:'featherIcon i16'"></span>
+                    </div>
+
+                    <div class="zz-info-img-box zz-info-img-box--selected" *ngIf="promise && promise.Promisee">
+                        <div>
+                            <img [src]="promise.Promisee?.Avatar" class="zz-avatar__square--exsm">
+                        </div>
+                        <div class="zz-info-img-box__content  zz-info-img-box__content--right-sm">
+                            <span>{{promise.Promisee.Fullname}}</span>
+                        </div>
+                        <div class="zz-info-img-box__action">
+                            <a (click)="clearUser()">
+                                <span [innerHTML]="'x' | feather:'featherIcon i12'"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <people-autopselect *ngIf="showAutocomplete" [data]="fiteredUsers"
+                        (onFilterChange)="handleFilterChange($event)" (onSelectValue)="handleSelectValue($event)">
+                    </people-autopselect>
+                </div>
+                <div class="zz-field-container  zz-field-container--btm-space  zz-field-container--left-space">
+                    <label class="zz-field__label">End date</label>
+
+                    <div class="zz-add-box" *ngIf="!promise.EndDate" (click)="d.toggle()">
+                        Add date
+                        <span class="zz-add-box__icon" [innerHTML]="'plus' | feather:'featherIcon i16'"></span>
+                    </div>
+
+                    <div class="zz-info-img-box zz-info-img-box--selected" *ngIf="promise && promise.EndDate">
+                        <div class="zz-info-img-box__content  zz-info-img-box__content--right-sm">
+                            <span>{{promise.EndDate | date}}</span>
+                        </div>
+                        <div class="zz-info-img-box__action">
+                            <a (click)="clearEndDate()">
+                                <span [innerHTML]="'x' | feather:'featherIcon i12'"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <input style="display:none" name="dp" (dateSelect)="onDateSelect($event)" ngbDatepicker
+                        #d="ngbDatepicker">
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="zz-field-container  zz-field-container--btm-space">
+                <label class="zz-field__label">Description</label>
+                <textarea name="description"
+                    class="zz-field__input  zz-field__input--no-border  zz-field__input--text-normal"
+                    placeholder="With this promise you'll know..." [(ngModel)]="promise.Description"></textarea>
+            </div>
+
+
+            <!-- Tags -->
+            <div class="zz-field-container  zz-field-container--btm-space">
+                <label class="zz-field__label">Tags</label>
+            </div>
+
+            <!-- Files -->
+            <div class="zz-field-container  zz-field-container--btm-space">
+                <label class="zz-field__label">Files</label>
+            </div>
+
+            <div class="zz-separator"></div>
+
+
+        </div>
+
+        <div class="zz-pane__footer">
+            <div class="zz-pane__comment-composer">
+                <div class="zz-comment__avatar">
+                    <img src="../../../assets/images/avatars/avatar-07.png" class="zz-avatar__square--sm">
+                </div>
+                <div class="zz-comment__editor">
+                    <div class="zz-comment__box">
+                        <textarea zzfocus zzautosize [maxHeight]="70" class="zz-comment-box__input"
+                            placeholder="Say something..."></textarea>
+                        <div class="zz-comment__actions">
+                            <input type="submit" class="zz-btn zz-btn--blue  zz-btn--bordered" value="Comment" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,9 +1,126 @@
 <div class="zz-container">
+    <div class="zz-filter-container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="zz-filter-wrapper">
+                    <ng-template #viewFilterContent>
+                        <ul class="zz-popover-list">
+                            <li *ngFor="let item of viewFilter" class="zz-popover-list__item" (click)="p.close()">
+                                {{item.Value}}
+                            </li>
+                        </ul>
+                    </ng-template>
+                    <a #p="ngbPopover" class="zz-menu-anchor" placement="bottom" [ngbPopover]="viewFilterContent">
+                        <span class="zz-menu-anchor__icon"
+                            [innerHTML]="'check-circle' | feather:'featherIcon i12 iGreyDark'"></span>
+                        <span class="zz-menu-anchor__label">All promises</span>
+                    </a>
+                    <a class="zz-menu-anchor">
+                        <span class="zz-menu-anchor__icon"
+                            [innerHTML]="'filter' | feather:'featherIcon i12 iGreyDark'"></span>
+                        <span class="zz-menu-anchor__label">Filter</span>
+                    </a>
+                    <a class="zz-menu-anchor">
+                        <span class="zz-menu-anchor__icon"
+                            [innerHTML]="'corner-left-up' | feather:'featherIcon i12 iGreyDark'"></span>
+                        <span class="zz-menu-anchor__label">Sort</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-            <div class="additional-info-container">
-                <span>Promise</span>
+            <div class="zz-grid-container">
+                <ul class="zz-grid-list" *ngIf="!promises">
+                    <li class="zz-grid-list__item  zz-grid-list__item--gre-3">
+                        <div class="loader"></div>
+                    </li>
+                    <li class="zz-grid-list__item  zz-grid-list__item--gre-7">
+                        <div class="loader"></div>
+                    </li>
+                    <li class="zz-grid-list__item  zz-grid-list__item--gre-5">
+                        <div class="loader"></div>
+                    </li>
+                    <li class="zz-grid-list__item  zz-grid-list__item--gre-3">
+                        <div class="loader"></div>
+                    </li>
+                    <li class="zz-grid-list__item  zz-grid-list__item--gre-5">
+                        <div class="loader"></div>
+                    </li>
+                    <li class="zz-grid-list__item  zz-grid-list__item--gre-6">
+                        <div class="loader"></div>
+                    </li>
+                    <li class="zz-grid-list__item  zz-grid-list__item--gre-5">
+                        <div class="loader"></div>
+                    </li>
+                </ul>
+
+                <ul class="zz-grid-list" *ngIf="promises">
+                    <li *ngFor="let promise of promises"  [ngStyle]="{ 'grid-row-end': setListItemStyle(promise) }"
+                        (click)="openPromiseDetails(promise)"  class="zz-grid-list__item">
+                        <div class="zz-grid-card  zz-grid-card--bg-white"
+                           >
+
+                            <div class="zz-card__status-holder">
+                                <div class="zz-card__due-date">
+                                    <span class="zz-menu-anchor__icon"
+                                        [innerHTML]="'clock' | feather:'featherIcon i12'"></span>
+                                    <span class="zz-menu-anchor__label">{{promise.EndDate | date}}</span>
+                                </div>
+
+                                <ul class="zz-actions-wrapper">
+                                    <li class="zz-action__item" *ngIf="promise.State.Key == 3">
+                                        <span class="zz-menu-anchor__icon"
+                                            [innerHTML]="'check-circle' | feather:'featherIcon i14'"></span>
+                                    </li>
+                                    <li class="zz-action__item">
+                                        <span class="zz-menu-anchor__icon"
+                                            [innerHTML]="'more-horizontal' | feather:'featherIcon i14'"></span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="zz-card__text zz-card__text--title"
+                                >
+                                {{promise.Title}}
+                            </div>
+
+                            <div class="zz-card__tag-holder" *ngIf="promise.Tags.length > 0">
+                                <div *ngFor="let tag of promise.Tags" [ngStyle]="{ 'background-color': tag.Color }"
+                                    class="zz-card__tag"></div>
+                            </div>
+
+                            <div class="zz-card_colaboration-holder">
+                                <ul class="zz-actions-wrapper">
+                                    <li class="zz-action__item">
+                                        <span class="zz-menu-anchor__icon"
+                                            [innerHTML]="'paperclip' | feather:'featherIcon i12'"></span>
+                                        <span class="zz-menu-anchor__label">2</span>
+                                    </li>
+                                    <li class="zz-action__item">
+                                        <span class="zz-menu-anchor__icon"
+                                            [innerHTML]="'message-circle' | feather:'featherIcon i12'"></span>
+                                        <span class="zz-menu-anchor__label">9</span>
+                                    </li>
+                                </ul>
+
+                                <div class="zz-info-img-box zz-info-img-box--pd-l">
+                                    <div class="zz-info-img-box__content  zz-info-img-box__content--left-sm">
+                                        <span>{{promise.Promisee.Fullname}}</span>
+                                    </div>
+                                    <div>
+                                        <img [src]="promise.Promisee.Avatar" class="zz-avatar__square--exsm">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
+
+<promizz-details></promizz-details>

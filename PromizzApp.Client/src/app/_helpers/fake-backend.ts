@@ -4,14 +4,16 @@ import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
 
-import { USERS, CURRENT_USER } from './mock.objects';
-import { UserModel } from '../shared';
+import { USERS, CURRENT_USER, PROMISES } from './mock.objects';
+import { UserModel, PromiseModel } from '../shared';
+import { promise } from 'protractor';
 
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
     public users: UserModel[] = USERS;
     public currentUser: UserModel = CURRENT_USER;
+    public promises: PromiseModel[] = PROMISES;
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -68,7 +70,69 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             }
 
             if (request.url.indexOf('api/demo/currentuser') !== -1) {
-                return of(new HttpResponse({ status: 200, body: this.currentUser }));
+
+                switch (request.method) {
+                    case 'GET':
+                        return of(new HttpResponse({ status: 200, body: this.currentUser }));
+                    case 'PUT': // update user
+                        let model = <UserModel>request.body;
+
+                        this.currentUser.Firstname = model.Firstname;
+                        this.currentUser.Lastname = model.Lastname;
+                        this.currentUser.UserName = model.UserName;
+                        this.currentUser.Bio = model.Bio;
+                        this.currentUser.Avatar = model.Avatar;
+
+                        return of(new HttpResponse({ status: 200 }));
+                }
+
+            }
+
+            // demo promise api
+            if (request.url.indexOf('api/demo/promise') !== -1) {
+                let urlParts = request.url.split('/');
+                let promiseId = parseInt(urlParts[urlParts.length - 1]);
+
+                switch (request.method) {
+                    case 'GET':
+                        if (promiseId) {
+                            // get user by Id
+                            let promise = this.getPromiseById(promiseId, true);
+                            return of(new HttpResponse({ status: 200, body: promise }));
+                        }
+                        else {
+                            // get all users
+                            return of(new HttpResponse({ status: 200, body: this.promises }));
+                        }
+                    case 'POST': // add new user
+                        let newPromise = <PromiseModel>request.body;
+                        newPromise.Id = this.generateId(this.promises.map(promise => promise.Id));
+                        this.promises.push(newPromise);
+
+                        return of(new HttpResponse({ status: 200 }));
+                    case 'PUT': // update user
+                        let model = <PromiseModel>request.body;
+                        let promise = this.getPromiseById(model.Id, false);
+                        if (promise) {
+                            promise.Title = model.Title;
+                            promise.Description = model.Description;
+                        }
+
+                        return of(new HttpResponse({ status: 200 }));
+                    case 'DELETE':
+                        if (promiseId) {
+                            let promise = this.getPromiseById(promiseId, false);
+                            if (promise) {
+                                let index = this.promises.indexOf(promise, 0);
+                                if (index !== -1) {
+                                    this.promises.splice(index, 1);
+                                }
+                            }
+
+                            return of(new HttpResponse({ status: 200 }));
+                        }
+                        break;
+                }
             }
 
             // pass through any requests not handled above
@@ -82,8 +146,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             .pipe(dematerialize());
     }
 
-      // get by id functions
-      public getUserById(userId: number, makeCopy: boolean): UserModel {
+    // get by id functions
+    public getUserById(userId: number, makeCopy: boolean): UserModel {
         let user = this.users.filter(user => { return user.Id === userId; })[0];
 
         if (!user) {
@@ -93,8 +157,15 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         return makeCopy ? this.copyObject<UserModel>(user) : user;
     }
 
+    public getPromiseById(promiseId: number, makeCopy: boolean): PromiseModel {
+        let promise = this.promises.filter(promise => { return promise.Id === promiseId; })[0];
 
+        if (!promise) {
+            return {} as PromiseModel;
+        }
 
+        return makeCopy ? this.copyObject<PromiseModel>(promise) : promise;
+    }
 
     // private functions
     private generateId(ids: number[]): number {

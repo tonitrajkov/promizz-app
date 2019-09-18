@@ -1,25 +1,32 @@
 <div class="push-navbar-container" [ngClass]="{'is-collapsed':!isExpanded}">
-    <a class="navbar-logo-link" [routerLink]="['/demo/dashboard']" >
-        <span [innerHTML]="'menu' | feather:'featherIcon i18 navbar-icon-bright'" (click)="toggleMenu()"></span>
-    </a>
+    <div class="zz-flex-box  align-items-center">
+        <a class="navbar-logo-link  zz-flex-box__item" [routerLink]="['/demo/dashboard']"></a>
+        <a class="nav-menu-action ">
+            <span [innerHTML]="'menu' | feather:'featherIcon i18 navbar-icon-bright'" (click)="toggleMenu()"></span>
+        </a>
+    </div>
 
     <div class="push-navbar-menu-container navbar-section">
-        <a class="push-navbar-link push-navbar-row" [routerLink]="['/demo/dashboard']" [routerLinkActive]="['is-active']">
+        <a class="push-navbar-link push-navbar-row" [routerLink]="['/demo/dashboard']"
+            [routerLinkActive]="['is-active']">
             <span [innerHTML]="'home' | feather:'featherIcon i18 navbar-icon-dark'"></span>
             <div class="push-navbar-link-name">Home</div>
         </a>
 
-        <a class="push-navbar-link push-navbar-row" [routerLink]="['/demo/promises']" [routerLinkActive]="['is-active']">
+        <a class="push-navbar-link push-navbar-row" [routerLink]="['/demo/promises']"
+            [routerLinkActive]="['is-active']">
             <span [innerHTML]="'send' | feather:'featherIcon i18 navbar-icon-dark'"></span>
             <div class="push-navbar-link-name">Promises</div>
         </a>
 
-        <a class="push-navbar-link push-navbar-row" [routerLink]="['/demo/requests']" [routerLinkActive]="['is-active']">
+        <a class="push-navbar-link push-navbar-row" [routerLink]="['/demo/requests']"
+            [routerLinkActive]="['is-active']">
             <span [innerHTML]="'anchor' | feather:'featherIcon i18 navbar-icon-dark'"></span>
             <div class="push-navbar-link-name">Requests</div>
         </a>
 
-        <a class="push-navbar-link push-navbar-row" [routerLink]="['/demo/achievements']" [routerLinkActive]="['is-active']">
+        <a class="push-navbar-link push-navbar-row" [routerLink]="['/demo/achievements']"
+            [routerLinkActive]="['is-active']">
             <span [innerHTML]="'award' | feather:'featherIcon i18 navbar-icon-dark'"></span>
             <div class="push-navbar-link-name">Achievements</div>
         </a>
@@ -28,5 +35,17 @@
             <span [innerHTML]="'user' | feather:'featherIcon i18 navbar-icon-dark'"></span>
             <div class="push-navbar-link-name">Profile</div>
         </a>
+    </div>
+
+    <div class="push-navbar-invite-container">
+        <a class="invite-action-icon push-navbar-link push-navbar-row" (click)="openInviteDialog()">
+            <span [innerHTML]="'user-plus' | feather:'featherIcon i18 navbar-icon-dark'"></span>
+        </a>
+        <div class="push-navbar-invite-text">
+            Invite your friends and start collaborating!
+        </div>
+        <div class="push-navbar-invite-action">
+            <a class="zz-btn invite-action" (click)="openInviteDialog()">Invite to Promizz</a>
+        </div>
     </div>
 </div>

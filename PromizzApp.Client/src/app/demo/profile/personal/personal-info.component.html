@@ -1,0 +1,49 @@
+<div class="zz-user-info-box justify-content-between zz-tab-content--sm">
+    <!-- Avatar container -->
+    <div class="zz-user-info-box__avatar">
+        <div class="zz-field-container">
+            <label class="zz-field__label">Your Avatar</label>
+        </div>
+        <div class="zz-info-img-box">
+            <img [src]="user.Avatar" class="zz-avatar__square--xl">
+            <div class="zz-overlay" (mouseover)="mouseOvered=true" (mouseout)="mouseOvered=false"
+                [ngStyle]="mouseOvered ? {'opacity': 1 }: ''" (click)="fileInput.click()">
+                <span [innerHTML]="'plus' | feather:'featherIcon i24 navbar-icon-bright'"></span>
+            </div>
+            <input type="file" style="display: none" (change)="avatarChange($event)" #fileInput>
+        </div>
+    </div>
+
+    <!-- Personal info form -->
+    <form #editForm='ngForm' class="zz-user-info-box__form">
+        <div class="zz-field-container  zz-field-container--btm-space">
+            <label class="zz-field__label">First name</label>
+            <input type="text" name="firstname" class="zz-field__input zz-field__input--bordered"
+                placeholder="Edit your first name" [(ngModel)]="user.Firstname" #firstname="ngModel" required />
+            <p class="zz-field__error" *ngIf="firstname.dirty && firstname.invalid">Your first name is required!</p>
+        </div>
+
+        <div class="zz-field-container  zz-field-container--btm-space">
+            <label class="zz-field__label">Last name</label>
+            <input type="text" name="lastname" class="zz-field__input  zz-field__input--bordered"
+                placeholder="Edit your last name" [(ngModel)]="user.Lastname" #lastname="ngModel" required />
+            <p class="zz-field__error" *ngIf="lastname.dirty && lastname.invalid">Your last name is required!</p>
+        </div>
+
+        <div class="zz-field-container  zz-field-container--btm-space">
+            <label class="zz-field__label">Username</label>
+            <input type="text" name="username" class="zz-field__input  zz-field__input--bordered"
+                placeholder="Edit your username" [(ngModel)]="user.UserName" #username="ngModel" required />
+            <p class="zz-field__error" *ngIf="username.dirty && username.invalid">Your username is required!</p>
+        </div>
+        <div class="zz-field-container  zz-field-container--btm-space">
+            <label class="zz-field__label">Bio</label>
+            <textarea name="bio" class="zz-field__input zz-field__input--bordered"
+                placeholder="Edit your bio"></textarea>
+        </div>
+        <div class="zz-flex-box justify-content-end">
+            <a href="javascript:void(0);" class="zz-btn  zz-btn--bordered  zz-btn--purple"
+                (click)="saveChanges(editForm)">Save changes</a>
+        </div>
+    </form>
+</div>

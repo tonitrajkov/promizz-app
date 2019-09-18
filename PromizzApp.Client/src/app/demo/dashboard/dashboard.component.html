@@ -13,11 +13,21 @@
                             <span>How about we write another one?</span>
                         </div>
                         <div class="zz-box__item__action">
-                            <a href="" class="zz-box__item__action--add">
+                            <ng-template #popContent>
+                                <ul class="zz-popover-list">
+                                    <li class="zz-popover-list__item" (click)="p.close()">
+                                        Promise
+                                    </li>
+                                    <li class="zz-popover-list__item" (click)="p.close()">Request</li>
+                                </ul>
+                            </ng-template>
+                            <a #p="ngbPopover" class="zz-btn  zz-btn--bordered  zz-btn--rose  zz-btn--space-right"
+                                href="javascript:void(0);" placement="right" [ngbPopover]="popContent">
                                 New
-                                <span class="zz-box__item__action--add__icon"
+                                <span class="zz-btn__icon"
                                     [innerHTML]="'plus' | feather:'featherIcon i16 i-white'"></span>
                             </a>
+                         
                         </div>
                     </div>
                     <div class="zz-flex-box__item">

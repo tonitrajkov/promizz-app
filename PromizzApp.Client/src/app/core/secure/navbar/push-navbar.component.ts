@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { InviteDialogComponent } from '../../../shared/dialogs/invite-dialog.component';
 
 @Component({
     selector: 'promizz-push-navbar',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PushNavBarComponent implements OnInit {
     public isExpanded: boolean = false;
-    
+
+    constructor(private modalService: NgbModal) { }
+
     public ngOnInit() {
         this.initMenu();
     }
@@ -17,6 +21,16 @@ export class PushNavBarComponent implements OnInit {
         this.setLocalStorage();
     }
 
+    public openInviteDialog() {
+        const modalRef = this.modalService.open(InviteDialogComponent);
+    
+        modalRef.result.then((result) => {
+          console.log(result);
+        }).catch((error) => {
+          console.log(error);
+        });
+      }
+    
     private initMenu(): void {
         let storageItem = localStorage.getItem('menu-is-expanded');
         storageItem ? this.isExpanded = JSON.parse(storageItem) : this.setLocalStorage();

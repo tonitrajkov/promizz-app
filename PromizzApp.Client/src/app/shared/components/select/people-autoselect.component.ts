@@ -52,7 +52,7 @@ export class PeopleAutoselectComponent implements OnInit {
 
     @HostListener('document:click', ['$event'])
     clickedOutside($event: any): void {
-        if ($event.target && $event.target.classList[0] !== 'auto-form-placeholder') {
+        if ($event.target && ($event.target.classList[0] !== 'zz-add-box' && $event.target.classList[0] !== 'feather')) {
             this.clearResults();
             this.onSelectValue.emit(null);
         }

@@ -1,10 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+import { PubsubService } from '../../core/pupsub.service';
+import { DemoService } from '../demo.service';
+import { UserModel } from '../../shared';
 
 @Component({
     templateUrl: './profile.component.html'
 })
 export class ProfileComponent implements OnInit {
-    constructor() { }
+    public friendsCount: number;
 
-    ngOnInit(): void { }
+    constructor(private service: DemoService) { }
+
+    public ngOnInit(): void {
+        this.service.loadUsers()
+            .subscribe(users => {
+                if (users) {
+                    this.friendsCount = users.length;
+                }
+                else {
+                    this.friendsCount = 0;
+                }
+            });
+    }
 }
