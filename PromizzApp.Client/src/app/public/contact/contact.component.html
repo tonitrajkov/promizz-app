@@ -1,19 +1,16 @@
 <div class="zz-section">
   <div class="zz-container">
-    <div class="row">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 pt-0 pt-sm-0 pt-lg-5">
+    <div zzInViewport class="row">
+      <div class="row__side row__side--left col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 pt-0 pt-sm-0 pt-lg-5">
         <div class="">
 
-          <div class="title-container title-contact">
-            <h1>Hi! You caught us before we were ready.</h1>
-          </div>
-
-          <div class="text-container">
-            <p>
+          <div class="zz-text-box__text">
+            <h1 class="zz-text-box__text__title  zz-text-box__text__title--lg">Hi! You caught us before we were ready.
+            </h1>
+            <p class="zz-text-box__text__description">
               <b>Promizz</b> is still under construction.
               We are working hard to finish it up, and it will be ready to help you managing your promises.
-            </p>
-            <p>
+              <br>
               We are working on a <b>demo</b>, to show you all the <b>features in action!</b>
               Enter your <b>email</b> below and we will let you know our next move!
             </p>
@@ -21,7 +18,7 @@
 
           <div class="contact-form-container">
             <form [formGroup]="contactForm" (ngSubmit)="submit()" class="contact-form" novalidate>
-              <div class="form-container">
+              <div class="contact-form-wrapper">
                 <div class="input-container">
                   <input type="text" formControlName="email" class="email-input"
                     [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Enter your email address" />
@@ -45,7 +42,7 @@
 
         </div>
       </div>
-      <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 pt-5 pt-md-5 pt-lg-0">
+      <div class="row__side row__side--right col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 pt-5 pt-md-5 pt-lg-0">
         <object type="image/svg+xml" data="../../../assets/images/illustrations/working_progress.svg"
           class="header-illustaration">
         </object>

@@ -10,6 +10,7 @@ import { ScrollTrackerDirective } from './directives/scroll-tracker.directive';
 import { EmailValidator } from './directives/email-validator.directive';
 import { FocusDirective } from './directives/focus.directive';
 import { AutosizeDirective } from './directives/autosize.directive';
+import { InViewportDirective } from './directives/in-viewport.directive';
 
 // Components
 import { PeopleAutoselectComponent } from './components/select/people-autoselect.component';
@@ -46,6 +47,7 @@ import { TranslatePipe } from '../shared/pipes/translate.pipe';
         ScrollTrackerDirective,
         FocusDirective,
         AutosizeDirective,
+        InViewportDirective,
 
         // Components
         PromizzDateTimePickerComponent,
@@ -60,12 +62,18 @@ import { TranslatePipe } from '../shared/pipes/translate.pipe';
         TranslatePipe
     ],
     declarations: [
+        // Pipes
         FeatherIconsPipe,
         TranslatePipe,
+
+        // Directives
         EmailValidator,
         ScrollTrackerDirective,
         FocusDirective,
         AutosizeDirective,
+        InViewportDirective,
+
+        // Components
         PromizzDateTimePickerComponent,
         PeopleAutoselectComponent,
         ColorPickerSliderComponent,

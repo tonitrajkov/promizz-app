@@ -6,6 +6,7 @@ import { ProfileService } from '../profile.service';
     templateUrl: './personal-info.component.html'
 })
 export class PersonalInfoComponent implements OnInit {
+    public mouseOvered: boolean;
     public user: UserModel = new UserModel();
     public selectedFile: File;
 

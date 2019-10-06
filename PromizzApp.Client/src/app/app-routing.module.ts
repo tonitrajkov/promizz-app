@@ -6,10 +6,10 @@ const routes: Routes = [
         path: '',
         loadChildren: './public/public.module#PublicModule'
     },
-    {
-        path:'demo',
-        loadChildren: './demo/demo.module#DemoModule'
-    },
+    // {
+    //     path:'demo',
+    //     loadChildren: './demo/demo.module#DemoModule'
+    // },
     { path: '**', redirectTo: '' }
 ];
 

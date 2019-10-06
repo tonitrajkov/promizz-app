@@ -14,10 +14,8 @@ const routes: Routes = [
     component: PublicComponent,
     children: [
       { path: '', component: PublicHomeComponent, pathMatch: 'full' },
-      { path: 'pricing', component: PricingComponent },
-      { path: 'contact1', component: ContactComponent },
-      { path: 'contact2', component: ContactComponent },
-      { path: 'contact3', component: ContactComponent }
+      // { path: 'pricing', component: PricingComponent },
+      { path: 'contact', component: ContactComponent }
     ]
   }
 ];
