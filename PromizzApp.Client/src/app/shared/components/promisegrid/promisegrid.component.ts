@@ -62,7 +62,7 @@ export class PromiseGridComponent implements OnInit {
             </li>`;
         }
 
-        html += '</ul>'
+        html += '</ul>';
 
         this.htmlData = this.sanitazer.bypassSecurityTrustHtml(html);
 
@@ -80,10 +80,10 @@ export class PromiseGridComponent implements OnInit {
         let len = elements.length;
 
         while (len > 0) {
-            var li = elements[len - 1];
+            let li = elements[len - 1];
             li.className = '';
 
-            var div = li.getElementsByClassName('inner')[0];
+            let div = li.getElementsByClassName('inner')[0];
             this.setDelay(times[len], div);
 
             len--;
@@ -176,7 +176,7 @@ export class PromiseGridComponent implements OnInit {
             results.appendChild(el);
             elements.push(el);
         }
-        return elements
+        return elements;
     }
 
     private showGrid(promises: PromiseModel[]) {
@@ -198,7 +198,7 @@ export class PromiseGridComponent implements OnInit {
             // el.className += light ? '-light' : '-dark'
 
             setTimeout(() => {
-                el.className += ' -show'
+                el.className += ' -show';
             }, times[i] * 1000);
 
             wrapper.appendChild(el);

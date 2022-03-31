@@ -17,31 +17,31 @@
             <div class="menu-content">
                 <div aria-expanded="true" role="tablist" class="">
                     <div class="menu-list list-expanded">
-                        <a aria-selected="true" role="tab" tabindex="21" href="" routerLink="/dashboard" class="menu-item" [routerLinkActive]="['menu-item-active']">
+                        <a aria-selected="true" role="tab" tabindex="21" href="" routerLink="./dashboard" class="menu-item" [routerLinkActive]="['menu-item-active']">
                             <span class="menu-item-icon-holder">
                                 <a class="icon-holder" href="">
                                     <span [innerHTML]="'home' | feather:'featherIcon i20 iGreyDark'"></span>
                                 </a>
                             </span>
-                            <span class="menu-item-label">{{'DASHBOARD' | t}}</span>
+                            <span class="menu-item-label">Dashboard</span>
                         </a>
                         <a aria-selected="false" role="tab" tabindex="22" href="" class="menu-item" 
-                        [routerLink]="['/promises']" [queryParams]="{ assign: 'my' }" [routerLinkActive]="['menu-item-active']">
+                        [routerLink]="['./promises']" [queryParams]="{ assign: 'my' }" [routerLinkActive]="['menu-item-active']">
                             <span class="menu-item-icon-holder">
                                 <a class="icon-holder" href="">
                                     <span [innerHTML]="'send' | feather:'featherIcon i20 iGreyDark'"></span>
                                 </a>
                             </span>
-                            <span class="menu-item-label">{{'MY_PROMISES' | t}}</span>
+                            <span class="menu-item-label">My Promises</span>
                         </a>
                         <a aria-selected="false" role="tab" tabindex="23" href="" class="menu-item" 
-                        [routerLink]="['/promises']" [queryParams]="{ assign: 'to' }" [routerLinkActive]="['menu-item-active']">
+                        [routerLink]="['./promises']" [queryParams]="{ assign: 'to' }" [routerLinkActive]="['menu-item-active']">
                             <span class="menu-item-icon-holder">
                                 <a class="icon-holder" href="">
                                     <span [innerHTML]="'anchor' | feather:'featherIcon i20 iGreyDark'"></span>
                                 </a>
                             </span>
-                            <span class="menu-item-label">{{'PROMISES_TO_ME' | t}}</span>
+                            <span class="menu-item-label">Promises to me</span>
                         </a>
                         <a aria-selected="false" role="tab" tabindex="24" href="" class="menu-item">
                             <span class="menu-item-icon-holder">
@@ -49,7 +49,7 @@
                                     <span [innerHTML]="'search' | feather:'featherIcon i20 iGreyDark'"></span>
                                 </a>
                             </span>
-                            <span class="menu-item-label">{{'SEARCH' | t}}</span>
+                            <span class="menu-item-label">Search</span>
                         </a>
                         <a aria-selected="false" role="tab" tabindex="25" href="" class="menu-item">
                             <span class="menu-item-icon-holder">
@@ -60,13 +60,13 @@
                             <span class="menu-item-label">Challenges</span>
                         </a>
                         <a aria-selected="false" role="tab" tabindex="22" href="" class="menu-item"
-                        [routerLink]="['/profile']"  [routerLinkActive]="['menu-item-active']">
+                        [routerLink]="['./profile']"  [routerLinkActive]="['menu-item-active']">
                             <span class="menu-item-icon-holder">
                                 <a class="icon-holder" href="">
                                     <span [innerHTML]="'user' | feather:'featherIcon i20 iGreyDark'"></span>
                                 </a>
                             </span>
-                            <span class="menu-item-label">{{'PROFILE' | t}}</span>
+                            <span class="menu-item-label">Profile</span>
                         </a>
                     </div>
                 </div>

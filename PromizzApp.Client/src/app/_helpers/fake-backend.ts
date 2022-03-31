@@ -4,110 +4,183 @@ import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
 
-import { USERS } from './mock.objects';
-import { UserModel } from '../shared/models/user.model';
+import { USERS, CURRENT_USER, PROMISES } from './mock.objects';
+import { UserModel, PromiseModel } from '../shared';
+import { promise } from 'protractor';
 
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
+    public users: UserModel[] = USERS;
+    public currentUser: UserModel = CURRENT_USER;
+    public promises: PromiseModel[] = PROMISES;
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-        let users: UserModel[] = USERS;
-        //return;
+        // return;
         return of(null).pipe(mergeMap(() => {
 
-            // authenticate
-            if (request.url.endsWith('/api/authenticate') && request.method === 'POST') {
+            // demo user api
+            if (request.url.indexOf('api/demo/user') !== -1) {
+                let urlParts = request.url.split('/');
+                let userId = parseInt(urlParts[urlParts.length - 1]);
 
-                if (!request.body.model.Email)
-                    return throwError('Email is required');
-
-                if (!request.body.model.Password)
-                    return throwError('Password is required');
-
-                let filterByEmail = users.filter(user => {
-                    return user.Email === request.body.model.Email;
-                });
-
-                if (filterByEmail.length > 0) {
-                    let user: UserModel = filterByEmail[0];
-                    if (user.Password === request.body.model.Password) {
-                        user.Token = 'fake-token-1';
-                        return of(new HttpResponse({ status: 200, body: user }));
-                    }
-                    return throwError('Password is incorect');
-                } else {
-                    let filterByUserName = users.filter(user => {
-                        return user.UserName === request.body.model.Email;
-                    });
-
-                    if (filterByUserName.length > 0) {
-                        let user: UserModel = filterByUserName[0];
-                        if (user.Password === request.body.model.Password) {
-                            user.Token = 'fake-token-1';
+                switch (request.method) {
+                    case 'GET':
+                        if (userId) {
+                            // get user by Id
+                            let user = this.getUserById(userId, true);
                             return of(new HttpResponse({ status: 200, body: user }));
                         }
-                        return throwError('Password is incorect');
-                    }
+                        else {
+                            // get all users
+                            return of(new HttpResponse({ status: 200, body: this.users }));
+                        }
+                    case 'POST': // add new user
+                        let newUser = <UserModel>request.body;
+                        newUser.Id = this.generateId(this.users.map(user => user.Id));
+                        this.users.push(newUser);
 
-                    if (request.body.model.Email.indexOf('@') > -1)
-                        return throwError('There is not an account for this email');
+                        return of(new HttpResponse({ status: 200 }));
+                    case 'PUT': // update user
+                        let model = <UserModel>request.body;
+                        let user = this.getUserById(model.Id, false);
+                        if (user) {
+                            user.Firstname = model.Firstname;
+                            user.Lastname = model.Lastname;
+                            user.Bio = model.Bio;
+                            user.Email = model.Email;
+                        }
 
-                    let msg: any = {
-                        status: 407,
-                        message: 'There is not an account for this username'
-                    };
-                    return throwError(msg);
+                        return of(new HttpResponse({ status: 200 }));
+                    case 'DELETE':
+                        if (userId) {
+                            let user = this.getUserById(userId, false);
+                            if (user) {
+                                let index = this.users.indexOf(user, 0);
+                                if (index !== -1) {
+                                    this.users.splice(index, 1);
+                                }
+                            }
+
+                            return of(new HttpResponse({ status: 200 }));
+                        }
+                        break;
                 }
             }
 
-            // signup
-            if (request.url.endsWith('api/signup') && request.method === 'POST') {
+            if (request.url.indexOf('api/demo/currentuser') !== -1) {
 
-                if (!request.body.model.FullName)
-                    return throwError('Name is required');
+                switch (request.method) {
+                    case 'GET':
+                        return of(new HttpResponse({ status: 200, body: this.currentUser }));
+                    case 'PUT': // update user
+                        let model = <UserModel>request.body;
 
-                if (!request.body.model.Email)
-                    return throwError('Email is required');
+                        this.currentUser.Firstname = model.Firstname;
+                        this.currentUser.Lastname = model.Lastname;
+                        this.currentUser.UserName = model.UserName;
+                        this.currentUser.Bio = model.Bio;
+                        this.currentUser.Avatar = model.Avatar;
 
-                if (!request.body.model.Password)
-                    return throwError('Password is required');
+                        return of(new HttpResponse({ status: 200 }));
+                }
 
-                let filterByEmail = users.filter(user => {
-                    return user.Email === request.body.model.Email;
-                });
-
-                if (filterByEmail.length > 0)
-                    return throwError('A user with that email address already exists.');
-
-                return of(new HttpResponse({ status: 200, body: true }));
             }
 
-            // forgot  password
-            if (request.url.endsWith('api/forgotPassword') && request.method === 'POST') {
+            // demo promise api
+            if (request.url.indexOf('api/demo/promise') !== -1) {
+                let urlParts = request.url.split('/');
+                let promiseId = parseInt(urlParts[urlParts.length - 1]);
 
-                if (!request.body.email)
-                    return throwError('Email is required');
+                switch (request.method) {
+                    case 'GET':
+                        if (promiseId) {
+                            // get user by Id
+                            let promise = this.getPromiseById(promiseId, true);
+                            return of(new HttpResponse({ status: 200, body: promise }));
+                        }
+                        else {
+                            // get all users
+                            return of(new HttpResponse({ status: 200, body: this.promises }));
+                        }
+                    case 'POST': // add new user
+                        let newPromise = <PromiseModel>request.body;
+                        newPromise.Id = this.generateId(this.promises.map(promise => promise.Id));
+                        this.promises.push(newPromise);
 
-                let filterByEmail = users.filter(user => {
-                    return user.Email === request.body.email;
-                });
+                        return of(new HttpResponse({ status: 200 }));
+                    case 'PUT': // update user
+                        let model = <PromiseModel>request.body;
+                        let promise = this.getPromiseById(model.Id, false);
+                        if (promise) {
+                            promise.Title = model.Title;
+                            promise.Description = model.Description;
+                        }
 
-                if (filterByEmail.length == 0)
-                    return throwError('No such user.');
+                        return of(new HttpResponse({ status: 200 }));
+                    case 'DELETE':
+                        if (promiseId) {
+                            let promise = this.getPromiseById(promiseId, false);
+                            if (promise) {
+                                let index = this.promises.indexOf(promise, 0);
+                                if (index !== -1) {
+                                    this.promises.splice(index, 1);
+                                }
+                            }
 
-                return of(new HttpResponse({ status: 200, body: true }));
+                            return of(new HttpResponse({ status: 200 }));
+                        }
+                        break;
+                }
             }
 
             // pass through any requests not handled above
             return next.handle(request);
         }))
 
-            // call materialize and dematerialize to ensure delay even if an error is thrown (https://github.com/Reactive-Extensions/RxJS/issues/648)
+            // call materialize and dematerialize to ensure delay even if an error is thrown
+            // (https://github.com/Reactive-Extensions/RxJS/issues/648)
             .pipe(materialize())
             .pipe(delay(500))
             .pipe(dematerialize());
+    }
+
+    // get by id functions
+    public getUserById(userId: number, makeCopy: boolean): UserModel {
+        let user = this.users.filter(user => { return user.Id === userId; })[0];
+
+        if (!user) {
+            return {} as UserModel;
+        }
+
+        return makeCopy ? this.copyObject<UserModel>(user) : user;
+    }
+
+    public getPromiseById(promiseId: number, makeCopy: boolean): PromiseModel {
+        let promise = this.promises.filter(promise => { return promise.Id === promiseId; })[0];
+
+        if (!promise) {
+            return {} as PromiseModel;
+        }
+
+        return makeCopy ? this.copyObject<PromiseModel>(promise) : promise;
+    }
+
+    // private functions
+    private generateId(ids: number[]): number {
+        let maxId = 0;
+        ids.forEach(id => {
+            if (id > maxId) {
+                maxId = id;
+            }
+        });
+
+        return maxId + 1;
+    }
+
+    private copyObject<T>(object: T): T {
+        return <T>JSON.parse(JSON.stringify(object));
     }
 }
 

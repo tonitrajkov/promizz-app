@@ -1,155 +1,421 @@
-//import { Promise } from '../promises/shared/promise.model';
-import { UserModel } from '../shared/models/user.model';
+import { PromiseModel, UserModel } from '../shared';
 
 // User mocks
-export const USERS: UserModel[] = [
-    // { 
-    //     Id: 1, 
-    //     Firstname: 'Toni Trajkov', 
-    //     Lastname: 'Toni Trajkov', 
-    //     UserName: 'trajkovtoni', 
-    //     Email: 'trajkovtoni@gmail.com', 
-    //     Avatar: 'TT', 
-    //     Bio: '', 
-    //     Active: true,
-    //     Token: '',
-    //     Password: '123'
-    // },
-    // { 
-    //     Id: 2, 
-    //     Firstname: 'Irena Ristovska', 
-    //     Lastname: 'Irena Ristovska', 
-    //     UserName: 'irenaristovska', 
-    //     Email: 'ristovskairenna@gmail.com', 
-    //     Avatar: 'IT', 
-    //     Bio: '', 
-    //     Active: true,
-    //     Token: '',
-    //     Password: '555'
-    // },
-    // { 
-    //     Id: 3, 
-    //     Firstname: 'Joe Tyson', 
-    //     Lastname: 'Joe Tyson', 
-    //     UserName: 'tysonjoe', 
-    //     Email: 'tyson@gmail.com', 
-    //     Avatar: 'TJ', 
-    //     Bio: '', 
-    //     Active: true,
-    //     Token: '',
-    //     Password: '333'
-    // },
-    // { 
-    //     Id: 4, 
-    //     Firstname: 'Mike Ribon', 
-    //     Lastname: 'Mike Ribon', 
-    //     UserName: 'mikerib', 
-    //     Email: 'mikerib@gmail.com', 
-    //     Avatar: 'MR', 
-    //     Bio: '', 
-    //     Active: true,
-    //     Token: '',
-    //     Password: '222'
-    // },
-    // { 
-    //     Id: 5, 
-    //     Firstname: 'Eva Lincon', 
-    //     Lastname: 'Eva Lincon', 
-    //     UserName: 'eva', 
-    //     Email: 'eva@gmail.com', 
-    //     Avatar: 'EE', 
-    //     Bio: '', 
-    //     Active: true,
-    //     Token: '',
-    //     Password: '111'
-    // },
-    // { 
-    //     Id: 6, 
-    //     Firstname: 'Simone Klerk', 
-    //     Lastname: 'Simone Klerk', 
-    //     UserName: 'simone', 
-    //     Email: 'simone@gmail.com', 
-    //     Avatar: 'SK', 
-    //     Bio: '', 
-    //     Active: false,
-    //     Token: '',
-    //     Password: 'loo'
-    // },
-    // { 
-    //     Id: 7, 
-    //     Firstname: 'Adam Sandler', 
-    //     Lastname: 'Adam Sandler', 
-    //     UserName: 'adam', 
-    //     Email: 'adam@gmail.com', 
-    //     Avatar: 'SA', 
-    //     Bio: '', 
-    //     Active: false,
-    //     Token: '',
-    //     Password: 'test'
-    // },
-    // { 
-    //     Id: 8, 
-    //     Firstname: 'Zack Links', 
-    //     Lastname: 'Zack Links', 
-    //     UserName: 'zacklinks', 
-    //     Email: 'zacklinks@gmail.com', 
-    //     Avatar: 'ZL', 
-    //     Bio: '', 
-    //     Active: true,
-    //     Token: '',
-    //     Password: 'avv'
-    // },
-    // { 
-    //     Id: 9, 
-    //     Firstname: 'Phebee Parker', 
-    //     Lastname: 'Phebee Parker', 
-    //     UserName: 'parker', 
-    //     Email: 'parker@gmail.com', 
-    //     Avatar: 'PP', 
-    //     Bio: '', 
-    //     Active: true,
-    //     Token: '',
-    //     Password: '14r'
-    // },
-    // { 
-    //     Id: 10, 
-    //     Firstname: 'Rocky Martin', 
-    //     Lastname: 'Rocky Martin', 
-    //     UserName: 'rocky', 
-    //     Email: 'rocky@gmail.com', 
-    //     Avatar: 'RM', 
-    //     Bio: '', 
-    //     Active: false,
-    //     Token: '',
-    //     Password: 'ab1'
-    // }
-];
-
-export const CURRENT_USER: UserModel =     { 
-    Id: 1, 
-    Firstname: 'Toni', 
-    Lastname: 'Trajkov', 
-    Fullname: 'Toni Trajkov',
-    Initials: 'TT',
-    UserName: 'trajkovtoni', 
-    Email: 'trajkovtoni@gmail.com', 
-    Avatar: 'TT', 
-    Bio: '', 
+export const USERS: UserModel[] = [{
+    Id: 1,
+    Firstname: 'Nathan',
+    Lastname: 'Fox',
+    Fullname: 'Nathan Fox',
+    Initials: 'NF',
+    UserName: 'nathanfox',
+    Email: 'nathanfox@mail.com',
+    Avatar: '../../../assets/images/avatars/avatar-07.png',
+    Bio: '',
     Active: true,
     Token: '',
-    Password: '123'
+    Password: ''
+},
+{
+    Id: 2,
+    Firstname: 'Priscilla',
+    Lastname: 'James',
+    Fullname: 'Priscilla James',
+    Initials: 'PJ',
+    UserName: 'priscillajames',
+    Email: 'priscillajames@mail.com',
+    Avatar: '../../../assets/images/avatars/avatar-08.png',
+    Bio: '',
+    Active: true,
+    Token: '',
+    Password: ''
+},
+{
+    Id: 3,
+    Firstname: 'Jenet',
+    Lastname: 'White',
+    Fullname: 'Jenet White',
+    Initials: 'JW',
+    UserName: 'jenetwhite',
+    Email: 'jenetwhite@mail.com',
+    Avatar: '../../../assets/images/avatars/avatar-09.png',
+    Bio: '',
+    Active: true,
+    Token: '',
+    Password: ''
+},
+{
+    Id: 4,
+    Firstname: 'John',
+    Lastname: 'Smith',
+    Fullname: 'John Smith',
+    Initials: 'JS',
+    UserName: 'johnsmith',
+    Email: 'johnsmith@mail.com',
+    Avatar: '../../../assets/images/avatars/avatar-11.png',
+    Bio: '',
+    Active: true,
+    Token: '',
+    Password: ''
+},
+{
+    Id: 5,
+    Firstname: 'Tony',
+    Lastname: 'Nicole',
+    Fullname: 'Tony Nicole',
+    Initials: 'TN',
+    UserName: 'tonynicole',
+    Email: 'tonynicole@mail.com',
+    Avatar: '../../../assets/images/avatars/avatar-12.png',
+    Bio: '',
+    Active: true,
+    Token: '',
+    Password: ''
+},
+{
+    Id: 6,
+    Firstname: 'Vanesa',
+    Lastname: 'Sinclar',
+    Fullname: 'Vanesa Sinclar',
+    Initials: 'VS',
+    UserName: 'vanesasinclar',
+    Email: 'vanesasinclar@mail.com',
+    Avatar: '../../../assets/images/avatars/avatar-10.png',
+    Bio: '',
+    Active: true,
+    Token: '',
+    Password: ''
+},
+{
+    Id: 7,
+    Firstname: 'Adam',
+    Lastname: 'Young',
+    Fullname: 'Adam Young',
+    Initials: 'AY',
+    UserName: 'adamyoung',
+    Email: 'adamyoung@mail.com',
+    Avatar: '../../../assets/images/avatars/avatar-06.png',
+    Bio: '',
+    Active: true,
+    Token: '',
+    Password: ''
+},
+{
+    Id: 8,
+    Firstname: 'Valerie',
+    Lastname: 'Berg',
+    Fullname: 'Valerie Berg',
+    Initials: 'VB',
+    UserName: 'valerieberg',
+    Email: 'valerieberg@mail.com',
+    Avatar: '../../../assets/images/avatars/avatar-13.png',
+    Bio: '',
+    Active: true,
+    Token: '',
+    Password: ''
+},
+{
+    Id: 9,
+    Firstname: 'Joshua',
+    Lastname: 'Gordon',
+    Fullname: 'Joshua Gordon',
+    Initials: 'JG',
+    UserName: 'joshuagordon',
+    Email: 'joshuagordon@mail.com',
+    Avatar: '../../../assets/images/avatars/avatar-04.png',
+    Bio: '',
+    Active: true,
+    Token: '',
+    Password: ''
+},
+{
+    Id: 9,
+    Firstname: 'Anthony',
+    Lastname: 'Jones',
+    Fullname: 'Anthony Jones',
+    Initials: 'AJ',
+    UserName: 'anthonyjones',
+    Email: 'anthonyjones@mail.com',
+    Avatar: '../../../assets/images/avatars/avatar-01.png',
+    Bio: '',
+    Active: true,
+    Token: '',
+    Password: ''
+},
+{
+    Id: 10,
+    Firstname: 'Isabel',
+    Lastname: 'Holmes',
+    Fullname: 'Isabel Holmes',
+    Initials: 'IH',
+    UserName: 'isabelholmes',
+    Email: 'isabelholmes@mail.com',
+    Avatar: '../../../assets/images/avatars/avatar-15.png',
+    Bio: '',
+    Active: true,
+    Token: '',
+    Password: ''
+},
+{
+    Id: 11,
+    Firstname: 'Emily',
+    Lastname: 'Lawrence',
+    Fullname: 'Emily Lawrence',
+    Initials: 'EL',
+    UserName: 'emilylawrence',
+    Email: 'emilylawrence@mail.com',
+    Avatar: '../../../assets/images/avatars/avatar-03.png',
+    Bio: '',
+    Active: true,
+    Token: '',
+    Password: ''
+}];
+
+export const CURRENT_USER: UserModel = {
+    Id: 12,
+    Firstname: 'Ashton',
+    Lastname: 'Colon',
+    Fullname: 'Ashton Colon',
+    Initials: 'AC',
+    UserName: 'ashtoncolon',
+    Email: 'ashtoncolon@gmail.com',
+    Avatar: '../../../assets/images/avatars/avatar-14.png',
+    Bio: '',
+    Active: true,
+    Token: '',
+    Password: ''
 };
 
-// Promise mocks
-// export const PROMISES: Promise[] = [
-//     { Id: 1, Category: 1, Description: '', DueDate: new Date(), Promisee: 'Tony', Promisor: 'Irena', Status: 1, Title: 'Pay date'},
-//     { Id: 2, Category: 2, Description: '', DueDate: new Date(), Promisee: 'John', Promisor: 'Carmen', Status: 2, Title: 'Learn Spanish'},
-//     { Id: 3, Category: 3, Description: '', DueDate: new Date(), Promisee: 'Irena', Promisor: 'Tony', Status: 1, Title: 'To be a programmer'},
-//     { Id: 4, Category: 1, Description: '', DueDate: new Date(), Promisee: 'Eva', Promisor: 'Mark', Status: 3, Title: 'Buy a car'},
-//     { Id: 5, Category: 1, Description: '', DueDate: new Date(), Promisee: 'Beth', Promisor: 'Simone', Status: 2, Title: 'Keep a secret'},
-//     { Id: 6, Category: 2, Description: '', DueDate: new Date(), Promisee: 'Jack', Promisor: 'Cody', Status: 3, Title: 'Watch movie in cinema'},
-//     { Id: 7, Category: 1, Description: '', DueDate: new Date(), Promisee: 'Michael', Promisor: 'Beth', Status: 3, Title: 'Be more productive'},
-//     { Id: 8, Category: 3, Description: '', DueDate: new Date(), Promisee: 'Nikky', Promisor: 'Alan', Status: 1, Title: 'Playing FIFA'},
-//     { Id: 9, Category: 1, Description: '', DueDate: new Date(), Promisee: 'Serena', Promisor: 'Ralph', Status: 2, Title: 'Learn .Net'},
-//     { Id: 10, Category: 2, Description: '', DueDate: new Date(), Promisee: 'Nick', Promisor: 'Philiph', Status: 1, Title: 'No fast food'}
-// ];
+export const PROMISES: PromiseModel[] = [{
+    Id: 1,
+    UserId: 12,
+    Title: 'I will buy you a pizza',
+    Description: '',
+    State: {
+        Key: 2,
+        Value: 'In progress',
+        IsSelected: false
+    },
+    Color: '#65901C',
+    EndDate: new Date(),
+    Promisee: {
+        Id: 1,
+        Firstname: 'Nathan',
+        Lastname: 'Fox',
+        Fullname: 'Nathan Fox',
+        Initials: 'NF',
+        UserName: 'nathanfox',
+        Email: 'nathanfox@mail.com',
+        Avatar: '../../../assets/images/avatars/avatar-07.png',
+        Bio: '',
+        Active: true,
+        Token: '',
+        Password: ''
+    },
+    Tags: []
+},
+{
+    Id: 2,
+    UserId: 12,
+    Title: 'I promise to clean my desk tomorrow',
+    Description: 'You know, my desk is always a big mess. So I will clean tomorrow.',
+    State: {
+        Key: 2,
+        Value: 'In progress',
+        IsSelected: false
+    },
+    Color: '#F49423',
+    EndDate: new Date(),
+    Promisee: {
+        Id: 2,
+        Firstname: 'Priscilla',
+        Lastname: 'James',
+        Fullname: 'Priscilla James',
+        Initials: 'PJ',
+        UserName: 'priscillajames',
+        Email: 'priscillajames@mail.com',
+        Avatar: '../../../assets/images/avatars/avatar-08.png',
+        Bio: '',
+        Active: true,
+        Token: '',
+        Password: ''
+    },
+    Tags: []
+},
+{
+    Id: 3,
+    UserId: 3,
+    Title: 'I promise you I will learn how to cook',
+    Description: 'Cooking is always challenge for me. I will finally learn how to do it.',
+    State: {
+        Key: 2,
+        Value: 'In progress',
+        IsSelected: false
+    },
+    Color: '#A43C44',
+    EndDate: new Date(),
+    Promisee: {
+        Id: 12,
+        Firstname: 'Ashton',
+        Lastname: 'Colon',
+        Fullname: 'Ashton Colon',
+        Initials: 'AC',
+        UserName: 'ashtoncolon',
+        Email: 'ashtoncolon@gmail.com',
+        Avatar: '../../../assets/images/avatars/avatar-14.png',
+        Bio: '',
+        Active: true,
+        Token: '',
+        Password: ''
+    },
+    Tags: []
+},
+{
+    Id: 4,
+    UserId: 12,
+    Title: 'I will keep runing untill end of the month',
+    Description: 'I must stay in the better shape.',
+    State: {
+        Key: 2,
+        Value: 'In progress',
+        IsSelected: false
+    },
+    Color: '#FB3B3D',
+    EndDate: new Date(),
+    Promisee: {
+        Id: 12,
+        Firstname: 'Ashton',
+        Lastname: 'Colon',
+        Fullname: 'Ashton Colon',
+        Initials: 'AC',
+        UserName: 'ashtoncolon',
+        Email: 'ashtoncolon@gmail.com',
+        Avatar: '../../../assets/images/avatars/avatar-14.png',
+        Bio: '',
+        Active: true,
+        Token: '',
+        Password: ''
+    },
+    Tags: []
+},
+{
+    Id: 5,
+    UserId: 12,
+    Title: 'I will keep your dog this Friday',
+    Description: 'It will be my pleasure to keep your dog, because I love him so much',
+    State: {
+        Key: 3,
+        Value: 'Completed',
+        IsSelected: false
+    },
+    Color: '#B6DC92',
+    EndDate: new Date(),
+    Promisee: {
+        Id: 6,
+        Firstname: 'Vanesa',
+        Lastname: 'Sinclar',
+        Fullname: 'Vanesa Sinclar',
+        Initials: 'VS',
+        UserName: 'vanesasinclar',
+        Email: 'vanesasinclar@mail.com',
+        Avatar: '../../../assets/images/avatars/avatar-10.png',
+        Bio: '',
+        Active: true,
+        Token: '',
+        Password: ''
+    },
+    Tags: []
+},
+{
+    Id: 6,
+    UserId: 4,
+    Title: 'I promise you, I will work for you this Tuesday',
+    Description: '',
+    State: {
+        Key: 2,
+        Value: 'In progress',
+        IsSelected: false
+    },
+    Color: '#1BB7F8',
+    EndDate: new Date(),
+    Promisee: {
+        Id: 12,
+        Firstname: 'Ashton',
+        Lastname: 'Colon',
+        Fullname: 'Ashton Colon',
+        Initials: 'AC',
+        UserName: 'ashtoncolon',
+        Email: 'ashtoncolon@gmail.com',
+        Avatar: '../../../assets/images/avatars/avatar-14.png',
+        Bio: '',
+        Active: true,
+        Token: '',
+        Password: ''
+    },
+    Tags: []
+},
+{
+    Id: 7,
+    UserId: 12,
+    Title: 'I will wait you at the train station',
+    Description: '',
+    State: {
+        Key: 3,
+        Value: 'Completed',
+        IsSelected: false
+    },
+    Color: '#FBDCA7',
+    EndDate: new Date(),
+    Promisee: {
+        Id: 6,
+        Firstname: 'Vanesa',
+        Lastname: 'Sinclar',
+        Fullname: 'Vanesa Sinclar',
+        Initials: 'VS',
+        UserName: 'vanesasinclar',
+        Email: 'vanesasinclar@mail.com',
+        Avatar: '../../../assets/images/avatars/avatar-10.png',
+        Bio: '',
+        Active: true,
+        Token: '',
+        Password: ''
+    },
+    Tags: []
+},
+{
+    Id: 8,
+    UserId: 12,
+    Title: 'I promise to never lie to you again',
+    Description: '',
+    State: {
+        Key: 2,
+        Value: 'In progress',
+        IsSelected: false
+    },
+    Color: '#D15A92',
+    EndDate: new Date(),
+    Promisee: {
+        Id: 8,
+        Firstname: 'Valerie',
+        Lastname: 'Berg',
+        Fullname: 'Valerie Berg',
+        Initials: 'VB',
+        UserName: 'valerieberg',
+        Email: 'valerieberg@mail.com',
+        Avatar: '../../../assets/images/avatars/avatar-13.png',
+        Bio: '',
+        Active: true,
+        Token: '',
+        Password: ''
+    },
+    Tags: [{
+        Id: 1,
+        Name: 'Work',
+        Color: '#F1DC66'
+    },
+    {
+        Id: 2,
+        Name: 'Sun',
+        Color: '#B6DC92'
+    }]
+}
+];

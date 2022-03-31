@@ -1,0 +1,24 @@
+<div></div>
+<div class="modal-header">
+    <span>Invite People to Promizz</span>
+    <a class="modal-close-button" (click)="cancel()">
+        <span [innerHTML]="'x' | feather:'featherIcon i20 iGray'"></span>
+    </a>
+</div>
+<div class="modal-body">
+    <form>
+        <!-- Promise Name Control-->
+        <div class="form-group">
+            <input type="text" class="form-control input-control" name="title" placeholder="Your full name" />
+        </div>
+
+        <div class="form-group">
+            <textarea class="form-control textarea-control" placeholder="john@doe.com, ..." name="description" rows="5"></textarea>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <div class="modal-footer-actions-right">
+        <button type="button" class="btn btn-sm btn-blue" (click)="submit()">Invite</button>
+    </div>
+</div>

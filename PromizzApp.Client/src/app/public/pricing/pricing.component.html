@@ -1,30 +1,159 @@
-<section class="section-01">
-  <div class="section-container">
-    <div class="section-header">
-      <h1 class="section-title">Take on your biggest projects and goals</h1>
-      <p class="section-description">with Todoist’s smartest features</p>
+<div class="zz-section pricing-section">
+  <div class="zz-container zz-pricing-container">
+    <div class="pricing-title">
+      <h1>Choose the plan that works for you</h1>
     </div>
-    <div class="action-holder">
-      <a class="sign-up-btn btn">Sign Up - It's Free</a>
-      <p>Already use Promizz?
-        <a>Log in</a>.
-      </p>
-    </div>
-  </div>
-</section>
+    <div class="pricing-list">
+      <div class="row">
 
-<section class="section-02">
-  <div class="row">
-    <div class="section-container-image-right">
-      <div class="image-container"></div>
-      <div class="text-container">
-        <h2>Design a unique logo without breaking the bank </h2>
-        <div>
-          Promizz templates and online design tools, like color palettes and font combination tools, are all free to use! Plus, there
-          are plenty of free images and graphics from our amazing media library. Even premium images are a steal at just
-          $1 per one-time use.
+        <!-- Free Plan -->
+        <div class="col-12 col-sm-12 col-md-4 pt-4 pt-sm-4 pr-md-1 pl-md-1 pr-lg-2 pl-lg-2">
+          <div class="pricing-card free-plan">
+
+            <!-- Card Header -->
+            <div class="pricing-card-header">
+              <div class="zz-spacer">
+                <div class="pricing-card-header-img">
+                  <object type="image/svg+xml" data="../../../assets/images/illustrations/free_plan.svg" class="pricing-illustaration">
+                  </object>
+                </div>
+                <div class="pricing-card-header-title">
+                  <h2>BASIC</h2>
+                  <span>Get to know Promizz</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Body -->
+            <div class="pricing-card-body">
+              <div class="zz-spacer">
+
+                <div class="pricing-card-price">
+                  <h2>FREE</h2>
+                  <span>Forever and ever</span>
+                </div>
+
+                <div class="pricing-card-action">
+                  <a [routerLink]="['/contact1']" class="action-btn">Start free</a>
+                </div>
+
+                <div class="pricing-card-benefits-list">
+                  <ul class="plan-benefints-list">
+                    <li class="plan-item" *ngFor="let item of freePlanItems">
+                        <svg class="check-mark" xmlns="http://www.w3.org/2000/svg" fill="#3FADF7" width="16" height="16" viewBox="0 0 24 24" id="blue-check">
+                          <path d="M9 21.035l-9-8.638 2.791-2.87 6.156 5.874 12.21-12.436 2.843 2.817z"/>
+                        </svg>
+                      <span>{{item}}</span>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Pro Plan -->
+        <div class="col-12 col-sm-12 col-md-4 pt-4 pt-sm-4 pr-md-1 pl-md-1 pr-lg-2 pl-lg-2">
+          <div class="pricing-card premium-plan">
+
+            <!-- Card Header -->
+            <div class="pricing-card-header">
+              <div class="zz-spacer">
+                <div class="pricing-card-header-img">
+                  <object type="image/svg+xml" data="../../../assets/images/illustrations/premium_plan.svg" class="pricing-illustaration">
+                  </object>
+                </div>
+                <div class="pricing-card-header-title">
+                  <h2>PRO</h2>
+                  <span>More power & personalization</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Body -->
+            <div class="pricing-card-body">
+              <div class="zz-spacer">
+
+                <div class="pricing-card-price">
+                  <h2>3 USD
+                    <span>/mo</span>
+                  </h2>
+                  <span><b>30 USD</b> Billed yearly</span>
+                </div>
+
+                <div class="pricing-card-action">
+                  <a [routerLink]="['/contact2']" class="action-btn">Go PRO</a>
+                </div>
+
+                <div class="pricing-card-benefits-list">
+                  <ul class="plan-benefints-list">
+                    <li class="plan-item" *ngFor="let item of proPlanItems">
+                      <svg class="check-mark" xmlns="http://www.w3.org/2000/svg" fill="#555AEF" width="16" height="16" viewBox="0 0 24 24" id="blue-check">
+                        <path d="M9 21.035l-9-8.638 2.791-2.87 6.156 5.874 12.21-12.436 2.843 2.817z"/>
+                      </svg>
+                      <span>{{item}}</span>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Pro+ Plan -->
+        <div class="col-12 col-sm-12 col-md-4 pt-4 pt-sm-4 pr-md-1 pl-md-1 pr-lg-2 pl-lg-2">
+          <div class="pricing-card business-plan">
+
+            <!-- Card Header -->
+            <div class="pricing-card-header">
+              <div class="zz-spacer">
+                <div class="pricing-card-header-img">
+                  <object type="image/svg+xml" data="../../../assets/images/illustrations/business_plan.svg" class="pricing-illustaration">
+                  </object>
+                </div>
+                <div class="pricing-card-header-title">
+                  <h2>PRO+</h2>
+                  <span>Advanced features</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Body -->
+            <div class="pricing-card-body">
+              <div class="zz-spacer">
+
+                <div class="pricing-card-price">
+                  <h2>5 USD
+                    <span>/mo</span>
+                  </h2>
+                  <span><b>48 USD</b> Billed yearly</span>
+                </div>
+
+                <div class="pricing-card-action">
+                  <a [routerLink]="['/contact3']" class="action-btn">Go PRO+</a>
+                </div>
+
+                <div class="pricing-card-benefits-list">
+                  <ul class="plan-benefints-list">
+                    <li class="plan-item" *ngFor="let item of proPlusPlanItems">
+                      <svg class="check-mark" xmlns="http://www.w3.org/2000/svg" fill="#FD5B82" width="16" height="16" viewBox="0 0 24 24" id="blue-check">
+                        <path d="M9 21.035l-9-8.638 2.791-2.87 6.156 5.874 12.21-12.436 2.843 2.817z"/>
+                      </svg>
+                      <span>{{item}}</span>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>

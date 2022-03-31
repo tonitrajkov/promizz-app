@@ -1,16 +1,17 @@
-import { LookupItem, UserModel } from "../.";
+import { LookupItem, UserModel, TagItem } from '../.';
 
 export class PromiseModel {
     public Id: number;
+    public UserId: number;
     public Title: string = '';
     public Description: string = '';
     public State: LookupItem<number>;
-    public OwnerId: number;
     public Color: string = '';
     public EndDate: Date;
     public Promisee: UserModel;
-  
-    public constructor(init?:Partial<PromiseModel>) {
+    public Tags: TagItem[];
+
+    public constructor(init?: Partial<PromiseModel>) {
         Object.assign(this, init);
     }
 }
@@ -21,8 +22,8 @@ export class PromiseAddModel {
     public Promisees: Array<number>;
     public Color: string = '';
     public EndDate: Date;
-  
-    public constructor(init?:Partial<PromiseAddModel>) {
+
+    public constructor(init?: Partial<PromiseAddModel>) {
         Object.assign(this, init);
     }
 }

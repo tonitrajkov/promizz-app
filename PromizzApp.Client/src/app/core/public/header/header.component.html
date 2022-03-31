@@ -1,27 +1,37 @@
-<header class="globalHeader" [ngClass]="{'isScroling':isScroling}">
-    <div class="row grid">
-        <a routerLink="/" class="logoLink" title="Promizz"></a>
-        <nav class="navLinks">
-            <ul>
-                <li>
-                    <a href="" class="navLink">Tour</a>
-                </li>
-                <li>
-                    <a href="" routerLink="/product" class="navLink">Product</a>
-                </li>
-                <li>
-                    <a href="" routerLink="/premium" class="navLink">Premium</a>
-                </li>
-                <li>
-                    <a href="" routerLink="/pricing" class="navLink">Pricing</a>
-                </li>
-                <li>
-                    <a href="" (click)="login();" class="navLink">Log in</a>
-                </li>
-                <li>
-                    <a href="" routerLink="/signup" class="navLink btn">Sign up</a>
-                </li>
-            </ul>
-        </nav>
+<header class="public-header wrapper" [ngClass]="{'is-scrolling':isScroling}">
+    <div class="zz-container">
+        <div class="flex-container">
+            
+            <div class="logo-holder">
+                <a routerLink="/" class="logo-let" title="Promizz"></a>
+                <a routerLink="/" class="logoLink" title="Promizz"></a>
+            </div>
+
+            <div class="nav-holder">
+                <nav class="header-menu">
+                    <ul>
+                        <li>
+                            <a href="" class="navLink">Tour</a>
+                        </li>
+                        <li>
+                            <a href="" routerLink="/product" class="navLink">Product</a>
+                        </li>
+                        <li>
+                            <a href="" routerLink="/premium" class="navLink">Premium</a>
+                        </li>
+                        <li>
+                            <a href="" routerLink="/pricing" class="navLink">Pricing</a>
+                        </li>
+                        <li>
+                            <a href="" (click)="login();" class="navLink">Log in</a>
+                        </li>
+                        <li>
+                            <a href="" routerLink="/signup" class="navLink">Sign up</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
     </div>
 </header>

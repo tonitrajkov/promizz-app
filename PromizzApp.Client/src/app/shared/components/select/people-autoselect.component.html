@@ -1,15 +1,28 @@
-<div class="auto-control-wrapper" (click)="clickedInside($event)">
-    <input autofocus [formControl]="inputControl" style="width: 300px; font-size: 13px" placeholder="Assign" type="text"
-        class="form-control no-borders-control" />
+<div class="auto-control-wrapper_" style="position: relative" (click)="clickedInside($event)">
+    <!-- <input autofocus [formControl]="inputControl" style="width: 300px; font-size: 13px" placeholder="Assign" type="text"
+        class="form-control no-borders-control" /> -->
+    <input autofocus [formControl]="inputControl" placeholder="Choose person" type="text"
+        class="zz-field__input  zz-field__input--no-border  zz-field__input--text-normal" />
 
-    <div class="zz-dropdown" *ngIf="items.length > 0">
+    <div class="zz-dropdown" *ngIf="items.length > 0" style="position: absolute; width:100%">
         <div class="scrollable-list">
             <div class="list-container">
-                <div class="item-wrapper" *ngFor="let item of items" (click)="onSelectItem(item)">
+                <div class="item-wrapper">
+                    <div class="item-holder zz-info-img-box" *ngFor="let item of items" (click)="onSelectItem(item)">
+                        <div>
+                            <img [src]="item.Avatar" class="zz-avatar__square--exsm">
+                        </div>
+                        <div class="zz-info-img-box__content  zz-info-img-box__content--right-sm">
+                            <span>{{item.Fullname}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="item-wrapper" *ngFor="let item of items" (click)="onSelectItem(item)">
                     <div class="item-holder">
                         <div class="item-icon">
                             <avatar [initials]="item.Initials" [className]="'zz-avatar-small'"></avatar>
-                            <!-- <div class="zz-avatar zz-avatar-small zz-avatar-bg2">{{item.Initials}}</div> -->
+                            <!-- <div class="zz-avatar zz-avatar-small zz-avatar-bg2">{{item.Initials}}</div> ->
                         </div>
                         <div class="item-label">
                             <div class="text-container">
@@ -18,7 +31,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

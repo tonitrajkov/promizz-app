@@ -1,23 +1,23 @@
-import { Component, Input, Output } from '@angular/core';
-import { EventEmitter } from 'protractor';
+// import { Component, Input, Output } from '@angular/core';
+// import { EventEmitter } from 'protractor';
 
-@Component({
-    selector: 'promizz-dropdown',
-    templateUrl: './dropdown.component.html'
-})
-export class PromizzDropdownComponent {
+// @Component({
+//     selector: 'promizz-dropdown',
+//     templateUrl: './dropdown.component.html'
+// })
+// export class PromizzDropdownComponent {
 
-    @Input()
-    values: any[];
+//     @Input()
+//     values: any[];
 
-    @Output()
-    select: EventEmitter;
+//     @Output()
+//     select: EventEmitter;
 
-    constructor() {
-        this.select = new EventEmitter();
-    }
+//     constructor() {
+//         this.select = new EventEmitter();
+//     }
 
-    selectItem(value) {
-        this.select.emit(value);
-    }
-}
+//     selectItem(value) {
+//         this.select.emit(value);
+//     }
+// }

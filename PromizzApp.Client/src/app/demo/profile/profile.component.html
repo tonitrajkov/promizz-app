@@ -1,0 +1,27 @@
+<div class="zz-container">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 zz-tab-container">
+            <ngb-tabset>
+                <ngb-tab>
+                    <ng-template ngbTabTitle routerLinkActive="active">
+                        <a [routerLink]="['personal']">Personal info</a>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab>
+                    <ng-template ngbTabTitle routerLinkActive="active">
+                        <a [routerLink]="['friends']">Friends <span class="tab__count-container">{{friendsCount}}</span></a>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab>
+                    <ng-template ngbTabTitle routerLinkActive="active">
+                        <a [routerLink]="['settings']">Settings</a>
+                    </ng-template>
+                </ngb-tab>
+            </ngb-tabset>
+
+            <div class="zz-tab-content">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

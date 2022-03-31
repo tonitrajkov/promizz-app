@@ -19,7 +19,7 @@ export class PromiseAddModalComponent {
 
     constructor(
         private promiseService: PromiseService,
-        private activeModal: NgbActiveModal
+        public activeModal: NgbActiveModal
     ) { }
 
     handleFilterChange(value: any) {
@@ -36,8 +36,8 @@ export class PromiseAddModalComponent {
         this.showAutocomplete = false;
     }
 
-    handleSelectColor(colorName: string){
-        if(colorName){
+    handleSelectColor(colorName: string) {
+        if (colorName) {
             this.model.Color = colorName;
         }
     }
@@ -72,12 +72,12 @@ export class PromiseAddModalComponent {
             this.model.Promisees.push(this.selectedUser.Id);
         }
 
-        this.promiseService.addPromise(this.model)
-            .pipe(first())
-            .subscribe(result => {
-                this.activeModal.close();
-            }, errorModel => {
-                this.errorModel = errorModel;
-            });
+        // this.promiseService.addPromise(this.model)
+        //     .pipe(first())
+        //     .subscribe(result => {
+        //         this.activeModal.close();
+        //     }, errorModel => {
+        //         this.errorModel = errorModel;
+        //     });
     }
 }
